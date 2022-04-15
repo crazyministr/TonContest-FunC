@@ -1,0 +1,121 @@
+slice message_packing(
+        int public_key,
+        ;; slice signature,
+        int valid_until
+        ;; int mode,  ;; doesn't matter for test
+        ;; cell msg_to_send  ;; doesn't matter for test
+    ) inline method_id {
+
+    ;; request#_ valid_until:uint32 mode:uint8 msg_to_send:^Cell = Request;
+    ;; msg_body#_ public_key:uint256 signature:(512 * Bit) request:^Request = MsgBody;
+
+    cell request = begin_cell()
+        .store_uint(valid_until, 32)  ;; valid_until
+        .store_uint(128, 8)  ;; mode
+        .store_ref(
+            begin_cell().store_uint(13, 32).end_cell()  ;; msg_to_send
+        )
+    .end_cell();
+
+    cell signature_cell = begin_cell().store_uint(1, 256).store_uint(2, 256).end_cell();
+    cell message = begin_cell()
+        .store_uint(public_key, 256)
+        .store_slice(signature_cell.begin_parse())
+        .store_ref(request)
+    .end_cell();
+
+    return message.begin_parse();
+}
+
+
+;; Each test function must specify method_id
+;; Test functions method_id need to started from 0
+
+;; Each test functions must to be in pairs
+;; First funtion expect nothing in arguments
+;; But need to return:
+;;        function selector - which function to test, e.g. 0 for recv_internal, -1 recv_external, 85143 for seqno, and so on
+;;        tuple - stack values needed to be passed to function in tuple
+;;        c4 cell - start data of smart contract
+;;        c7 tuple / null
+;;        gas limit integer / null
+
+[int, tuple, cell, tuple, int] test_init_data() method_id(0) {
+    ;; Funtion to run (recv_external)
+    int function_selector = 90427;  ;; pack_data
+
+    tuple stack = unsafe_tuple([
+        13,  ;; public_key1
+        21   ;; public_key2
+    ]);
+    cell data = begin_cell().end_cell();
+
+    return [function_selector, stack, data, get_c7(), null()];
+}
+
+
+;; After test data function
+;; We need to define test funtion
+;; It will accept:
+;;        exit code - exit code of runvm, here you can check errors / not
+;;        c4 cell - data of smart contract after runvm invokes
+;;        tuple - stack values of smart contract
+;;        c5 cell - here you can check all outcoming messages
+;;        gas - gas that was used
+;; By default test is passed
+;; You can use throw_if to fail test
+
+_ test_init(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(1) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+
+    var ds = data.begin_parse();
+    throw_unless(101, ds~load_uint(256) == 13);
+    throw_unless(101, ds~load_uint(256) == 21);
+
+    ds = first(stack).begin_parse();
+    throw_unless(101, ds~load_uint(256) == 13);
+    throw_unless(101, ds~load_uint(256) == 21);
+
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+
+[int, tuple, cell, tuple, int] test_owner1valid_data() method_id(2) {
+    int function_selector = -1;
+    tuple stack = unsafe_tuple([message_packing(13, now() + 1000)]);
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+}
+
+_ test_owner1valid(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(3) {
+    throw_if(100, exit_code != 1001);
+}
+
+[int, tuple, cell, tuple, int] test_owner1ignore_data() method_id(4) {
+    int function_selector = -1;
+    tuple stack = unsafe_tuple([message_packing(13, now() + 1000)]);
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+}
+
+_ test_owner1ignore(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(5) {
+    throw_if(100, exit_code != 1002);
+}
+
+[int, tuple, cell, tuple, int] test_owner2valid_data() method_id(6) {
+    int function_selector = -1;
+    tuple stack = unsafe_tuple([message_packing(21, now() + 1000)]);
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+}
+
+_ test_owner2valid(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(7) {
+    throw_if(100, exit_code != 1003);
+}
+
+[int, tuple, cell, tuple, int] test_not_owner_invalid_data() method_id(8) {
+    int function_selector = -1;
+    tuple stack = unsafe_tuple([message_packing(1, now() + 1000)]);
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+}
+
+_ test_not_owner_invalid(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(9) {
+    throw_if(100, exit_code != 101);
+}

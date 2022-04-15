@@ -1,0 +1,76 @@
+int equal_slices (slice a, slice b) asm "SDEQ";
+
+;; create 264 bits slice from the (network, address) pair
+;; returns (slice address)
+slice pack_addr(int wc, int addr) inline method_id {
+  return begin_cell().store_int(wc, 8).store_uint(addr, 256).end_cell().begin_parse();
+}
+
+;; Each test function must specify method_id
+;; Test functions method_id need to started from 0
+
+;; Each test functions must to be in pairs
+;; First funtion expect nothing in arguments
+;; But need to return:
+;;        function selector - which function to test, e.g. 0 for recv_internal, -1 recv_external, 85143 for seqno, and so on
+;;        tuple - stack values needed to be passed to function in tuple
+;;        c4 cell - start data of smart contract
+;;        c7 tuple / null
+;;        gas limit integer / null
+
+[int, tuple, cell, tuple, int] test_example_data() method_id(0) {
+
+    slice owner_addr = pack_addr(0, 13);
+    slice sender_addr = pack_addr(0, 21);
+    slice msg_body = begin_cell().store_uint(13, 32).end_cell().begin_parse();
+
+    var msg = begin_cell()
+        .store_uint(0x18, 6)
+        .store_slice(sender_addr)
+        .store_slice(msg_body)
+      .end_cell();
+
+    tuple stack = unsafe_tuple([0, 0, msg, msg_body]); ;; stack that will be passed to function
+
+    cell data = begin_cell()  ;; init data
+        .store_slice(owner_addr)
+        .end_cell();
+
+    return [0, stack, data, get_c7(), null()];
+}
+
+
+;; After test data function
+;; We need to define test funtion
+;; It will accept:
+;;        exit code - exit code of runvm, here you can check errors / not
+;;        c4 cell - data of smart contract after runvm invokes
+;;        tuple - stack values of smart contract
+;;        c5 cell - here you can check all outcoming messages
+;;        gas - gas that was used
+;; By default test is passed
+;; You can use throw_if to fail test
+
+_ test_example(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(1) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+
+    ;; throw_if();
+    var cs = actions.begin_parse();
+    var (flags, _, owner_addr, _, _, sender_addr, msg_body) = (
+        cs~load_uint(4),
+        cs~load_msg_addr(),
+        cs~load_msg_addr(),
+        cs~load_grams(),
+        cs~load_uint(1 + 4 + 4 + 64 + 32 + 1 + 1),
+        cs~load_msg_addr(),
+        cs~load_ref()
+    );
+    ;; cs.end_parse();
+
+    ;; throw_if(200, flags & 1);
+    var ds = data.begin_parse();
+    ;; throw_unless(101, equal_slices(ds~load_msg_addr(), owner_addr));
+
+    throw_if(102, gas > 10000000); ;; check if gas usage is not so big
+}
+

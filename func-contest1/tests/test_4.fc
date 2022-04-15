@@ -1,0 +1,1847 @@
+
+cell message_packing(int op, int key, int valid_until_shift, int value) inline method_id {
+    cell msg_body_cell = begin_cell().store_uint(value, 32).end_cell();
+    slice msg_body = msg_body_cell.begin_parse();
+    cell message = begin_cell()                           ;; external message body
+            .store_uint(op, 32)                           ;; op
+            .store_uint(0, 64)                            ;; query_id
+            .store_uint(key, 256)                         ;; key
+            .store_uint(now() + valid_until_shift, 64)    ;; unixtime (valid_until)
+            .store_slice(msg_body)                        ;; value
+         .end_cell();
+    return message;
+}
+
+[int, tuple, cell, tuple, int] test_op=op=1_0r_data() method_id(0) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  0, - 1000000, 0);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    cell data = begin_cell().end_cell(); ;; initial data of contract
+    return [function_selector, stack, data, get_c7(), null()];
+
+}
+
+_ test_op=op=1_0r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(1) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_1r_data() method_id(2) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  1, - 1000000, 1);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_1r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(3) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_2r_data() method_id(4) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  2, - 1000000, 2);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_2r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(5) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_3r_data() method_id(6) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  3, - 1000000, 3);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_3r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(7) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_4r_data() method_id(8) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  4, - 1000000, 4);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_4r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(9) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_5r_data() method_id(10) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  5, - 1000000, 5);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_5r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(11) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_6r_data() method_id(12) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  6, - 1000000, 6);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_6r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(13) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_7r_data() method_id(14) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  7, - 1000000, 7);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_7r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(15) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_8r_data() method_id(16) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  8, - 1000000, 8);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_8r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(17) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_9r_data() method_id(18) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  9, - 1000000, 9);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_9r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(19) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_10r_data() method_id(20) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  10, - 1000000, 10);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_10r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(21) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_11r_data() method_id(22) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  11, - 1000000, 11);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_11r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(23) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_12r_data() method_id(24) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  12, - 1000000, 12);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_12r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(25) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_13r_data() method_id(26) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  13, - 1000000, 13);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_13r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(27) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_14r_data() method_id(28) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  14, - 1000000, 14);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_14r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(29) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_15r_data() method_id(30) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  15, - 1000000, 15);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_15r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(31) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_16r_data() method_id(32) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  16, - 1000000, 16);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_16r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(33) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_17r_data() method_id(34) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  17, - 1000000, 17);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_17r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(35) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_18r_data() method_id(36) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  18, - 1000000, 18);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_18r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(37) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_19r_data() method_id(38) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  19, - 1000000, 19);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_19r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(39) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_20r_data() method_id(40) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  20, - 1000000, 20);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_20r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(41) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_21r_data() method_id(42) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  21, - 1000000, 21);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_21r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(43) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_22r_data() method_id(44) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  22, - 1000000, 22);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_22r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(45) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_23r_data() method_id(46) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  23, - 1000000, 23);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_23r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(47) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_24r_data() method_id(48) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  24, - 1000000, 24);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_24r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(49) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_25r_data() method_id(50) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  25, - 1000000, 25);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_25r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(51) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_26r_data() method_id(52) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  26, - 1000000, 26);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_26r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(53) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_27r_data() method_id(54) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  27, - 1000000, 27);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_27r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(55) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_28r_data() method_id(56) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  28, - 1000000, 28);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_28r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(57) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_29r_data() method_id(58) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  29, - 1000000, 29);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_29r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(59) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_30r_data() method_id(60) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  30, - 1000000, 30);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_30r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(61) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_31r_data() method_id(62) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  31, - 1000000, 31);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_31r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(63) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_32r_data() method_id(64) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  32, - 1000000, 32);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_32r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(65) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_33r_data() method_id(66) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  33, - 1000000, 33);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_33r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(67) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_34r_data() method_id(68) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  34, - 1000000, 34);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_34r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(69) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_35r_data() method_id(70) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  35, - 1000000, 35);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_35r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(71) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_36r_data() method_id(72) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  36, - 1000000, 36);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_36r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(73) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_37r_data() method_id(74) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  37, - 1000000, 37);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_37r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(75) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_38r_data() method_id(76) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  38, - 1000000, 38);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_38r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(77) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_39r_data() method_id(78) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  39, - 1000000, 39);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_39r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(79) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_40r_data() method_id(80) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  40, - 1000000, 40);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_40r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(81) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_41r_data() method_id(82) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  41, - 1000000, 41);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_41r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(83) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_42r_data() method_id(84) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  42, - 1000000, 42);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_42r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(85) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_43r_data() method_id(86) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  43, - 1000000, 43);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_43r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(87) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_44r_data() method_id(88) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  44, - 1000000, 44);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_44r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(89) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_45r_data() method_id(90) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  45, - 1000000, 45);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_45r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(91) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_46r_data() method_id(92) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  46, - 1000000, 46);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_46r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(93) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_47r_data() method_id(94) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  47, - 1000000, 47);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_47r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(95) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_48r_data() method_id(96) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  48, - 1000000, 48);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_48r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(97) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_49r_data() method_id(98) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  49, - 1000000, 49);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_49r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(99) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_50r_data() method_id(100) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  50, - 1000000, 50);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_50r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(101) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_51r_data() method_id(102) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  51, - 1000000, 51);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_51r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(103) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_52r_data() method_id(104) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  52, - 1000000, 52);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_52r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(105) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_53r_data() method_id(106) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  53, - 1000000, 53);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_53r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(107) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_54r_data() method_id(108) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  54, - 1000000, 54);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_54r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(109) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_55r_data() method_id(110) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  55, - 1000000, 55);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_55r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(111) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_56r_data() method_id(112) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  56, - 1000000, 56);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_56r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(113) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_57r_data() method_id(114) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  57, - 1000000, 57);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_57r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(115) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_58r_data() method_id(116) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  58, - 1000000, 58);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_58r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(117) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_59r_data() method_id(118) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  59, - 1000000, 59);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_59r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(119) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_60r_data() method_id(120) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  60, - 1000000, 60);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_60r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(121) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_61r_data() method_id(122) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  61, - 1000000, 61);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_61r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(123) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_62r_data() method_id(124) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  62, - 1000000, 62);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_62r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(125) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_63r_data() method_id(126) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  63, - 1000000, 63);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_63r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(127) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_64r_data() method_id(128) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  64, - 1000000, 64);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_64r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(129) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_65r_data() method_id(130) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  65, - 1000000, 65);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_65r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(131) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_66r_data() method_id(132) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  66, - 1000000, 66);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_66r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(133) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_67r_data() method_id(134) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  67, - 1000000, 67);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_67r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(135) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_68r_data() method_id(136) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  68, - 1000000, 68);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_68r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(137) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_69r_data() method_id(138) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  69, - 1000000, 69);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_69r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(139) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_70r_data() method_id(140) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  70, - 1000000, 70);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_70r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(141) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_71r_data() method_id(142) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  71, - 1000000, 71);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_71r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(143) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_72r_data() method_id(144) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  72, - 1000000, 72);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_72r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(145) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_73r_data() method_id(146) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  73, - 1000000, 73);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_73r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(147) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_74r_data() method_id(148) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  74, - 1000000, 74);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_74r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(149) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_75r_data() method_id(150) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  75, - 1000000, 75);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_75r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(151) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_76r_data() method_id(152) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  76, - 1000000, 76);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_76r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(153) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_77r_data() method_id(154) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  77, - 1000000, 77);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_77r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(155) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_78r_data() method_id(156) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  78, - 1000000, 78);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_78r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(157) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_79r_data() method_id(158) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  79, - 1000000, 79);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_79r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(159) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_80r_data() method_id(160) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  80, - 1000000, 80);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_80r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(161) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_81r_data() method_id(162) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  81, - 1000000, 81);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_81r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(163) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_82r_data() method_id(164) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  82, - 1000000, 82);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_82r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(165) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_83r_data() method_id(166) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  83, - 1000000, 83);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_83r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(167) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_84r_data() method_id(168) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  84, - 1000000, 84);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_84r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(169) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_85r_data() method_id(170) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  85, - 1000000, 85);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_85r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(171) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_86r_data() method_id(172) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  86, - 1000000, 86);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_86r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(173) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_87r_data() method_id(174) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  87, - 1000000, 87);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_87r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(175) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_88r_data() method_id(176) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  88, - 1000000, 88);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_88r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(177) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_89r_data() method_id(178) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  89, - 1000000, 89);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_89r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(179) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_90r_data() method_id(180) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  90, - 1000000, 90);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_90r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(181) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_91r_data() method_id(182) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  91, - 1000000, 91);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_91r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(183) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_92r_data() method_id(184) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  92, - 1000000, 92);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_92r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(185) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_93r_data() method_id(186) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  93, - 1000000, 93);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_93r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(187) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_94r_data() method_id(188) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  94, - 1000000, 94);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_94r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(189) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_95r_data() method_id(190) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  95, - 1000000, 95);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_95r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(191) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_96r_data() method_id(192) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  96, - 1000000, 96);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_96r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(193) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_97r_data() method_id(194) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  97, - 1000000, 97);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_97r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(195) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_98r_data() method_id(196) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  98, - 1000000, 98);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_98r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(197) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=1_99r_data() method_id(198) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(1,  99, - 1000000, 99);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=1_99r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(199) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+[int, tuple, cell, tuple, int] test_op=op=2_100r_data() method_id(200) {
+    int function_selector = 0;
+    ;;                             op  key  shit     value
+    cell message = message_packing(2,  0, 0, 0);
+    tuple stack = unsafe_tuple([0, 0, message, message.begin_parse()]); ;; stack that will be passed to function
+
+    
+    return [function_selector, stack, get_prev_c4(), get_c7(), null()];
+
+}
+
+_ test_op=op=2_100r(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(201) {
+    throw_if(100, exit_code != 0); ;; test need to be passed
+    throw_if(102, gas > 1000000); ;; check if gas usage is not so big
+}
+
+;;==============================
+
+;; 127977 get_key
+;; GET method test
+[int, tuple, cell, tuple, int] test_get_key101_data() method_id(202) {
+    int function_selector = 127977;  ;; function to run (127977 is get_key)
+    ;;                                      key   data
+    return [function_selector, unsafe_tuple([1]), get_prev_c4(), get_c7(), null()];
+}
+
+_ test_get_key_101(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(203) {
+    throw_if(103, exit_code != 404); ;; test need to be passed
+}
+
+;;==============================
+
