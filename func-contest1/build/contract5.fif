@@ -1,0 +1,149 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/func-contest1/5.fc` 
+PROGRAM{
+  DECLPROC load_data
+  DECLPROC pack_state
+  DECLPROC update_pending_queries
+  90427 DECLMETHOD pack_data
+  DECLPROC recv_external
+  DECLPROC recv_internal
+  load_data PROCREF:<{
+    // 
+    c4 PUSH	//  _1
+    CTOS	//  ds
+    256 LDU	//  _4 ds
+    256 LDU	//  _4 _7 ds
+    LDDICT	//  res res res ds
+    ENDS
+  }>
+  pack_state PROCREF:<{
+    //  public_key1 public_key2 pending_queries
+    s0 s2 XCHG
+    NEWC	//  pending_queries public_key2 public_key1 _3
+    256 STU	//  pending_queries public_key2 _5
+    256 STU	//  pending_queries _7
+    STDICT	//  _8
+    ENDC	//  _9
+  }>
+  update_pending_queries PROCREF:<{
+    //  pending_queries key signed_by req
+    SWAP
+    NEWC	//  pending_queries key req signed_by _5
+    2 STU	//  pending_queries key req _7
+    STREF	//  pending_queries key _8
+    s0 s2 XCHG
+    8 PUSHPOW2	//  _8 key pending_queries _9=256
+    DICTUSETB	//  pending_queries
+  }>
+  pack_data PROC:<{
+    //  public_key1 public_key2
+    NEWDICT	//  public_key1 public_key2 pending_queries
+    pack_state INLINECALLDICT	//  _4
+    c4 POP
+    c4 PUSH	//  _6
+  }>
+  recv_external PROC:<{
+    //  in_msg_body
+    DUP	//  in_msg_body in_msg_body
+    SEMPTY	//  in_msg_body _1
+    IFJMP:<{	//  in_msg_body
+      DROP	// 
+    }>	//  in_msg_body
+    load_data INLINECALLDICT	//  in_msg_body public_key1 public_key2 pending_queries
+    s0 s3 XCHG	//  pending_queries public_key1 public_key2 in_msg_body
+    256 LDU	//  pending_queries public_key1 public_key2 public_key in_msg_body
+    9 PUSHPOW2	//  pending_queries public_key1 public_key2 public_key in_msg_body _12=512
+    LDSLICEX	//  pending_queries public_key1 public_key2 public_key _96 _95
+    NIP	//  pending_queries public_key1 public_key2 public_key in_msg_body
+    LDREF	//  pending_queries public_key1 public_key2 public_key _98 _97
+    DROP	//  pending_queries public_key1 public_key2 public_key req
+    DUP	//  pending_queries public_key1 public_key2 public_key req req
+    CTOS	//  pending_queries public_key1 public_key2 public_key req req_slice
+    DUP	//  pending_queries public_key1 public_key2 public_key req req_slice req_slice
+    HASHSU	//  pending_queries public_key1 public_key2 public_key req req_slice req_hash
+    -1 PUSHINT	//  pending_queries public_key1 public_key2 public_key req req_slice req_hash owner_id=-1
+    s4 s6 PUSH2	//  pending_queries public_key1 public_key2 public_key req req_slice req_hash owner_id=-1 public_key public_key1
+    EQUAL	//  pending_queries public_key1 public_key2 public_key req req_slice req_hash owner_id=-1 _23
+    IF:<{	//  pending_queries public_key1 public_key2 public_key req req_slice req_hash owner_id=-1
+      DROP	//  pending_queries public_key1 public_key2 public_key req req_slice req_hash
+      0 PUSHINT	//  pending_queries public_key1 public_key2 public_key req req_slice req_hash owner_id=0
+    }>	//  pending_queries public_key1 public_key2 public_key req req_slice req_hash owner_id
+    s4 s5 XCPU	//  pending_queries public_key1 public_key2 owner_id req req_slice req_hash public_key public_key2
+    EQUAL	//  pending_queries public_key1 public_key2 owner_id req req_slice req_hash _25
+    IF:<{	//  pending_queries public_key1 public_key2 owner_id req req_slice req_hash
+      1 PUSHINT
+      s4 POP	//  pending_queries public_key1 public_key2 owner_id=1 req req_slice req_hash
+    }>	//  pending_queries public_key1 public_key2 owner_id req req_slice req_hash
+    s3 PUSH	//  pending_queries public_key1 public_key2 owner_id req req_slice req_hash owner_id
+    -1 EQINT	//  pending_queries public_key1 public_key2 owner_id req req_slice req_hash _29
+    101 THROWIF
+    SWAP	//  pending_queries public_key1 public_key2 owner_id req req_hash req_slice
+    32 LDU	//  pending_queries public_key1 public_key2 owner_id req req_hash valid_until req_slice
+    SWAP
+    NOW	//  pending_queries public_key1 public_key2 owner_id req req_hash req_slice valid_until _36
+    LESS	//  pending_queries public_key1 public_key2 owner_id req req_hash req_slice _37
+    103 THROWIF
+    s1 s6 PUSH2
+    8 PUSHPOW2	//  pending_queries public_key1 public_key2 owner_id req req_hash req_slice req_hash pending_queries _41=256
+    DICTUGET
+    NULLSWAPIFNOT	//  pending_queries public_key1 public_key2 owner_id req req_hash req_slice query found?
+    IFNOTJMP:<{	//  pending_queries public_key1 public_key2 owner_id req req_hash req_slice query
+      2DROP	//  pending_queries public_key1 public_key2 owner_id req req_hash
+      s0 s2 XCHG	//  pending_queries public_key1 public_key2 req_hash req owner_id
+      POW2	//  pending_queries public_key1 public_key2 req_hash req _44
+      s3 s5 XCHG
+      SWAP	//  public_key2 public_key1 pending_queries req_hash _44 req
+      update_pending_queries INLINECALLDICT	//  public_key2 public_key1 pending_queries
+      s1 s2 XCHG	//  public_key1 public_key2 pending_queries
+      pack_state INLINECALLDICT	//  _46
+      c4 POP
+      COMMIT
+      1001 THROW
+    }>	//  pending_queries public_key1 public_key2 owner_id req req_hash req_slice query
+    s3 POP	//  pending_queries public_key1 public_key2 owner_id query req_hash req_slice
+    s0 s2 XCHG	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash query
+    2 LDU	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash _54 query
+    LDREF	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash _54 _106 _105
+    DROP	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req
+    OVER	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req signed_by
+    3 EQINT	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req _60
+    s5 PUSH	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req _60 owner_id
+    POW2	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req _60 _62
+    s3 s(-1) PUXC	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req _60 signed_by _62
+    OR	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req _60 _63
+    s3 PUSH	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req _60 _63 signed_by
+    EQUAL	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req _60 _64
+    OR	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req _65
+    IFJMP:<{	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req
+      8 BLKDROP	// 
+      1002 THROW
+    }>	//  pending_queries public_key1 public_key2 owner_id req_slice req_hash signed_by req
+    s0 s4 XCHG	//  pending_queries public_key1 public_key2 req req_slice req_hash signed_by owner_id
+    POW2	//  pending_queries public_key1 public_key2 req req_slice req_hash signed_by _70
+    OR	//  pending_queries public_key1 public_key2 req req_slice req_hash signed_by
+    DUP
+    s3 s7 XCHG
+    s0 s4 XCHG	//  req_slice public_key1 public_key2 signed_by pending_queries req_hash signed_by req
+    update_pending_queries INLINECALLDICT	//  req_slice public_key1 public_key2 signed_by pending_queries
+    s3 s3 s0 XCHG3	//  req_slice signed_by public_key1 public_key2 pending_queries
+    pack_state INLINECALLDICT	//  req_slice signed_by _73
+    c4 POP
+    3 EQINT	//  req_slice _76
+    IF:<{	//  req_slice
+      8 LDU	//  mode req_slice
+      LDREF	//  mode _110 _109
+      DROP	//  mode msg_to_send
+      ACCEPT
+      SWAP	//  msg_to_send mode
+      SENDRAWMSG
+      COMMIT
+      1003 THROW
+    }>ELSE<{
+      DROP	// 
+    }>
+  }>
+  recv_internal PROC:<{
+    //  in_msg
+    DROP	// 
+  }>
+}END>c

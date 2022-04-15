@@ -1,0 +1,53 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/func-contest1/2.fc` 
+PROGRAM{
+  DECLPROC load_data
+  DECLPROC recv_internal
+  load_data PROCREF:<{
+    // 
+    c4 PUSH	//  _1
+    CTOS	//  ds
+    LDMSGADDR	//  _6 _5
+    DROP	//  _3
+  }>
+  recv_internal PROC:<{
+    //  balance msg_value in_msg_full in_msg_body
+    s3 POP
+    NIP	//  in_msg_body in_msg_full
+    CTOS	//  in_msg_body cs
+    4 LDU	//  in_msg_body flags cs
+    SWAP
+    1 PUSHINT	//  in_msg_body cs flags _10=1
+    AND	//  in_msg_body cs _11
+    IFJMP:<{	//  in_msg_body cs
+      2DROP	// 
+    }>	//  in_msg_body cs
+    LDMSGADDR	//  in_msg_body _52 _51
+    DROP	//  in_msg_body sender_address
+    load_data INLINECALLDICT	//  in_msg_body sender_address owner_address
+    s0 s1 PUSH2	//  in_msg_body sender_address owner_address owner_address sender_address
+    SDEQ	//  in_msg_body sender_address owner_address _17
+    IFJMP:<{	//  in_msg_body sender_address owner_address
+      3 BLKDROP	// 
+    }>	//  in_msg_body sender_address owner_address
+    s0 s2 XCHG	//  owner_address sender_address in_msg_body
+    LDREF	//  owner_address sender_address _54 _53
+    DROP	//  owner_address sender_address body_cell
+    0 PUSHINT	//  owner_address sender_address body_cell _22=0
+    24 PUSHINT	//  owner_address sender_address body_cell _22=0 _23=24
+    NEWC	//  owner_address sender_address body_cell _22=0 _23=24 _24
+    6 STU	//  owner_address sender_address body_cell _22=0 _26
+    s0 s4 XCHG2	//  _22=0 sender_address body_cell _26 owner_address
+    STSLICER	//  _22=0 sender_address body_cell _27
+    s3 PUSH	//  _22=0 sender_address body_cell _27 _28=0
+    STGRAMS	//  _22=0 sender_address body_cell _29
+    s1 s3 XCHG	//  body_cell sender_address _22=0 _29
+    107 STU	//  body_cell sender_address _43
+    SWAP	//  body_cell _43 sender_address
+    STSLICER	//  body_cell _44
+    STREF	//  _45
+    ENDC	//  msg
+    64 PUSHINT	//  msg _47=64
+    SENDRAWMSG
+  }>
+}END>c

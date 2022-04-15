@@ -1,0 +1,136 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/func-contest1/4slow.fc` 
+PROGRAM{
+  DECLPROC load_data
+  DECLPROC save_data
+  DECLPROC recv_internal
+  127977 DECLMETHOD get_key
+  load_data PROC:<{
+    // 
+    c4 PUSH	//  _1
+    CTOS	//  ds
+    DUP	//  ds ds
+    SBITS	//  ds _3
+    0 EQINT	//  ds _5
+    IFJMP:<{	//  ds
+      DROP	// 
+      NEWDICT	//  _6
+      NEWDICT	//  _6 _7
+    }>	//  ds
+    LDDICT	//  _8 ds
+    LDDICT	//  _8 _15 _14
+    DROP	//  _8 _10
+  }>
+  save_data PROC:<{
+    //  data_dict valid_until_dict
+    SWAP
+    NEWC	//  valid_until_dict data_dict _2
+    STDICT	//  valid_until_dict _3
+    STDICT	//  _4
+    ENDC	//  _5
+    c4 POP
+  }>
+  recv_internal PROC:<{
+    //  balance msg_value in_msg_full in_msg_body
+    3 1 BLKDROP2	//  in_msg_body
+    DUP	//  in_msg_body in_msg_body
+    SEMPTY	//  in_msg_body _4
+    IF:<{	//  in_msg_body
+      401 THROW
+    }>	//  in_msg_body
+    32 LDU	//  op in_msg_body
+    OVER	//  op in_msg_body op
+    1 NEQINT	//  op in_msg_body _13
+    s2 PUSH	//  op in_msg_body _13 op
+    2 NEQINT	//  op in_msg_body _13 _15
+    AND	//  op in_msg_body _16
+    400 THROWIF
+    64 LDU	//  op _85 _84
+    NIP	//  op in_msg_body
+    load_data CALLDICT	//  op in_msg_body data_dict valid_until_dict
+    s3 PUSH	//  op in_msg_body data_dict valid_until_dict op
+    1 EQINT	//  op in_msg_body data_dict valid_until_dict _26
+    IF:<{	//  op in_msg_body data_dict valid_until_dict
+      s0 s2 XCHG	//  op valid_until_dict data_dict in_msg_body
+      256 LDU	//  op valid_until_dict data_dict key in_msg_body
+      64 LDU	//  op valid_until_dict data_dict key valid_until value
+      s0 s2 s3 XCPUXC
+      8 PUSHPOW2	//  op valid_until_dict valid_until key value key data_dict _37=256
+      DICTUSET	//  op valid_until_dict valid_until key data_dict
+      s0 s2 XCHG
+      NEWC	//  op valid_until_dict data_dict key valid_until _40
+      64 STU	//  op valid_until_dict data_dict key _42
+      s0 s1 s3 XCHG3
+      8 PUSHPOW2	//  op data_dict _42 key valid_until_dict _43=256
+      DICTUSETB	//  op data_dict valid_until_dict
+      SWAP	//  op valid_until_dict data_dict
+    }>ELSE<{
+      s2 POP	//  op valid_until_dict data_dict
+    }>
+    s0 s2 XCHG	//  data_dict valid_until_dict op
+    2 EQINT	//  data_dict valid_until_dict _50
+    IF:<{	//  data_dict valid_until_dict
+      NEWDICT	//  data_dict valid_until_dict _53
+      NEWDICT	//  data_dict valid_until_dict new_v new_d
+      -1 PUSHINT	//  data_dict valid_until_dict new_v new_d key=-1
+      UNTIL:<{
+        s3 PUSH
+        8 PUSHPOW2	//  data_dict valid_until_dict new_v new_d key valid_until_dict _59=256
+        DICTUGETNEXT
+        NULLSWAPIFNOT2	//  data_dict valid_until_dict new_v new_d cs key f
+        DUP	//  data_dict valid_until_dict new_v new_d cs key f f
+        IF:<{	//  data_dict valid_until_dict new_v new_d cs key f
+          s0 s2 XCHG	//  data_dict valid_until_dict new_v new_d f key cs
+          64 LDU	//  data_dict valid_until_dict new_v new_d f key _96 _95
+          DROP	//  data_dict valid_until_dict new_v new_d f key valid_until
+          DUP
+          NOW	//  data_dict valid_until_dict new_v new_d f key valid_until valid_until _65
+          GEQ	//  data_dict valid_until_dict new_v new_d f key valid_until _66
+          IF:<{	//  data_dict valid_until_dict new_v new_d f key valid_until
+            s1 s6 PUSH2
+            8 PUSHPOW2	//  data_dict valid_until_dict new_v new_d f key valid_until key data_dict _69=256
+            DICTUGET
+            NULLSWAPIFNOT	//  data_dict valid_until_dict new_v new_d f key valid_until _97 _98
+            DROP	//  data_dict valid_until_dict new_v new_d f key valid_until d_value
+            s0 s2 s4 XCPUXC
+            8 PUSHPOW2	//  data_dict valid_until_dict new_v valid_until f key d_value key new_d _72=256
+            DICTUSET	//  data_dict valid_until_dict new_v valid_until f key new_d
+            s0 s3 XCHG
+            NEWC	//  data_dict valid_until_dict new_v new_d f key valid_until _75
+            64 STU	//  data_dict valid_until_dict new_v new_d f key _77
+            s0 s0 s4 XCPUXC
+            8 PUSHPOW2	//  data_dict valid_until_dict key new_d f _77 key new_v _78=256
+            DICTUSETB	//  data_dict valid_until_dict key new_d f new_v
+            s0 s3 XCHG	//  data_dict valid_until_dict new_v new_d f key
+          }>ELSE<{
+            DROP	//  data_dict valid_until_dict new_v new_d f key
+          }>
+        }>ELSE<{
+          s2 POP	//  data_dict valid_until_dict new_v new_d f key
+        }>
+        SWAP	//  data_dict valid_until_dict new_v new_d key f
+        NOT	//  data_dict valid_until_dict new_v new_d key _80
+      }>	//  data_dict valid_until_dict new_v new_d key
+      DROP
+      s3 POP
+      NIP	//  data_dict valid_until_dict
+    }>	//  data_dict valid_until_dict
+    save_data CALLDICT
+  }>
+  get_key PROC:<{
+    //  key
+    load_data CALLDICT	//  key data_dict valid_until_dict
+    s2 s(-1) PUXC
+    8 PUSHPOW2	//  key data_dict key valid_until_dict _6=256
+    DICTUGET
+    NULLSWAPIFNOT	//  key data_dict cs f
+    404 THROWIFNOT
+    64 LDU	//  key data_dict _23 _22
+    DROP	//  key data_dict valid_until
+    -ROT
+    8 PUSHPOW2	//  valid_until key data_dict _16=256
+    DICTUGET
+    NULLSWAPIFNOT	//  valid_until _24 _25
+    DROP	//  valid_until value
+  }>
+}END>c

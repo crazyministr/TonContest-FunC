@@ -1,0 +1,2993 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/.config/toncli/func-libs/tests-helpers.func` `/home/crazyministr/func-contest1/tests/test_4.fc` 
+PROGRAM{
+  85860 DECLMETHOD get_c7
+  88548 DECLMETHOD message_packing
+  0 DECLMETHOD test_op=op=1_0r_data
+  1 DECLMETHOD test_op=op=1_0r
+  2 DECLMETHOD test_op=op=1_1r_data
+  3 DECLMETHOD test_op=op=1_1r
+  4 DECLMETHOD test_op=op=1_2r_data
+  5 DECLMETHOD test_op=op=1_2r
+  6 DECLMETHOD test_op=op=1_3r_data
+  7 DECLMETHOD test_op=op=1_3r
+  8 DECLMETHOD test_op=op=1_4r_data
+  9 DECLMETHOD test_op=op=1_4r
+  10 DECLMETHOD test_op=op=1_5r_data
+  11 DECLMETHOD test_op=op=1_5r
+  12 DECLMETHOD test_op=op=1_6r_data
+  13 DECLMETHOD test_op=op=1_6r
+  14 DECLMETHOD test_op=op=1_7r_data
+  15 DECLMETHOD test_op=op=1_7r
+  16 DECLMETHOD test_op=op=1_8r_data
+  17 DECLMETHOD test_op=op=1_8r
+  18 DECLMETHOD test_op=op=1_9r_data
+  19 DECLMETHOD test_op=op=1_9r
+  20 DECLMETHOD test_op=op=1_10r_data
+  21 DECLMETHOD test_op=op=1_10r
+  22 DECLMETHOD test_op=op=1_11r_data
+  23 DECLMETHOD test_op=op=1_11r
+  24 DECLMETHOD test_op=op=1_12r_data
+  25 DECLMETHOD test_op=op=1_12r
+  26 DECLMETHOD test_op=op=1_13r_data
+  27 DECLMETHOD test_op=op=1_13r
+  28 DECLMETHOD test_op=op=1_14r_data
+  29 DECLMETHOD test_op=op=1_14r
+  30 DECLMETHOD test_op=op=1_15r_data
+  31 DECLMETHOD test_op=op=1_15r
+  32 DECLMETHOD test_op=op=1_16r_data
+  33 DECLMETHOD test_op=op=1_16r
+  34 DECLMETHOD test_op=op=1_17r_data
+  35 DECLMETHOD test_op=op=1_17r
+  36 DECLMETHOD test_op=op=1_18r_data
+  37 DECLMETHOD test_op=op=1_18r
+  38 DECLMETHOD test_op=op=1_19r_data
+  39 DECLMETHOD test_op=op=1_19r
+  40 DECLMETHOD test_op=op=1_20r_data
+  41 DECLMETHOD test_op=op=1_20r
+  42 DECLMETHOD test_op=op=1_21r_data
+  43 DECLMETHOD test_op=op=1_21r
+  44 DECLMETHOD test_op=op=1_22r_data
+  45 DECLMETHOD test_op=op=1_22r
+  46 DECLMETHOD test_op=op=1_23r_data
+  47 DECLMETHOD test_op=op=1_23r
+  48 DECLMETHOD test_op=op=1_24r_data
+  49 DECLMETHOD test_op=op=1_24r
+  50 DECLMETHOD test_op=op=1_25r_data
+  51 DECLMETHOD test_op=op=1_25r
+  52 DECLMETHOD test_op=op=1_26r_data
+  53 DECLMETHOD test_op=op=1_26r
+  54 DECLMETHOD test_op=op=1_27r_data
+  55 DECLMETHOD test_op=op=1_27r
+  56 DECLMETHOD test_op=op=1_28r_data
+  57 DECLMETHOD test_op=op=1_28r
+  58 DECLMETHOD test_op=op=1_29r_data
+  59 DECLMETHOD test_op=op=1_29r
+  60 DECLMETHOD test_op=op=1_30r_data
+  61 DECLMETHOD test_op=op=1_30r
+  62 DECLMETHOD test_op=op=1_31r_data
+  63 DECLMETHOD test_op=op=1_31r
+  64 DECLMETHOD test_op=op=1_32r_data
+  65 DECLMETHOD test_op=op=1_32r
+  66 DECLMETHOD test_op=op=1_33r_data
+  67 DECLMETHOD test_op=op=1_33r
+  68 DECLMETHOD test_op=op=1_34r_data
+  69 DECLMETHOD test_op=op=1_34r
+  70 DECLMETHOD test_op=op=1_35r_data
+  71 DECLMETHOD test_op=op=1_35r
+  72 DECLMETHOD test_op=op=1_36r_data
+  73 DECLMETHOD test_op=op=1_36r
+  74 DECLMETHOD test_op=op=1_37r_data
+  75 DECLMETHOD test_op=op=1_37r
+  76 DECLMETHOD test_op=op=1_38r_data
+  77 DECLMETHOD test_op=op=1_38r
+  78 DECLMETHOD test_op=op=1_39r_data
+  79 DECLMETHOD test_op=op=1_39r
+  80 DECLMETHOD test_op=op=1_40r_data
+  81 DECLMETHOD test_op=op=1_40r
+  82 DECLMETHOD test_op=op=1_41r_data
+  83 DECLMETHOD test_op=op=1_41r
+  84 DECLMETHOD test_op=op=1_42r_data
+  85 DECLMETHOD test_op=op=1_42r
+  86 DECLMETHOD test_op=op=1_43r_data
+  87 DECLMETHOD test_op=op=1_43r
+  88 DECLMETHOD test_op=op=1_44r_data
+  89 DECLMETHOD test_op=op=1_44r
+  90 DECLMETHOD test_op=op=1_45r_data
+  91 DECLMETHOD test_op=op=1_45r
+  92 DECLMETHOD test_op=op=1_46r_data
+  93 DECLMETHOD test_op=op=1_46r
+  94 DECLMETHOD test_op=op=1_47r_data
+  95 DECLMETHOD test_op=op=1_47r
+  96 DECLMETHOD test_op=op=1_48r_data
+  97 DECLMETHOD test_op=op=1_48r
+  98 DECLMETHOD test_op=op=1_49r_data
+  99 DECLMETHOD test_op=op=1_49r
+  100 DECLMETHOD test_op=op=1_50r_data
+  101 DECLMETHOD test_op=op=1_50r
+  102 DECLMETHOD test_op=op=1_51r_data
+  103 DECLMETHOD test_op=op=1_51r
+  104 DECLMETHOD test_op=op=1_52r_data
+  105 DECLMETHOD test_op=op=1_52r
+  106 DECLMETHOD test_op=op=1_53r_data
+  107 DECLMETHOD test_op=op=1_53r
+  108 DECLMETHOD test_op=op=1_54r_data
+  109 DECLMETHOD test_op=op=1_54r
+  110 DECLMETHOD test_op=op=1_55r_data
+  111 DECLMETHOD test_op=op=1_55r
+  112 DECLMETHOD test_op=op=1_56r_data
+  113 DECLMETHOD test_op=op=1_56r
+  114 DECLMETHOD test_op=op=1_57r_data
+  115 DECLMETHOD test_op=op=1_57r
+  116 DECLMETHOD test_op=op=1_58r_data
+  117 DECLMETHOD test_op=op=1_58r
+  118 DECLMETHOD test_op=op=1_59r_data
+  119 DECLMETHOD test_op=op=1_59r
+  120 DECLMETHOD test_op=op=1_60r_data
+  121 DECLMETHOD test_op=op=1_60r
+  122 DECLMETHOD test_op=op=1_61r_data
+  123 DECLMETHOD test_op=op=1_61r
+  124 DECLMETHOD test_op=op=1_62r_data
+  125 DECLMETHOD test_op=op=1_62r
+  126 DECLMETHOD test_op=op=1_63r_data
+  127 DECLMETHOD test_op=op=1_63r
+  128 DECLMETHOD test_op=op=1_64r_data
+  129 DECLMETHOD test_op=op=1_64r
+  130 DECLMETHOD test_op=op=1_65r_data
+  131 DECLMETHOD test_op=op=1_65r
+  132 DECLMETHOD test_op=op=1_66r_data
+  133 DECLMETHOD test_op=op=1_66r
+  134 DECLMETHOD test_op=op=1_67r_data
+  135 DECLMETHOD test_op=op=1_67r
+  136 DECLMETHOD test_op=op=1_68r_data
+  137 DECLMETHOD test_op=op=1_68r
+  138 DECLMETHOD test_op=op=1_69r_data
+  139 DECLMETHOD test_op=op=1_69r
+  140 DECLMETHOD test_op=op=1_70r_data
+  141 DECLMETHOD test_op=op=1_70r
+  142 DECLMETHOD test_op=op=1_71r_data
+  143 DECLMETHOD test_op=op=1_71r
+  144 DECLMETHOD test_op=op=1_72r_data
+  145 DECLMETHOD test_op=op=1_72r
+  146 DECLMETHOD test_op=op=1_73r_data
+  147 DECLMETHOD test_op=op=1_73r
+  148 DECLMETHOD test_op=op=1_74r_data
+  149 DECLMETHOD test_op=op=1_74r
+  150 DECLMETHOD test_op=op=1_75r_data
+  151 DECLMETHOD test_op=op=1_75r
+  152 DECLMETHOD test_op=op=1_76r_data
+  153 DECLMETHOD test_op=op=1_76r
+  154 DECLMETHOD test_op=op=1_77r_data
+  155 DECLMETHOD test_op=op=1_77r
+  156 DECLMETHOD test_op=op=1_78r_data
+  157 DECLMETHOD test_op=op=1_78r
+  158 DECLMETHOD test_op=op=1_79r_data
+  159 DECLMETHOD test_op=op=1_79r
+  160 DECLMETHOD test_op=op=1_80r_data
+  161 DECLMETHOD test_op=op=1_80r
+  162 DECLMETHOD test_op=op=1_81r_data
+  163 DECLMETHOD test_op=op=1_81r
+  164 DECLMETHOD test_op=op=1_82r_data
+  165 DECLMETHOD test_op=op=1_82r
+  166 DECLMETHOD test_op=op=1_83r_data
+  167 DECLMETHOD test_op=op=1_83r
+  168 DECLMETHOD test_op=op=1_84r_data
+  169 DECLMETHOD test_op=op=1_84r
+  170 DECLMETHOD test_op=op=1_85r_data
+  171 DECLMETHOD test_op=op=1_85r
+  172 DECLMETHOD test_op=op=1_86r_data
+  173 DECLMETHOD test_op=op=1_86r
+  174 DECLMETHOD test_op=op=1_87r_data
+  175 DECLMETHOD test_op=op=1_87r
+  176 DECLMETHOD test_op=op=1_88r_data
+  177 DECLMETHOD test_op=op=1_88r
+  178 DECLMETHOD test_op=op=1_89r_data
+  179 DECLMETHOD test_op=op=1_89r
+  180 DECLMETHOD test_op=op=1_90r_data
+  181 DECLMETHOD test_op=op=1_90r
+  182 DECLMETHOD test_op=op=1_91r_data
+  183 DECLMETHOD test_op=op=1_91r
+  184 DECLMETHOD test_op=op=1_92r_data
+  185 DECLMETHOD test_op=op=1_92r
+  186 DECLMETHOD test_op=op=1_93r_data
+  187 DECLMETHOD test_op=op=1_93r
+  188 DECLMETHOD test_op=op=1_94r_data
+  189 DECLMETHOD test_op=op=1_94r
+  190 DECLMETHOD test_op=op=1_95r_data
+  191 DECLMETHOD test_op=op=1_95r
+  192 DECLMETHOD test_op=op=1_96r_data
+  193 DECLMETHOD test_op=op=1_96r
+  194 DECLMETHOD test_op=op=1_97r_data
+  195 DECLMETHOD test_op=op=1_97r
+  196 DECLMETHOD test_op=op=1_98r_data
+  197 DECLMETHOD test_op=op=1_98r
+  198 DECLMETHOD test_op=op=1_99r_data
+  199 DECLMETHOD test_op=op=1_99r
+  200 DECLMETHOD test_op=op=2_100r_data
+  201 DECLMETHOD test_op=op=2_100r
+  202 DECLMETHOD test_get_key101_data
+  203 DECLMETHOD test_get_key_101
+  get_c7 PROC:<{
+    // 
+    124711402 PUSHINT	//  _2=124711402
+    0 PUSHINT	//  _2=124711402 _3=0
+    DUP	//  _2=124711402 _3=0 _4=0
+    NOW	//  _2=124711402 _3=0 _4=0 _5
+    1 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1
+    DUP	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1
+    239 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239
+    1000000000 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000
+    PUSHNULL	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000 _11
+    PAIR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12
+    MYADDR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13
+    CONFIGROOT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13 _14
+    10 TUPLE	//  _15
+    SINGLE	//  _16
+  }>
+  message_packing PROC:<{
+    //  op key valid_until_shift value
+    NEWC	//  op key valid_until_shift value _5
+    32 STU	//  op key valid_until_shift _7
+    ENDC	//  op key valid_until_shift msg_body_cell
+    CTOS	//  op key valid_until_shift msg_body
+    NOW
+    ROT	//  op key msg_body _12 valid_until_shift
+    ADD	//  op key msg_body _13
+    0 PUSHINT	//  op key msg_body _13 _14=0
+    s0 s4 XCHG
+    NEWC	//  _14=0 key msg_body _13 op _15
+    32 STU	//  _14=0 key msg_body _13 _17
+    s1 s4 XCHG	//  _13 key msg_body _14=0 _17
+    64 STU	//  _13 key msg_body _19
+    s1 s2 XCHG	//  _13 msg_body key _19
+    256 STU	//  _13 msg_body _21
+    s1 s2 XCHG	//  msg_body _13 _21
+    64 STU	//  msg_body _23
+    SWAP	//  _23 msg_body
+    STSLICER	//  _24
+    ENDC	//  message
+  }>
+  test_op=op=1_0r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    OVER	//  function_selector=0 _3=1 _4=0
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=0 _6
+    OVER	//  function_selector=0 _3=1 _4=0 _6 _7=0
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    NEWC	//  function_selector=0 stack _16
+    ENDC	//  function_selector=0 stack data
+    get_c7 INLINECALLDICT	//  function_selector=0 stack data _19
+    PUSHNULL	//  function_selector=0 stack data _19 _20
+    5 TUPLE	//  _18
+  }>
+  test_op=op=1_0r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_1r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    DUP	//  function_selector=0 _3=1 _4=1
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=1 _6
+    OVER	//  function_selector=0 _3=1 _4=1 _6 _7=1
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_1r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_2r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    2 PUSHINT	//  function_selector=0 _3=1 _4=2
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=2 _6
+    OVER	//  function_selector=0 _3=1 _4=2 _6 _7=2
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_2r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_3r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    3 PUSHINT	//  function_selector=0 _3=1 _4=3
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=3 _6
+    OVER	//  function_selector=0 _3=1 _4=3 _6 _7=3
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_3r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_4r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    4 PUSHINT	//  function_selector=0 _3=1 _4=4
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=4 _6
+    OVER	//  function_selector=0 _3=1 _4=4 _6 _7=4
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_4r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_5r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    5 PUSHINT	//  function_selector=0 _3=1 _4=5
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=5 _6
+    OVER	//  function_selector=0 _3=1 _4=5 _6 _7=5
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_5r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_6r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    6 PUSHINT	//  function_selector=0 _3=1 _4=6
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=6 _6
+    OVER	//  function_selector=0 _3=1 _4=6 _6 _7=6
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_6r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_7r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    7 PUSHINT	//  function_selector=0 _3=1 _4=7
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=7 _6
+    OVER	//  function_selector=0 _3=1 _4=7 _6 _7=7
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_7r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_8r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    8 PUSHINT	//  function_selector=0 _3=1 _4=8
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=8 _6
+    OVER	//  function_selector=0 _3=1 _4=8 _6 _7=8
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_8r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_9r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    9 PUSHINT	//  function_selector=0 _3=1 _4=9
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=9 _6
+    OVER	//  function_selector=0 _3=1 _4=9 _6 _7=9
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_9r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_10r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    10 PUSHINT	//  function_selector=0 _3=1 _4=10
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=10 _6
+    OVER	//  function_selector=0 _3=1 _4=10 _6 _7=10
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_10r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_11r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    11 PUSHINT	//  function_selector=0 _3=1 _4=11
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=11 _6
+    OVER	//  function_selector=0 _3=1 _4=11 _6 _7=11
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_11r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_12r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    12 PUSHINT	//  function_selector=0 _3=1 _4=12
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=12 _6
+    OVER	//  function_selector=0 _3=1 _4=12 _6 _7=12
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_12r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_13r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    13 PUSHINT	//  function_selector=0 _3=1 _4=13
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=13 _6
+    OVER	//  function_selector=0 _3=1 _4=13 _6 _7=13
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_13r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_14r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    14 PUSHINT	//  function_selector=0 _3=1 _4=14
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=14 _6
+    OVER	//  function_selector=0 _3=1 _4=14 _6 _7=14
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_14r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_15r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    15 PUSHINT	//  function_selector=0 _3=1 _4=15
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=15 _6
+    OVER	//  function_selector=0 _3=1 _4=15 _6 _7=15
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_15r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_16r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    16 PUSHINT	//  function_selector=0 _3=1 _4=16
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=16 _6
+    OVER	//  function_selector=0 _3=1 _4=16 _6 _7=16
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_16r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_17r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    17 PUSHINT	//  function_selector=0 _3=1 _4=17
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=17 _6
+    OVER	//  function_selector=0 _3=1 _4=17 _6 _7=17
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_17r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_18r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    18 PUSHINT	//  function_selector=0 _3=1 _4=18
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=18 _6
+    OVER	//  function_selector=0 _3=1 _4=18 _6 _7=18
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_18r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_19r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    19 PUSHINT	//  function_selector=0 _3=1 _4=19
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=19 _6
+    OVER	//  function_selector=0 _3=1 _4=19 _6 _7=19
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_19r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_20r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    20 PUSHINT	//  function_selector=0 _3=1 _4=20
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=20 _6
+    OVER	//  function_selector=0 _3=1 _4=20 _6 _7=20
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_20r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_21r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    21 PUSHINT	//  function_selector=0 _3=1 _4=21
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=21 _6
+    OVER	//  function_selector=0 _3=1 _4=21 _6 _7=21
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_21r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_22r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    22 PUSHINT	//  function_selector=0 _3=1 _4=22
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=22 _6
+    OVER	//  function_selector=0 _3=1 _4=22 _6 _7=22
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_22r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_23r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    23 PUSHINT	//  function_selector=0 _3=1 _4=23
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=23 _6
+    OVER	//  function_selector=0 _3=1 _4=23 _6 _7=23
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_23r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_24r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    24 PUSHINT	//  function_selector=0 _3=1 _4=24
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=24 _6
+    OVER	//  function_selector=0 _3=1 _4=24 _6 _7=24
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_24r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_25r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    25 PUSHINT	//  function_selector=0 _3=1 _4=25
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=25 _6
+    OVER	//  function_selector=0 _3=1 _4=25 _6 _7=25
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_25r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_26r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    26 PUSHINT	//  function_selector=0 _3=1 _4=26
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=26 _6
+    OVER	//  function_selector=0 _3=1 _4=26 _6 _7=26
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_26r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_27r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    27 PUSHINT	//  function_selector=0 _3=1 _4=27
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=27 _6
+    OVER	//  function_selector=0 _3=1 _4=27 _6 _7=27
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_27r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_28r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    28 PUSHINT	//  function_selector=0 _3=1 _4=28
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=28 _6
+    OVER	//  function_selector=0 _3=1 _4=28 _6 _7=28
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_28r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_29r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    29 PUSHINT	//  function_selector=0 _3=1 _4=29
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=29 _6
+    OVER	//  function_selector=0 _3=1 _4=29 _6 _7=29
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_29r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_30r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    30 PUSHINT	//  function_selector=0 _3=1 _4=30
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=30 _6
+    OVER	//  function_selector=0 _3=1 _4=30 _6 _7=30
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_30r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_31r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    31 PUSHINT	//  function_selector=0 _3=1 _4=31
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=31 _6
+    OVER	//  function_selector=0 _3=1 _4=31 _6 _7=31
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_31r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_32r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    32 PUSHINT	//  function_selector=0 _3=1 _4=32
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=32 _6
+    OVER	//  function_selector=0 _3=1 _4=32 _6 _7=32
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_32r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_33r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    33 PUSHINT	//  function_selector=0 _3=1 _4=33
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=33 _6
+    OVER	//  function_selector=0 _3=1 _4=33 _6 _7=33
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_33r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_34r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    34 PUSHINT	//  function_selector=0 _3=1 _4=34
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=34 _6
+    OVER	//  function_selector=0 _3=1 _4=34 _6 _7=34
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_34r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_35r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    35 PUSHINT	//  function_selector=0 _3=1 _4=35
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=35 _6
+    OVER	//  function_selector=0 _3=1 _4=35 _6 _7=35
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_35r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_36r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    36 PUSHINT	//  function_selector=0 _3=1 _4=36
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=36 _6
+    OVER	//  function_selector=0 _3=1 _4=36 _6 _7=36
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_36r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_37r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    37 PUSHINT	//  function_selector=0 _3=1 _4=37
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=37 _6
+    OVER	//  function_selector=0 _3=1 _4=37 _6 _7=37
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_37r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_38r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    38 PUSHINT	//  function_selector=0 _3=1 _4=38
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=38 _6
+    OVER	//  function_selector=0 _3=1 _4=38 _6 _7=38
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_38r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_39r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    39 PUSHINT	//  function_selector=0 _3=1 _4=39
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=39 _6
+    OVER	//  function_selector=0 _3=1 _4=39 _6 _7=39
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_39r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_40r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    40 PUSHINT	//  function_selector=0 _3=1 _4=40
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=40 _6
+    OVER	//  function_selector=0 _3=1 _4=40 _6 _7=40
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_40r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_41r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    41 PUSHINT	//  function_selector=0 _3=1 _4=41
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=41 _6
+    OVER	//  function_selector=0 _3=1 _4=41 _6 _7=41
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_41r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_42r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    42 PUSHINT	//  function_selector=0 _3=1 _4=42
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=42 _6
+    OVER	//  function_selector=0 _3=1 _4=42 _6 _7=42
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_42r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_43r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    43 PUSHINT	//  function_selector=0 _3=1 _4=43
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=43 _6
+    OVER	//  function_selector=0 _3=1 _4=43 _6 _7=43
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_43r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_44r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    44 PUSHINT	//  function_selector=0 _3=1 _4=44
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=44 _6
+    OVER	//  function_selector=0 _3=1 _4=44 _6 _7=44
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_44r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_45r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    45 PUSHINT	//  function_selector=0 _3=1 _4=45
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=45 _6
+    OVER	//  function_selector=0 _3=1 _4=45 _6 _7=45
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_45r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_46r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    46 PUSHINT	//  function_selector=0 _3=1 _4=46
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=46 _6
+    OVER	//  function_selector=0 _3=1 _4=46 _6 _7=46
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_46r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_47r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    47 PUSHINT	//  function_selector=0 _3=1 _4=47
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=47 _6
+    OVER	//  function_selector=0 _3=1 _4=47 _6 _7=47
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_47r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_48r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    48 PUSHINT	//  function_selector=0 _3=1 _4=48
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=48 _6
+    OVER	//  function_selector=0 _3=1 _4=48 _6 _7=48
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_48r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_49r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    49 PUSHINT	//  function_selector=0 _3=1 _4=49
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=49 _6
+    OVER	//  function_selector=0 _3=1 _4=49 _6 _7=49
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_49r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_50r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    50 PUSHINT	//  function_selector=0 _3=1 _4=50
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=50 _6
+    OVER	//  function_selector=0 _3=1 _4=50 _6 _7=50
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_50r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_51r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    51 PUSHINT	//  function_selector=0 _3=1 _4=51
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=51 _6
+    OVER	//  function_selector=0 _3=1 _4=51 _6 _7=51
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_51r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_52r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    52 PUSHINT	//  function_selector=0 _3=1 _4=52
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=52 _6
+    OVER	//  function_selector=0 _3=1 _4=52 _6 _7=52
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_52r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_53r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    53 PUSHINT	//  function_selector=0 _3=1 _4=53
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=53 _6
+    OVER	//  function_selector=0 _3=1 _4=53 _6 _7=53
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_53r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_54r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    54 PUSHINT	//  function_selector=0 _3=1 _4=54
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=54 _6
+    OVER	//  function_selector=0 _3=1 _4=54 _6 _7=54
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_54r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_55r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    55 PUSHINT	//  function_selector=0 _3=1 _4=55
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=55 _6
+    OVER	//  function_selector=0 _3=1 _4=55 _6 _7=55
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_55r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_56r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    56 PUSHINT	//  function_selector=0 _3=1 _4=56
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=56 _6
+    OVER	//  function_selector=0 _3=1 _4=56 _6 _7=56
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_56r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_57r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    57 PUSHINT	//  function_selector=0 _3=1 _4=57
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=57 _6
+    OVER	//  function_selector=0 _3=1 _4=57 _6 _7=57
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_57r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_58r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    58 PUSHINT	//  function_selector=0 _3=1 _4=58
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=58 _6
+    OVER	//  function_selector=0 _3=1 _4=58 _6 _7=58
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_58r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_59r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    59 PUSHINT	//  function_selector=0 _3=1 _4=59
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=59 _6
+    OVER	//  function_selector=0 _3=1 _4=59 _6 _7=59
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_59r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_60r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    60 PUSHINT	//  function_selector=0 _3=1 _4=60
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=60 _6
+    OVER	//  function_selector=0 _3=1 _4=60 _6 _7=60
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_60r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_61r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    61 PUSHINT	//  function_selector=0 _3=1 _4=61
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=61 _6
+    OVER	//  function_selector=0 _3=1 _4=61 _6 _7=61
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_61r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_62r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    62 PUSHINT	//  function_selector=0 _3=1 _4=62
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=62 _6
+    OVER	//  function_selector=0 _3=1 _4=62 _6 _7=62
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_62r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_63r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    63 PUSHINT	//  function_selector=0 _3=1 _4=63
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=63 _6
+    OVER	//  function_selector=0 _3=1 _4=63 _6 _7=63
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_63r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_64r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    64 PUSHINT	//  function_selector=0 _3=1 _4=64
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=64 _6
+    OVER	//  function_selector=0 _3=1 _4=64 _6 _7=64
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_64r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_65r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    65 PUSHINT	//  function_selector=0 _3=1 _4=65
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=65 _6
+    OVER	//  function_selector=0 _3=1 _4=65 _6 _7=65
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_65r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_66r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    66 PUSHINT	//  function_selector=0 _3=1 _4=66
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=66 _6
+    OVER	//  function_selector=0 _3=1 _4=66 _6 _7=66
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_66r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_67r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    67 PUSHINT	//  function_selector=0 _3=1 _4=67
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=67 _6
+    OVER	//  function_selector=0 _3=1 _4=67 _6 _7=67
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_67r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_68r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    68 PUSHINT	//  function_selector=0 _3=1 _4=68
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=68 _6
+    OVER	//  function_selector=0 _3=1 _4=68 _6 _7=68
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_68r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_69r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    69 PUSHINT	//  function_selector=0 _3=1 _4=69
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=69 _6
+    OVER	//  function_selector=0 _3=1 _4=69 _6 _7=69
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_69r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_70r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    70 PUSHINT	//  function_selector=0 _3=1 _4=70
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=70 _6
+    OVER	//  function_selector=0 _3=1 _4=70 _6 _7=70
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_70r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_71r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    71 PUSHINT	//  function_selector=0 _3=1 _4=71
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=71 _6
+    OVER	//  function_selector=0 _3=1 _4=71 _6 _7=71
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_71r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_72r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    72 PUSHINT	//  function_selector=0 _3=1 _4=72
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=72 _6
+    OVER	//  function_selector=0 _3=1 _4=72 _6 _7=72
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_72r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_73r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    73 PUSHINT	//  function_selector=0 _3=1 _4=73
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=73 _6
+    OVER	//  function_selector=0 _3=1 _4=73 _6 _7=73
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_73r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_74r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    74 PUSHINT	//  function_selector=0 _3=1 _4=74
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=74 _6
+    OVER	//  function_selector=0 _3=1 _4=74 _6 _7=74
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_74r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_75r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    75 PUSHINT	//  function_selector=0 _3=1 _4=75
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=75 _6
+    OVER	//  function_selector=0 _3=1 _4=75 _6 _7=75
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_75r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_76r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    76 PUSHINT	//  function_selector=0 _3=1 _4=76
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=76 _6
+    OVER	//  function_selector=0 _3=1 _4=76 _6 _7=76
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_76r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_77r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    77 PUSHINT	//  function_selector=0 _3=1 _4=77
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=77 _6
+    OVER	//  function_selector=0 _3=1 _4=77 _6 _7=77
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_77r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_78r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    78 PUSHINT	//  function_selector=0 _3=1 _4=78
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=78 _6
+    OVER	//  function_selector=0 _3=1 _4=78 _6 _7=78
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_78r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_79r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    79 PUSHINT	//  function_selector=0 _3=1 _4=79
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=79 _6
+    OVER	//  function_selector=0 _3=1 _4=79 _6 _7=79
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_79r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_80r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    80 PUSHINT	//  function_selector=0 _3=1 _4=80
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=80 _6
+    OVER	//  function_selector=0 _3=1 _4=80 _6 _7=80
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_80r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_81r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    81 PUSHINT	//  function_selector=0 _3=1 _4=81
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=81 _6
+    OVER	//  function_selector=0 _3=1 _4=81 _6 _7=81
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_81r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_82r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    82 PUSHINT	//  function_selector=0 _3=1 _4=82
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=82 _6
+    OVER	//  function_selector=0 _3=1 _4=82 _6 _7=82
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_82r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_83r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    83 PUSHINT	//  function_selector=0 _3=1 _4=83
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=83 _6
+    OVER	//  function_selector=0 _3=1 _4=83 _6 _7=83
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_83r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_84r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    84 PUSHINT	//  function_selector=0 _3=1 _4=84
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=84 _6
+    OVER	//  function_selector=0 _3=1 _4=84 _6 _7=84
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_84r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_85r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    85 PUSHINT	//  function_selector=0 _3=1 _4=85
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=85 _6
+    OVER	//  function_selector=0 _3=1 _4=85 _6 _7=85
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_85r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_86r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    86 PUSHINT	//  function_selector=0 _3=1 _4=86
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=86 _6
+    OVER	//  function_selector=0 _3=1 _4=86 _6 _7=86
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_86r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_87r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    87 PUSHINT	//  function_selector=0 _3=1 _4=87
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=87 _6
+    OVER	//  function_selector=0 _3=1 _4=87 _6 _7=87
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_87r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_88r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    88 PUSHINT	//  function_selector=0 _3=1 _4=88
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=88 _6
+    OVER	//  function_selector=0 _3=1 _4=88 _6 _7=88
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_88r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_89r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    89 PUSHINT	//  function_selector=0 _3=1 _4=89
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=89 _6
+    OVER	//  function_selector=0 _3=1 _4=89 _6 _7=89
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_89r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_90r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    90 PUSHINT	//  function_selector=0 _3=1 _4=90
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=90 _6
+    OVER	//  function_selector=0 _3=1 _4=90 _6 _7=90
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_90r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_91r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    91 PUSHINT	//  function_selector=0 _3=1 _4=91
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=91 _6
+    OVER	//  function_selector=0 _3=1 _4=91 _6 _7=91
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_91r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_92r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    92 PUSHINT	//  function_selector=0 _3=1 _4=92
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=92 _6
+    OVER	//  function_selector=0 _3=1 _4=92 _6 _7=92
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_92r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_93r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    93 PUSHINT	//  function_selector=0 _3=1 _4=93
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=93 _6
+    OVER	//  function_selector=0 _3=1 _4=93 _6 _7=93
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_93r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_94r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    94 PUSHINT	//  function_selector=0 _3=1 _4=94
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=94 _6
+    OVER	//  function_selector=0 _3=1 _4=94 _6 _7=94
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_94r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_95r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    95 PUSHINT	//  function_selector=0 _3=1 _4=95
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=95 _6
+    OVER	//  function_selector=0 _3=1 _4=95 _6 _7=95
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_95r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_96r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    96 PUSHINT	//  function_selector=0 _3=1 _4=96
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=96 _6
+    OVER	//  function_selector=0 _3=1 _4=96 _6 _7=96
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_96r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_97r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    97 PUSHINT	//  function_selector=0 _3=1 _4=97
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=97 _6
+    OVER	//  function_selector=0 _3=1 _4=97 _6 _7=97
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_97r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_98r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    98 PUSHINT	//  function_selector=0 _3=1 _4=98
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=98 _6
+    OVER	//  function_selector=0 _3=1 _4=98 _6 _7=98
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_98r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=1_99r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    1 PUSHINT	//  function_selector=0 _3=1
+    99 PUSHINT	//  function_selector=0 _3=1 _4=99
+    -1000000 PUSHINT	//  function_selector=0 _3=1 _4=99 _6
+    OVER	//  function_selector=0 _3=1 _4=99 _6 _7=99
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _11=0 _12=0 message
+    CTOS	//  function_selector=0 message _11=0 _12=0 _13
+    s1 s3 s0 XCHG3	//  function_selector=0 _11=0 _12=0 message _13
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _16
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _16 _17
+    PUSHNULL	//  function_selector=0 stack _16 _17 _18
+    5 TUPLE	//  _15
+  }>
+  test_op=op=1_99r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_op=op=2_100r_data PROC:<{
+    // 
+    0 PUSHINT	//  function_selector=0
+    2 PUSHINT	//  function_selector=0 _3=2
+    s1 s1 s1 PUSH3	//  function_selector=0 _3=2 _4=0 _5=0 _6=0
+    message_packing INLINECALLDICT	//  function_selector=0 message
+    s1 s1 s0 PUSH3	//  function_selector=0 message _10=0 _11=0 message
+    CTOS	//  function_selector=0 message _10=0 _11=0 _12
+    s1 s3 s0 XCHG3	//  function_selector=0 _10=0 _11=0 message _12
+    4 TUPLE	//  function_selector=0 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=0 stack _15
+    get_c7 INLINECALLDICT	//  function_selector=0 stack _15 _16
+    PUSHNULL	//  function_selector=0 stack _15 _16 _17
+    5 TUPLE	//  _14
+  }>
+  test_op=op=2_100r PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    1000000 PUSHINT	//  gas _10=1000000
+    GREATER	//  _11
+    102 THROWIF
+  }>
+  test_get_key101_data PROC:<{
+    // 
+    127977 PUSHINT	//  function_selector=127977
+    1 PUSHINT	//  function_selector=127977 _4=1
+    SINGLE	//  function_selector=127977 _5
+    10 GETPARAM UNPAIR DROP	//  function_selector=127977 _5 _6
+    get_c7 INLINECALLDICT	//  function_selector=127977 _5 _6 _7
+    PUSHNULL	//  function_selector=127977 _5 _6 _7 _8
+    5 TUPLE	//  _2
+  }>
+  test_get_key_101 PROC:<{
+    //  exit_code data stack actions gas
+    4 BLKDROP	//  exit_code
+    404 PUSHINT	//  exit_code _6=404
+    NEQ	//  _7
+    103 THROWIF
+  }>
+}END>c

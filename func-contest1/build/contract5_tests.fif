@@ -1,0 +1,189 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/.config/toncli/func-libs/tests-helpers.func` `/home/crazyministr/func-contest1/tests/test_5.fc` 
+PROGRAM{
+  85860 DECLMETHOD get_c7
+  88548 DECLMETHOD message_packing
+  0 DECLMETHOD test_init_data
+  1 DECLMETHOD test_init
+  2 DECLMETHOD test_owner1valid_data
+  3 DECLMETHOD test_owner1valid
+  4 DECLMETHOD test_owner1ignore_data
+  5 DECLMETHOD test_owner1ignore
+  6 DECLMETHOD test_owner2valid_data
+  7 DECLMETHOD test_owner2valid
+  8 DECLMETHOD test_not_owner_invalid_data
+  9 DECLMETHOD test_not_owner_invalid
+  get_c7 PROC:<{
+    // 
+    124711402 PUSHINT	//  _2=124711402
+    0 PUSHINT	//  _2=124711402 _3=0
+    DUP	//  _2=124711402 _3=0 _4=0
+    NOW	//  _2=124711402 _3=0 _4=0 _5
+    1 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1
+    DUP	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1
+    239 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239
+    1000000000 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000
+    PUSHNULL	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000 _11
+    PAIR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12
+    MYADDR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13
+    CONFIGROOT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13 _14
+    10 TUPLE	//  _15
+    SINGLE	//  _16
+  }>
+  message_packing PROC:<{
+    //  public_key valid_until
+    13 PUSHINT	//  public_key valid_until _3=13
+    NEWC	//  public_key valid_until _3=13 _4
+    32 STU	//  public_key valid_until _6
+    ENDC	//  public_key valid_until _7
+    7 PUSHPOW2	//  public_key valid_until _7 _8=128
+    s0 s2 XCHG
+    NEWC	//  public_key _8=128 _7 valid_until _9
+    32 STU	//  public_key _8=128 _7 _11
+    s1 s2 XCHG	//  public_key _7 _8=128 _11
+    8 STU	//  public_key _7 _13
+    STREF	//  public_key _14
+    ENDC	//  public_key request
+    2 PUSHINT	//  public_key request _17=2
+    1 PUSHINT	//  public_key request _17=2 _18=1
+    NEWC	//  public_key request _17=2 _18=1 _19
+    256 STU	//  public_key request _17=2 _21
+    256 STU	//  public_key request _23
+    ENDC	//  public_key request signature_cell
+    s0 s2 XCHG
+    NEWC	//  signature_cell request public_key _26
+    256 STU	//  signature_cell request _28
+    s0 s2 XCHG	//  _28 request signature_cell
+    CTOS	//  _28 request _29
+    s1 s2 XCHG	//  request _28 _29
+    STSLICER	//  request _30
+    STREF	//  _31
+    ENDC	//  message
+    CTOS	//  _33
+  }>
+  test_init_data PROC:<{
+    // 
+    90427 PUSHINT	//  function_selector=90427
+    13 PUSHINT	//  function_selector=90427 _4=13
+    21 PUSHINT	//  function_selector=90427 _4=13 _5=21
+    PAIR	//  function_selector=90427 stack
+    NEWC	//  function_selector=90427 stack _8
+    ENDC	//  function_selector=90427 stack data
+    get_c7 INLINECALLDICT	//  function_selector=90427 stack data _11
+    PUSHNULL	//  function_selector=90427 stack data _11 _12
+    5 TUPLE	//  _10
+  }>
+  test_init PROC:<{
+    //  exit_code data stack actions gas
+    NIP	//  exit_code data stack gas
+    s0 s3 XCHG	//  gas data stack exit_code
+    0 NEQINT	//  gas data stack _7
+    100 THROWIF
+    SWAP	//  gas stack data
+    CTOS	//  gas stack ds
+    256 LDU	//  gas stack _12 ds
+    SWAP	//  gas stack ds _12
+    13 EQINT	//  gas stack ds _16
+    101 THROWIFNOT
+    256 LDU	//  gas stack _48 _47
+    DROP	//  gas stack _19
+    21 EQINT	//  gas stack _23
+    101 THROWIFNOT
+    FIRST	//  gas _25
+    CTOS	//  gas ds
+    256 LDU	//  gas _28 ds
+    SWAP	//  gas ds _28
+    13 EQINT	//  gas ds _32
+    101 THROWIFNOT
+    256 LDU	//  gas _52 _51
+    DROP	//  gas _35
+    21 EQINT	//  gas _39
+    101 THROWIFNOT
+    1000000 PUSHINT	//  gas _42=1000000
+    GREATER	//  _43
+    102 THROWIF
+  }>
+  test_owner1valid_data PROC:<{
+    // 
+    -1 PUSHINT	//  function_selector=-1
+    13 PUSHINT	//  function_selector=-1 _4=13
+    NOW	//  function_selector=-1 _4=13 _5
+    1000 PUSHINT	//  function_selector=-1 _4=13 _5 _6=1000
+    ADD	//  function_selector=-1 _4=13 _7
+    message_packing INLINECALLDICT	//  function_selector=-1 _8
+    SINGLE	//  function_selector=-1 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=-1 stack _11
+    get_c7 INLINECALLDICT	//  function_selector=-1 stack _11 _12
+    PUSHNULL	//  function_selector=-1 stack _11 _12 _13
+    5 TUPLE	//  _10
+  }>
+  test_owner1valid PROC:<{
+    //  exit_code data stack actions gas
+    4 BLKDROP	//  exit_code
+    1001 PUSHINT	//  exit_code _6=1001
+    NEQ	//  _7
+    100 THROWIF
+  }>
+  test_owner1ignore_data PROC:<{
+    // 
+    -1 PUSHINT	//  function_selector=-1
+    13 PUSHINT	//  function_selector=-1 _4=13
+    NOW	//  function_selector=-1 _4=13 _5
+    1000 PUSHINT	//  function_selector=-1 _4=13 _5 _6=1000
+    ADD	//  function_selector=-1 _4=13 _7
+    message_packing INLINECALLDICT	//  function_selector=-1 _8
+    SINGLE	//  function_selector=-1 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=-1 stack _11
+    get_c7 INLINECALLDICT	//  function_selector=-1 stack _11 _12
+    PUSHNULL	//  function_selector=-1 stack _11 _12 _13
+    5 TUPLE	//  _10
+  }>
+  test_owner1ignore PROC:<{
+    //  exit_code data stack actions gas
+    4 BLKDROP	//  exit_code
+    1002 PUSHINT	//  exit_code _6=1002
+    NEQ	//  _7
+    100 THROWIF
+  }>
+  test_owner2valid_data PROC:<{
+    // 
+    -1 PUSHINT	//  function_selector=-1
+    21 PUSHINT	//  function_selector=-1 _4=21
+    NOW	//  function_selector=-1 _4=21 _5
+    1000 PUSHINT	//  function_selector=-1 _4=21 _5 _6=1000
+    ADD	//  function_selector=-1 _4=21 _7
+    message_packing INLINECALLDICT	//  function_selector=-1 _8
+    SINGLE	//  function_selector=-1 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=-1 stack _11
+    get_c7 INLINECALLDICT	//  function_selector=-1 stack _11 _12
+    PUSHNULL	//  function_selector=-1 stack _11 _12 _13
+    5 TUPLE	//  _10
+  }>
+  test_owner2valid PROC:<{
+    //  exit_code data stack actions gas
+    4 BLKDROP	//  exit_code
+    1003 PUSHINT	//  exit_code _6=1003
+    NEQ	//  _7
+    100 THROWIF
+  }>
+  test_not_owner_invalid_data PROC:<{
+    // 
+    -1 PUSHINT	//  function_selector=-1
+    1 PUSHINT	//  function_selector=-1 _4=1
+    NOW	//  function_selector=-1 _4=1 _5
+    1000 PUSHINT	//  function_selector=-1 _4=1 _5 _6=1000
+    ADD	//  function_selector=-1 _4=1 _7
+    message_packing INLINECALLDICT	//  function_selector=-1 _8
+    SINGLE	//  function_selector=-1 stack
+    10 GETPARAM UNPAIR DROP	//  function_selector=-1 stack _11
+    get_c7 INLINECALLDICT	//  function_selector=-1 stack _11 _12
+    PUSHNULL	//  function_selector=-1 stack _11 _12 _13
+    5 TUPLE	//  _10
+  }>
+  test_not_owner_invalid PROC:<{
+    //  exit_code data stack actions gas
+    4 BLKDROP	//  exit_code
+    101 NEQINT	//  _7
+    100 THROWIF
+  }>
+}END>c

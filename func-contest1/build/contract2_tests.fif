@@ -1,0 +1,79 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/.config/toncli/func-libs/tests-helpers.func` `/home/crazyministr/func-contest1/tests/test_2.fc` 
+PROGRAM{
+  85860 DECLMETHOD get_c7
+  71599 DECLMETHOD pack_addr
+  0 DECLMETHOD test_example_data
+  1 DECLMETHOD test_example
+  get_c7 PROC:<{
+    // 
+    124711402 PUSHINT	//  _2=124711402
+    0 PUSHINT	//  _2=124711402 _3=0
+    DUP	//  _2=124711402 _3=0 _4=0
+    NOW	//  _2=124711402 _3=0 _4=0 _5
+    1 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1
+    DUP	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1
+    239 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239
+    1000000000 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000
+    PUSHNULL	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000 _11
+    PAIR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12
+    MYADDR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13
+    CONFIGROOT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13 _14
+    10 TUPLE	//  _15
+    SINGLE	//  _16
+  }>
+  pack_addr PROC:<{
+    //  wc addr
+    SWAP
+    NEWC	//  addr wc _2
+    8 STI	//  addr _4
+    256 STU	//  _6
+    ENDC	//  _7
+    CTOS	//  _8
+  }>
+  test_example_data PROC:<{
+    // 
+    0 PUSHINT	//  _1=0
+    13 PUSHINT	//  _1=0 _2=13
+    pack_addr INLINECALLDICT	//  owner_addr
+    0 PUSHINT	//  owner_addr _5=0
+    21 PUSHINT	//  owner_addr _5=0 _6=21
+    pack_addr INLINECALLDICT	//  owner_addr sender_addr
+    13 PUSHINT	//  owner_addr sender_addr _9=13
+    NEWC	//  owner_addr sender_addr _9=13 _10
+    32 STU	//  owner_addr sender_addr _12
+    ENDC	//  owner_addr sender_addr _13
+    CTOS	//  owner_addr sender_addr msg_body
+    24 PUSHINT	//  owner_addr sender_addr msg_body _16=24
+    NEWC	//  owner_addr sender_addr msg_body _16=24 _17
+    6 STU	//  owner_addr sender_addr msg_body _19
+    ROT	//  owner_addr msg_body _19 sender_addr
+    STSLICER	//  owner_addr msg_body _20
+    OVER	//  owner_addr msg_body _20 msg_body
+    STSLICER	//  owner_addr msg_body _21
+    ENDC	//  owner_addr msg_body msg
+    0 PUSHINT	//  owner_addr msg_body msg _25=0
+    TUCK
+    s0 s3 XCHG	//  owner_addr _25=0 _26=0 msg msg_body
+    4 TUPLE	//  owner_addr stack
+    NEWC
+    ROT	//  stack _29 owner_addr
+    STSLICER	//  stack _30
+    ENDC	//  stack data
+    0 PUSHINT	//  stack data _33=0
+    get_c7 INLINECALLDICT	//  stack data _33=0 _34
+    s3 s3 s0 XCHG3
+    PUSHNULL	//  _33=0 stack data _34 _35
+    5 TUPLE	//  _32
+  }>
+  test_example PROC:<{
+    //  exit_code data stack actions gas
+    3 1 BLKDROP2	//  exit_code gas
+    SWAP	//  gas exit_code
+    0 NEQINT	//  gas _7
+    100 THROWIF
+    10000000 PUSHINT	//  gas _49=10000000
+    GREATER	//  _50
+    102 THROWIF
+  }>
+}END>c
