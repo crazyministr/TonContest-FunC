@@ -104,6 +104,7 @@ cell pack_data(int public_key1, int public_key2) method_id {
 
 	(slice query, var found?) = pending_queries.udict_get?(256, req_hash);
 	ifnot (found?) {
+                accept_message();
 		pending_queries = update_pending_queries(pending_queries, req_hash, 1 << owner_id, req);
 		set_data(pack_state(public_key1, public_key2, pending_queries));
 		return ();
@@ -113,6 +114,7 @@ cell pack_data(int public_key1, int public_key2) method_id {
 		return ();  ;; ignore
 	}
 
+        accept_message();
 	signed_by = signed_by | (1 << owner_id);
 	pending_queries = update_pending_queries(pending_queries, req_hash, signed_by, req);
 	set_data(pack_state(public_key1, public_key2, pending_queries));
@@ -122,7 +124,6 @@ cell pack_data(int public_key1, int public_key2) method_id {
 		int mode = req_slice~load_uint(8);
 		cell msg_to_send = req_slice~load_ref();
 
-		accept_message();
 		send_raw_message(msg_to_send, mode);
 	}
 }
