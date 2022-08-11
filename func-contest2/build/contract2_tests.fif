@@ -1,0 +1,141 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/.config/toncli/func-libs/tests-helpers.func` `/home/crazyministr/func-contest2/tests/test_2.fc` 
+PROGRAM{
+  85860 DECLMETHOD get_c7
+  0 DECLMETHOD test_empty_data
+  1 DECLMETHOD test_empty
+  2 DECLMETHOD test_merge_data
+  3 DECLMETHOD test_merge
+  get_c7 PROC:<{
+    // 
+    124711402 PUSHINT	//  _2=124711402
+    0 PUSHINT	//  _2=124711402 _3=0
+    DUP	//  _2=124711402 _3=0 _4=0
+    NOW	//  _2=124711402 _3=0 _4=0 _5
+    1 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1
+    DUP	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1
+    239 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239
+    1000000000 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000
+    PUSHNULL	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000 _11
+    PAIR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12
+    MYADDR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13
+    CONFIGROOT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13 _14
+    10 TUPLE	//  _15
+    SINGLE	//  _16
+  }>
+  test_empty_data PROC:<{
+    // 
+    79555 PUSHINT	//  function_selector=79555
+    NEWDICT	//  function_selector=79555 _4
+    NEWDICT	//  function_selector=79555 _4 _5
+    PAIR	//  function_selector=79555 stack
+    NEWC	//  function_selector=79555 stack _8
+    ENDC	//  function_selector=79555 stack data
+    get_c7 INLINECALLDICT	//  function_selector=79555 stack data _11
+    PUSHNULL	//  function_selector=79555 stack data _11 _12
+    5 TUPLE	//  _10
+  }>
+  test_empty PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    DUP	//  stack stack
+    FIRST	//  stack dict1
+    SWAP	//  dict1 stack
+    SECOND	//  dict1 dict2
+    SWAP	//  dict2 dict1
+    ISNULL	//  dict2 _14
+    0 EQINT	//  dict2 _16
+    101 THROWIF
+    ISNULL	//  _19
+    0 EQINT	//  _21
+    102 THROWIF
+  }>
+  test_merge_data PROC:<{
+    // 
+    79555 PUSHINT	//  function_selector=79555
+    NEWDICT	//  function_selector=79555 dict1
+    13 PUSHINT	//  function_selector=79555 dict1 _5=13
+    NEWC	//  function_selector=79555 dict1 _5=13 _6
+    64 STU	//  function_selector=79555 dict1 _8
+    1 PUSHINT
+    ROT
+    8 PUSHPOW2	//  function_selector=79555 _8 _9=1 dict1 _10=256
+    DICTUSETB	//  function_selector=79555 dict1
+    13 PUSHINT	//  function_selector=79555 dict1 _13=13
+    NEWC	//  function_selector=79555 dict1 _13=13 _14
+    64 STU	//  function_selector=79555 dict1 _16
+    2 PUSHINT
+    ROT
+    8 PUSHPOW2	//  function_selector=79555 _16 _17=2 dict1 _18=256
+    DICTUSETB	//  function_selector=79555 dict1
+    NEWDICT	//  function_selector=79555 dict1 dict2
+    13 PUSHINT	//  function_selector=79555 dict1 dict2 _23=13
+    NEWC	//  function_selector=79555 dict1 dict2 _23=13 _24
+    64 STU	//  function_selector=79555 dict1 dict2 _26
+    2 PUSHINT
+    ROT
+    8 PUSHPOW2	//  function_selector=79555 dict1 _26 _27=2 dict2 _28=256
+    DICTUSETB	//  function_selector=79555 dict1 dict2
+    13 PUSHINT	//  function_selector=79555 dict1 dict2 _31=13
+    NEWC	//  function_selector=79555 dict1 dict2 _31=13 _32
+    64 STU	//  function_selector=79555 dict1 dict2 _34
+    3 PUSHINT
+    ROT
+    8 PUSHPOW2	//  function_selector=79555 dict1 _34 _35=3 dict2 _36=256
+    DICTUSETB	//  function_selector=79555 dict1 dict2
+    PAIR	//  function_selector=79555 stack
+    NEWC	//  function_selector=79555 stack _42
+    ENDC	//  function_selector=79555 stack data
+    get_c7 INLINECALLDICT	//  function_selector=79555 stack data _45
+    PUSHNULL	//  function_selector=79555 stack data _45 _46
+    5 TUPLE	//  _44
+  }>
+  test_merge PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    DUP	//  stack stack
+    FIRST	//  stack dict1
+    SWAP	//  dict1 stack
+    SECOND	//  dict1 dict2
+    1 PUSHINT	//  dict1 dict2 _15=1
+    s2 PUSH
+    8 PUSHPOW2	//  dict1 dict2 _15=1 dict1 _16=256
+    DICTUGET
+    NULLSWAPIFNOT	//  dict1 dict2 _49 _50
+    NIP	//  dict1 dict2 found
+    0 EQINT	//  dict1 dict2 _20
+    101 THROWIF
+    2 PUSHINT	//  dict1 dict2 _24=2
+    s2 PUSH
+    8 PUSHPOW2	//  dict1 dict2 _24=2 dict1 _25=256
+    DICTUGET
+    NULLSWAPIFNOT	//  dict1 dict2 _51 _52
+    NIP	//  dict1 dict2 found
+    0 EQINT	//  dict1 dict2 _29
+    102 THROWIF
+    3 PUSHINT
+    ROT
+    8 PUSHPOW2	//  dict2 _33=3 dict1 _34=256
+    DICTUGET
+    NULLSWAPIFNOT	//  dict2 _53 _54
+    NIP	//  dict2 found
+    0 EQINT	//  dict2 _38
+    103 THROWIF
+    2 PUSHINT	//  dict2 _42=2
+    SWAP
+    8 PUSHPOW2	//  _42=2 dict2 _43=256
+    DICTUGET
+    NULLSWAPIFNOT	//  _55 _56
+    NIP	//  found
+    0 EQINT	//  _47
+    104 THROWIF
+  }>
+}END>c

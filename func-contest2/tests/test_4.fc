@@ -1,0 +1,158 @@
+;;global int serialize_func = 117735;
+;;global int deserialize_func = 130408;
+
+
+(tuple) reverse_tuple(tuple t) method_id {
+    tuple rtuple = empty_tuple();
+    int n = tuple_length(t);
+    repeat(n) {
+        var last = t~tpop();
+        rtuple~tpush(last);
+    }
+    return rtuple;
+}
+
+
+(tuple) add_to_stack2(tuple stack, var value) method_id {
+    tuple last = stack~tpop();
+    last~tpush(value);
+    stack~tpush(last);
+    return stack;
+}
+
+;; testable
+(tuple) deserialize2(cell serialized) method_id {
+    tuple stack = empty_tuple();
+    int depth = 0;
+
+    int key = -1;
+    do {
+        (key, slice cs, int f) = serialized.udict_get_next?(32, key);
+        if (f) {
+            int elem_type = cs~load_uint(3);
+            if (elem_type == 1) {
+                ;;stack = add_to_stack2(stack, null());
+                tuple last = stack~tpop();
+                last~tpush(null());
+                stack~tpush(last);
+
+            }
+            elseif (elem_type == 2) {
+                ;;stack = add_to_stack2(stack, cs~load_int(257));
+                tuple last = stack~tpop();
+                last~tpush(cs~load_int(257));
+                stack~tpush(last);
+
+            }
+            elseif (elem_type == 3) {
+                ;;stack = add_to_stack2(stack, cs~load_ref());
+                tuple last = stack~tpop();
+                last~tpush(cs~load_ref());
+                stack~tpush(last);
+            }
+            elseif (elem_type == 4) {
+                ;;stack = add_to_stack2(stack, cs);
+                tuple last = stack~tpop();
+                last~tpush(cs);
+                stack~tpush(last);
+            }
+            if (elem_type == 5) {  ;; start of inner tuple
+                stack~tpush(empty_tuple());
+                depth += 1;
+            }
+            if (elem_type == 6) {  ;; end of inner tuple
+                depth -= 1;
+                if (depth > 0) {
+                    tuple last = stack~tpop();
+                    tuple prev = stack~tpop();
+                    prev~tpush(last);
+                    stack~tpush(prev);
+                }
+            }
+
+        }
+    } until (~ f);
+
+    return first(stack);
+}
+
+
+tuple gen_tuple() method_id {
+    tuple res = empty_tuple();
+
+    ;; add int
+    res~tpush(100);
+    res~tpush(200);
+    res~tpush(300);
+    res~tpush(400);
+
+    ;; add null
+    res~tpush(null());
+
+    ;; add cell
+    res~tpush(begin_cell().end_cell());
+
+    ;; add slice
+    res~tpush(begin_cell().store_uint(13, 8).end_cell().begin_parse());
+
+    ;; add tuple
+    tuple t = empty_tuple();
+    t~tpush(3);
+    res~tpush(t);
+
+    return res;
+}
+
+
+[int, tuple, cell, tuple, int] test_smart_data() method_id(0) {
+    int function_selector = 117735;  ;; serialize func
+
+    tuple res = gen_tuple();
+
+    tuple stack = unsafe_tuple([res]);
+
+    return [function_selector, stack, begin_cell().end_cell(), get_c7(), null()];
+}
+
+_ test_smart(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(1) {
+    throw_if(100, exit_code != 0);
+
+    cell serialized = first(stack); 
+
+    tuple list1 = gen_tuple();
+    int n = tuple_length(list1);
+
+    tuple list2 = deserialize2(serialized);
+    int m = tuple_length(list2);
+    throw_if(103, m != n);
+
+    {-
+    list2 = reverse_tuple(list2);
+    repeat(m) {
+        var val = list2~tpop();
+
+        if (is_null(val)) {
+            throw(201);
+        }
+        if (is_int(val)) {
+            int i_x = force_cast_to_int(val);
+        } else {
+            throw(200);
+        }
+
+    }
+    -}
+
+    {-
+    int key = -1;
+    int m = 0;
+    do {
+        (key, _, int f) = serialized.udict_get_next?(32, key);
+        if (f) {
+            m += 1;
+        }
+    } until (~ f);
+
+    throw_if(103, m != 4);
+    -}
+}

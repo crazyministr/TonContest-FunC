@@ -1,0 +1,62 @@
+[int, tuple, cell, tuple, int] test_30_12_data() method_id(0) {
+    int function_selector = 93344; 
+	
+    int a = 30;
+    int b = 12;
+
+    tuple stack = unsafe_tuple([a, b]); 
+
+    cell data = begin_cell().end_cell();
+
+    return [function_selector, stack, data, get_c7(), null()];
+}
+
+_ test_30_12(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(1) {
+    throw_if(100, exit_code != 0);
+
+    int result = first(stack); 
+	
+    throw_if(101, result != 6); 
+}
+
+[int, tuple, cell, tuple, int] test_2_3_data() method_id(2) {
+    int function_selector = 93344; 
+	
+    int a = 2;
+    int b = 3;
+
+    tuple stack = unsafe_tuple([a, b]); 
+
+    cell data = begin_cell().end_cell();
+
+    return [function_selector, stack, data, get_c7(), null()];
+}
+
+_ test_2_3(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(3) {
+    throw_if(100, exit_code != 0);
+
+    int result = first(stack); 
+	
+    throw_if(101, result != 1); 
+}
+
+[int, tuple, cell, tuple, int] test_222_1048576_data() method_id(4) {
+    int function_selector = 93344; 
+	
+    int a = 222;
+    int b = 1048576;
+
+    tuple stack = unsafe_tuple([a, b]); 
+
+    cell data = begin_cell().end_cell();
+
+    return [function_selector, stack, data, get_c7(), null()];
+}
+
+_ test_222_1048576(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(5) {
+    throw_if(100, exit_code != 0);
+
+    int result = first(stack); 
+	
+    throw_if(101, result != 2); 
+}

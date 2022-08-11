@@ -1,0 +1,19 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/func-contest2/1.fc` 
+PROGRAM{
+  DECLPROC recv_internal
+  93344 DECLMETHOD gcd
+  recv_internal PROC:<{
+    // 
+  }>
+  gcd PROC:<{
+    //  a b
+    WHILE:<{
+      DUP	//  a b b
+    }>DO<{	//  a b
+      TUCK	//  b a b
+      MOD	//  a b
+    }>	//  a b
+    DROP	//  a
+  }>
+}END>c

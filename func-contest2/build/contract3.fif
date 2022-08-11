@@ -1,0 +1,483 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/func-contest2/3.fc` 
+PROGRAM{
+  DECLPROC recv_internal
+  DECLPROC try_parse_addr
+  DECLPROC try_parse_coins
+  DECLPROC try_load_ref
+  DECLPROC try_load_slice
+  DECLPROC validate_state_init
+  DECLPROC validate_extra_data
+  DECLPROC is_int_msg_info
+  DECLPROC is_ext_in_msg_info
+  DECLPROC is_ext_out_msg_info
+  107371 DECLMETHOD validate_message
+  recv_internal PROC:<{
+    // 
+  }>
+  try_parse_addr PROC:<{
+    //  cs valid_addr_type
+    OVER	//  cs valid_addr_type cs
+    <{ TRY:<{ LDMSGADDR DROP -1 PUSHINT }>CATCH<{ 2DROP 0 PUSHINT }> }>CONT 1 1 CALLXARGS	//  cs valid_addr_type success
+    IFNOTJMP:<{	//  cs valid_addr_type
+      DROP	//  cs
+      PUSHNULL	//  cs _4
+      0 PUSHINT	//  cs _4 _5=0
+    }>	//  cs valid_addr_type
+    SWAP	//  valid_addr_type cs
+    LDMSGADDR	//  valid_addr_type addr cs
+    OVER	//  valid_addr_type addr cs addr
+    <{ TRY:<{ PARSEMSGADDR DROP -1 PUSHINT }>CATCH<{ 2DROP 0 PUSHINT }> }>CONT 1 1 CALLXARGS	//  valid_addr_type addr cs success
+    IFNOTJMP:<{	//  valid_addr_type addr cs
+      2 1 BLKDROP2	//  cs
+      PUSHNULL	//  cs _10
+      0 PUSHINT	//  cs _10 _11=0
+    }>	//  valid_addr_type addr cs
+    OVER	//  valid_addr_type addr cs addr
+    PARSEMSGADDR	//  valid_addr_type addr cs t_addr
+    FIRST	//  valid_addr_type addr cs addr_type
+    s3 PUSH	//  valid_addr_type addr cs addr_type valid_addr_type
+    0 EQINT	//  valid_addr_type addr cs addr_type _17
+    OVER	//  valid_addr_type addr cs addr_type _17 addr_type
+    0 NEQINT	//  valid_addr_type addr cs addr_type _17 _19
+    AND	//  valid_addr_type addr cs addr_type _20
+    OVER	//  valid_addr_type addr cs addr_type _20 addr_type
+    1 NEQINT	//  valid_addr_type addr cs addr_type _20 _22
+    AND	//  valid_addr_type addr cs addr_type _23
+    s0 s4 XCHG	//  _23 addr cs addr_type valid_addr_type
+    1 EQINT	//  _23 addr cs addr_type _25
+    OVER	//  _23 addr cs addr_type _25 addr_type
+    2 NEQINT	//  _23 addr cs addr_type _25 _27
+    AND	//  _23 addr cs addr_type _28
+    OVER	//  _23 addr cs addr_type _28 addr_type
+    3 NEQINT	//  _23 addr cs addr_type _28 _30
+    AND	//  _23 addr cs addr_type _31
+    s1 s4 XCHG	//  addr_type addr cs _23 _31
+    OR	//  addr_type addr cs _32
+    IFJMP:<{	//  addr_type addr cs
+      2 1 BLKDROP2	//  cs
+      PUSHNULL	//  cs _33
+      0 PUSHINT	//  cs _33 _34=0
+    }>	//  addr_type addr cs
+    s0 s2 XCHG	//  cs addr addr_type
+    0 EQINT	//  cs addr _36
+    IF:<{	//  cs addr
+      DROP	//  cs
+      PUSHNULL	//  cs addr
+    }>	//  cs addr
+    -1 PUSHINT	//  cs addr _38=-1
+  }>
+  try_parse_coins PROC:<{
+    //  cs
+    DUP	//  cs cs
+    <{ TRY:<{ LDVARUINT16 DROP -1 PUSHINT }>CATCH<{ 2DROP 0 PUSHINT }> }>CONT 1 1 CALLXARGS	//  cs success
+    IFNOTJMP:<{	//  cs
+      0 PUSHINT	//  cs _3=0
+      DUP	//  cs _3=0 _4=0
+    }>	//  cs
+    LDVARUINT16	//  amount cs
+    SWAP
+    -1 PUSHINT	//  cs amount _8=-1
+  }>
+  try_load_ref PROC:<{
+    //  cs
+    DUP	//  cs cs
+    <{ TRY:<{ LDREF DROP -1 PUSHINT }>CATCH<{ 2DROP 0 PUSHINT }> }>CONT 1 1 CALLXARGS	//  cs success
+    IFNOTJMP:<{	//  cs
+      PUSHNULL	//  cs _3
+      0 PUSHINT	//  cs _3 _4=0
+    }>	//  cs
+    LDREF	//  cell_ref cs
+    SWAP
+    -1 PUSHINT	//  cs cell_ref _8=-1
+  }>
+  try_load_slice PROC:<{
+    //  cs
+    DUP	//  cs cs
+    SEMPTY	//  cs _1
+    IFJMP:<{	//  cs
+      0 PUSHINT	//  cs _2=0
+    }>	//  cs
+    -1 PUSHINT	//  cs _3=-1
+  }>
+  validate_state_init PROC:<{
+    //  cs
+    -1 PUSHINT	//  cs success=-1
+    OVER	//  cs success=-1 cs
+    SBITS	//  cs success=-1 _5
+    1 LESSINT	//  cs success=-1 _7
+    IFJMP:<{	//  cs success=-1
+      DROP	//  cs
+      0 PUSHINT	//  cs _8=0
+    }>	//  cs success=-1
+    SWAP	//  success=-1 cs
+    1 LDU	//  success=-1 maybe cs
+    SWAP	//  success=-1 cs maybe
+    IF:<{	//  success=-1 cs
+      DUP	//  success=-1 cs cs
+      SBITS	//  success=-1 cs _12
+      5 LESSINT	//  success=-1 cs _14
+      IF:<{	//  success=-1 cs
+        NIP	//  cs
+        0 PUSHINT	//  cs success=0
+      }>ELSE<{	//  success=-1 cs
+        5 PUSHINT	//  success=-1 cs _17=5
+        SDSKIPFIRST	//  success=-1 cs
+        SWAP	//  cs success
+      }>
+      SWAP	//  success cs
+    }>	//  success cs
+    OVER	//  success cs success
+    IFNOTJMP:<{	//  success cs
+      NIP	//  cs
+      0 PUSHINT	//  cs _19=0
+    }>	//  success cs
+    DUP	//  success cs cs
+    SBITS	//  success cs _20
+    1 LESSINT	//  success cs _22
+    IFJMP:<{	//  success cs
+      NIP	//  cs
+      0 PUSHINT	//  cs _23=0
+    }>	//  success cs
+    1 LDU	//  success maybe cs
+    SWAP	//  success cs maybe
+    IF:<{	//  success cs
+      DUP	//  success cs cs
+      SBITS	//  success cs _27
+      2 LESSINT	//  success cs _29
+      IF:<{	//  success cs
+        NIP	//  cs
+        0 PUSHINT	//  cs success=0
+      }>ELSE<{	//  success cs
+        2 PUSHINT	//  success cs _32=2
+        SDSKIPFIRST	//  success cs
+        SWAP	//  cs success
+      }>
+      SWAP	//  success cs
+    }>	//  success cs
+    OVER	//  success cs success
+    IFNOTJMP:<{	//  success cs
+      NIP	//  cs
+      0 PUSHINT	//  cs _34=0
+    }>	//  success cs
+    DUP	//  success cs cs
+    SBITS	//  success cs _35
+    1 LESSINT	//  success cs _37
+    IFJMP:<{	//  success cs
+      NIP	//  cs
+      0 PUSHINT	//  cs _38=0
+    }>	//  success cs
+    1 LDU	//  success maybe cs
+    SWAP	//  success cs maybe
+    IF:<{	//  success cs
+      NIP	//  cs
+      try_load_ref CALLDICT	//  _69 _70 _71
+      NIP	//  cs success
+      SWAP	//  success cs
+    }>	//  success cs
+    OVER	//  success cs success
+    IFNOTJMP:<{	//  success cs
+      NIP	//  cs
+      0 PUSHINT	//  cs _44=0
+    }>	//  success cs
+    DUP	//  success cs cs
+    SBITS	//  success cs _45
+    1 LESSINT	//  success cs _47
+    IFJMP:<{	//  success cs
+      NIP	//  cs
+      0 PUSHINT	//  cs _48=0
+    }>	//  success cs
+    1 LDU	//  success maybe cs
+    SWAP	//  success cs maybe
+    IF:<{	//  success cs
+      NIP	//  cs
+      try_load_ref CALLDICT	//  _74 _75 _76
+      NIP	//  cs success
+      SWAP	//  success cs
+    }>	//  success cs
+    SWAP	//  cs success
+    IFNOTJMP:<{	//  cs
+      0 PUSHINT	//  cs _54=0
+    }>	//  cs
+    DUP	//  cs cs
+    SBITS	//  cs _55
+    1 LESSINT	//  cs _57
+    IFJMP:<{	//  cs
+      0 PUSHINT	//  cs _58=0
+    }>	//  cs
+    1 PUSHINT	//  cs _60=1
+    SDSKIPFIRST	//  cs
+    -1 PUSHINT	//  cs _62=-1
+  }>
+  validate_extra_data PROC:<{
+    //  cs
+    DUP	//  cs cs
+    SBITS	//  cs _1
+    2 LESSINT	//  cs _3
+    IFJMP:<{	//  cs
+      DROP	// 
+      0 PUSHINT	//  _4=0
+    }>	//  cs
+    -1 PUSHINT	//  cs success=-1
+    SWAP	//  success=-1 cs
+    1 LDU	//  success=-1 init cs
+    SWAP	//  success=-1 cs init
+    IF:<{	//  success=-1 cs
+      DUP	//  success=-1 cs cs
+      SBITS	//  success=-1 cs _11
+      0 GTINT	//  success=-1 cs _13
+      IF:<{	//  success=-1 cs
+        NIP	//  cs
+        1 LDU	//  is_ref_init cs
+        SWAP	//  cs is_ref_init
+        IF:<{	//  cs
+          try_load_ref CALLDICT	//  cs ref success
+          DUP	//  cs ref success success
+          IF:<{	//  cs ref success
+            DROP	//  cs ref
+            CTOS	//  cs data
+            validate_state_init CALLDICT	//  cs _39 _40
+            NIP	//  cs success
+          }>ELSE<{
+            NIP	//  cs success
+          }>
+        }>ELSE<{	//  cs
+          validate_state_init CALLDICT	//  cs success
+        }>
+        SWAP	//  success cs
+      }>	//  success cs
+    }>	//  success cs
+    OVER	//  success cs success
+    IFNOTJMP:<{	//  success cs
+      2DROP	// 
+      0 PUSHINT	//  _25=0
+    }>	//  success cs
+    1 LDU	//  success is_ref_body cs
+    SWAP	//  success cs is_ref_body
+    IF:<{	//  success cs
+      NIP	//  cs
+      try_load_ref CALLDICT	//  _45 _46 _47
+      2 1 BLKDROP2	//  success
+    }>ELSE<{
+      DROP	//  success
+    }>
+  }>
+  is_int_msg_info PROC:<{
+    //  cs
+    DUP	//  cs cs
+    SBITS	//  cs _1
+    4 LESSINT	//  cs _3
+    IFJMP:<{	//  cs
+      DROP	// 
+      0 PUSHINT	//  _4=0
+      PUSHNULL	//  _4=0 _5
+    }>	//  cs
+    1 LDU	//  first cs
+    SWAP	//  cs first
+    0 EQINT	//  cs _13
+    IFNOTJMP:<{	//  cs
+      DROP	// 
+      0 PUSHINT	//  _14=0
+      PUSHNULL	//  _14=0 _15
+    }>	//  cs
+    3 PUSHINT	//  cs _17=3
+    SDSKIPFIRST	//  cs
+    1 PUSHINT	//  cs _20=1
+    try_parse_addr CALLDICT	//  cs src success
+    IFNOTJMP:<{	//  cs src
+      2DROP	// 
+      0 PUSHINT	//  _22=0
+      PUSHNULL	//  _22=0 _23
+    }>	//  cs src
+    SWAP
+    1 PUSHINT	//  src cs _25=1
+    try_parse_addr CALLDICT	//  src cs dst success
+    IFNOTJMP:<{	//  src cs dst
+      3 BLKDROP	// 
+      0 PUSHINT	//  _27=0
+      PUSHNULL	//  _27=0 _28
+    }>	//  src cs dst
+    SWAP	//  src dst cs
+    try_parse_coins CALLDICT	//  src dst cs amount success
+    IFNOTJMP:<{	//  src dst cs amount
+      4 BLKDROP	// 
+      0 PUSHINT	//  _31=0
+      PUSHNULL	//  _31=0 _32
+    }>	//  src dst cs amount
+    OVER	//  src dst cs amount cs
+    SBITS	//  src dst cs amount _33
+    1 LESSINT	//  src dst cs amount _35
+    IFJMP:<{	//  src dst cs amount
+      4 BLKDROP	// 
+      0 PUSHINT	//  _36=0
+      PUSHNULL	//  _36=0 _37
+    }>	//  src dst cs amount
+    SWAP
+    1 PUSHINT	//  src dst amount cs _39=1
+    SDSKIPFIRST	//  src dst amount cs
+    try_parse_coins CALLDICT	//  src dst amount _76 _77 _78
+    NIP	//  src dst amount cs success
+    IFNOTJMP:<{	//  src dst amount cs
+      4 BLKDROP	// 
+      0 PUSHINT	//  _43=0
+      PUSHNULL	//  _43=0 _44
+    }>	//  src dst amount cs
+    try_parse_coins CALLDICT	//  src dst amount _79 _80 _81
+    NIP	//  src dst amount cs success
+    IFNOTJMP:<{	//  src dst amount cs
+      4 BLKDROP	// 
+      0 PUSHINT	//  _47=0
+      PUSHNULL	//  _47=0 _48
+    }>	//  src dst amount cs
+    96 PUSHINT	//  src dst amount cs metadata_bits
+    OVER	//  src dst amount cs metadata_bits cs
+    SBITS	//  src dst amount cs metadata_bits _53
+    96 LESSINT	//  src dst amount cs metadata_bits _54
+    IFJMP:<{	//  src dst amount cs metadata_bits
+      5 BLKDROP	// 
+      0 PUSHINT	//  _55=0
+      PUSHNULL	//  _55=0 _56
+    }>	//  src dst amount cs metadata_bits
+    SDSKIPFIRST	//  src dst amount cs
+    validate_extra_data CALLDICT	//  src dst amount success
+    IFNOTJMP:<{	//  src dst amount
+      3 BLKDROP	// 
+      0 PUSHINT	//  _60=0
+      PUSHNULL	//  _60=0 _61
+    }>	//  src dst amount
+    -ROT
+    -1 PUSHINT
+    s0 s3 XCHG	//  _62=-1 src dst amount
+    TRIPLE	//  _62=-1 _64
+  }>
+  is_ext_in_msg_info PROC:<{
+    //  cs
+    DUP	//  cs cs
+    SBITS	//  cs _1
+    2 LESSINT	//  cs _3
+    IFJMP:<{	//  cs
+      DROP	// 
+      0 PUSHINT	//  _4=0
+      PUSHNULL	//  _4=0 _5
+    }>	//  cs
+    2 LDU	//  first cs
+    SWAP	//  cs first
+    2 EQINT	//  cs _13
+    IFNOTJMP:<{	//  cs
+      DROP	// 
+      0 PUSHINT	//  _14=0
+      PUSHNULL	//  _14=0 _15
+    }>	//  cs
+    0 PUSHINT	//  cs _17=0
+    try_parse_addr CALLDICT	//  cs src success
+    IFNOTJMP:<{	//  cs src
+      2DROP	// 
+      0 PUSHINT	//  _19=0
+      PUSHNULL	//  _19=0 _20
+    }>	//  cs src
+    SWAP
+    1 PUSHINT	//  src cs _22=1
+    try_parse_addr CALLDICT	//  src cs dst success
+    IFNOTJMP:<{	//  src cs dst
+      3 BLKDROP	// 
+      0 PUSHINT	//  _24=0
+      PUSHNULL	//  _24=0 _25
+    }>	//  src cs dst
+    SWAP	//  src dst cs
+    try_parse_coins CALLDICT	//  src dst _43 _44 _45
+    2 1 BLKDROP2	//  src dst success
+    IFNOTJMP:<{	//  src dst
+      2DROP	// 
+      0 PUSHINT	//  _28=0
+      PUSHNULL	//  _28=0 _29
+    }>	//  src dst
+    -1 PUSHINT	//  src dst _31=-1
+    -ROT
+    PUSHNULL	//  _31=-1 src dst _33
+    TRIPLE	//  _31=-1 _34
+  }>
+  is_ext_out_msg_info PROC:<{
+    //  cs
+    DUP	//  cs cs
+    SBITS	//  cs _1
+    2 LESSINT	//  cs _3
+    IFJMP:<{	//  cs
+      DROP	// 
+      0 PUSHINT	//  _4=0
+      PUSHNULL	//  _4=0 _5
+    }>	//  cs
+    2 LDU	//  first cs
+    SWAP	//  cs first
+    3 EQINT	//  cs _13
+    IFNOTJMP:<{	//  cs
+      DROP	// 
+      0 PUSHINT	//  _14=0
+      PUSHNULL	//  _14=0 _15
+    }>	//  cs
+    1 PUSHINT	//  cs _17=1
+    try_parse_addr CALLDICT	//  cs src success
+    IFNOTJMP:<{	//  cs src
+      2DROP	// 
+      0 PUSHINT	//  _19=0
+      PUSHNULL	//  _19=0 _20
+    }>	//  cs src
+    SWAP
+    0 PUSHINT	//  src cs _22=0
+    try_parse_addr CALLDICT	//  src cs dst success
+    IFNOTJMP:<{	//  src cs dst
+      3 BLKDROP	// 
+      0 PUSHINT	//  _24=0
+      PUSHNULL	//  _24=0 _25
+    }>	//  src cs dst
+    96 PUSHINT	//  src cs dst metadata_bits
+    s2 PUSH	//  src cs dst metadata_bits cs
+    SBITS	//  src cs dst metadata_bits _30
+    96 LESSINT	//  src cs dst metadata_bits _31
+    IFJMP:<{	//  src cs dst metadata_bits
+      4 BLKDROP	// 
+      0 PUSHINT	//  _32=0
+      PUSHNULL	//  _32=0 _33
+    }>	//  src cs dst metadata_bits
+    s1 s2 XCHG	//  src dst cs metadata_bits
+    SDSKIPFIRST	//  src dst cs
+    validate_extra_data CALLDICT	//  src dst success
+    IFNOTJMP:<{	//  src dst
+      2DROP	// 
+      0 PUSHINT	//  _37=0
+      PUSHNULL	//  _37=0 _38
+    }>	//  src dst
+    -1 PUSHINT	//  src dst _39=-1
+    -ROT
+    PUSHNULL	//  _39=-1 src dst _41
+    TRIPLE	//  _39=-1 _42
+  }>
+  validate_message PROC:<{
+    //  message
+    CTOS	//  cs
+    DUP	//  cs cs
+    is_int_msg_info CALLDICT	//  cs success result1
+    SWAP	//  cs result1 success
+    IFJMP:<{	//  cs result1
+      -1 PUSHINT
+      s2 POP	//  _7=-1 result1
+    }>	//  cs result1
+    DROP	//  cs
+    DUP	//  cs cs
+    is_ext_in_msg_info CALLDICT	//  cs success result2
+    SWAP	//  cs result2 success
+    IFJMP:<{	//  cs result2
+      -1 PUSHINT
+      s2 POP	//  _10=-1 result2
+    }>	//  cs result2
+    DROP	//  cs
+    is_ext_out_msg_info CALLDICT	//  success result3
+    SWAP	//  result3 success
+    IFJMP:<{	//  result3
+      -1 PUSHINT	//  result3 _13=-1
+      SWAP	//  _13=-1 result3
+    }>	//  result3
+    DROP	// 
+    0 PUSHINT	//  _14=0
+    PUSHNULL	//  _14=0 _15
+  }>
+}END>c

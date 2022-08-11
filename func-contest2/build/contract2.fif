@@ -1,0 +1,57 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/func-contest2/2.fc` 
+PROGRAM{
+  DECLPROC recv_internal
+  79555 DECLMETHOD merge_hashmaps
+  recv_internal PROC:<{
+    // 
+  }>
+  merge_hashmaps PROC:<{
+    //  dict1 dict2
+    NEWDICT	//  dict1 dict2 discared_dict
+    -1 PUSHINT	//  dict1 dict2 discared_dict key=-1
+    UNTIL:<{
+      s2 PUSH
+      8 PUSHPOW2	//  dict1 dict2 discared_dict key dict2 _8=256
+      DICTUGETNEXT
+      NULLSWAPIFNOT2	//  dict1 dict2 discared_dict value2 key found2
+      DUP	//  dict1 dict2 discared_dict value2 key found2 found2
+      IF:<{	//  dict1 dict2 discared_dict value2 key found2
+        s1 s5 PUSH2
+        8 PUSHPOW2	//  dict1 dict2 discared_dict value2 key found2 key dict1 _12=256
+        DICTUGET
+        NULLSWAPIFNOT	//  dict1 dict2 discared_dict value2 key found2 _28 _29
+        NIP	//  dict1 dict2 discared_dict value2 key found2 found1
+        IF:<{	//  dict1 dict2 discared_dict value2 key found2
+          s2 s2 s3 XCPUXC
+          8 PUSHPOW2	//  dict1 dict2 found2 key value2 key discared_dict _15=256
+          DICTUSET	//  dict1 dict2 found2 key discared_dict
+        }>ELSE<{	//  dict1 dict2 discared_dict value2 key found2
+          s2 s2 s5 XCPUXC
+          8 PUSHPOW2	//  found2 dict2 discared_dict key value2 key dict1 _18=256
+          DICTUSET	//  found2 dict2 discared_dict key dict1
+          s4 s1 s4 XCHG3	//  dict1 dict2 found2 key discared_dict
+        }>
+        -ROT	//  dict1 dict2 discared_dict found2 key
+      }>ELSE<{
+        s2 POP	//  dict1 dict2 discared_dict found2 key
+      }>
+      SWAP	//  dict1 dict2 discared_dict key found2
+      NOT	//  dict1 dict2 discared_dict key _20
+    }>	//  dict1 dict2 discared_dict key
+    DROP
+    NIP	//  dict1 discared_dict
+    OVER	//  dict1 discared_dict dict1
+    DICTEMPTY	//  dict1 discared_dict _21
+    IF:<{	//  dict1 discared_dict
+      PUSHNULL
+      s2 POP	//  dict1 discared_dict
+    }>	//  dict1 discared_dict
+    DUP	//  dict1 discared_dict discared_dict
+    DICTEMPTY	//  dict1 discared_dict _23
+    IF:<{	//  dict1 discared_dict
+      DROP	//  dict1
+      PUSHNULL	//  dict1 discared_dict
+    }>	//  dict1 discared_dict
+  }>
+}END>c

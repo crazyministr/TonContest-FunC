@@ -1,0 +1,42 @@
+int equal_slices(slice a, slice b) asm "SDEQ";
+
+[int, tuple, cell, tuple, int] test_valid_data() method_id(0) {
+    int function_selector = 91603; 
+
+    ;;slice addr = my_address();
+
+    int address = 0xfcb91a3a3816d0f7b8c2c76108b8a9bc5a6b7a55bd79f8ab101c52db29232260;  ;; from doc
+    slice addr = begin_cell()
+        .store_uint(2, 2) ;; addr_std$10
+        .store_uint(0, 1) ;; anycast nothing
+        .store_int(-1, 8) ;; workchain_id: -1
+        .store_uint(address, 256)
+        .end_cell()
+        .begin_parse();
+
+    tuple stack = unsafe_tuple([addr]);
+
+    return [function_selector, stack, begin_cell().end_cell(), get_c7(), null()];
+}
+
+slice A() asm "<b 124 word ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_| $, b> <s PUSHSLICE";
+slice base64url_doc() asm "<b 124 word kf_8uRo6OBbQ97jCx2EIuKm8Wmt6Vb15-KsQHFLbKSMiYIny| $, b> <s PUSHSLICE";
+
+_ test_valid(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(1) {
+    throw_if(100, exit_code != 0);
+
+    slice result = first(stack);
+    slice exptected = base64url_doc();
+    ;; dump_stack();
+
+    ;; slice alpha = A();
+    repeat(48) {
+        int char = result~load_uint(8);
+        dump_stack();
+        throw_if(1000, char > 100000);
+    }
+
+    ;;throw_unless(101, result.slice_bits() == 48 * 8);
+    ;;throw_unless(102, equal_slices(result, exptected));
+
+}

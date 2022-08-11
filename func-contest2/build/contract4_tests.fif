@@ -1,0 +1,210 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/.config/toncli/func-libs/tests-helpers.func` `/home/crazyministr/func-contest2/tests/test_4.fc` 
+PROGRAM{
+  85860 DECLMETHOD get_c7
+  81817 DECLMETHOD reverse_tuple
+  111466 DECLMETHOD add_to_stack2
+  82083 DECLMETHOD deserialize2
+  96369 DECLMETHOD gen_tuple
+  0 DECLMETHOD test_smart_data
+  1 DECLMETHOD test_smart
+  get_c7 PROC:<{
+    // 
+    124711402 PUSHINT	//  _2=124711402
+    0 PUSHINT	//  _2=124711402 _3=0
+    DUP	//  _2=124711402 _3=0 _4=0
+    NOW	//  _2=124711402 _3=0 _4=0 _5
+    1 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1
+    DUP	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1
+    239 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239
+    1000000000 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000
+    PUSHNULL	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000 _11
+    PAIR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12
+    MYADDR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13
+    CONFIGROOT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13 _14
+    10 TUPLE	//  _15
+    SINGLE	//  _16
+  }>
+  reverse_tuple PROC:<{
+    //  t
+    NIL	//  t rtuple
+    OVER	//  t rtuple t
+    TLEN	//  t rtuple n
+    REPEAT:<{	//  t rtuple
+      SWAP	//  rtuple t
+      TPOP	//  rtuple t last
+      s1 s2 XCHG	//  t rtuple last
+      TPUSH	//  t rtuple
+    }>
+    NIP	//  rtuple
+  }>
+  add_to_stack2 PROC:<{
+    //  stack value
+    SWAP	//  value stack
+    TPOP	//  value stack last
+    ROT	//  stack last value
+    TPUSH	//  stack last
+    TPUSH	//  stack
+  }>
+  deserialize2 PROC:<{
+    //  serialized
+    NIL	//  serialized stack
+    0 PUSHINT	//  serialized stack depth=0
+    -1 PUSHINT	//  serialized stack depth=0 key=-1
+    UNTIL:<{
+      s3 PUSH
+      32 PUSHINT	//  serialized stack depth key serialized _9=32
+      DICTUGETNEXT
+      NULLSWAPIFNOT2	//  serialized stack depth cs key f
+      DUP	//  serialized stack depth cs key f f
+      IF:<{	//  serialized stack depth cs key f
+        s0 s2 XCHG	//  serialized stack depth f key cs
+        3 LDU	//  serialized stack depth f key elem_type cs
+        OVER	//  serialized stack depth f key elem_type cs elem_type
+        1 EQINT	//  serialized stack depth f key elem_type cs _16
+        IF:<{	//  serialized stack depth f key elem_type cs
+          DROP	//  serialized stack depth f key elem_type
+          s0 s4 XCHG	//  serialized elem_type depth f key stack
+          TPOP	//  serialized elem_type depth f key stack last
+          PUSHNULL	//  serialized elem_type depth f key stack last _21
+          TPUSH	//  serialized elem_type depth f key stack last
+          TPUSH	//  serialized elem_type depth f key stack
+        }>ELSE<{	//  serialized stack depth f key elem_type cs
+          OVER	//  serialized stack depth f key elem_type cs elem_type
+          2 EQINT	//  serialized stack depth f key elem_type cs _26
+          IF:<{	//  serialized stack depth f key elem_type cs
+            s0 s5 XCHG	//  serialized cs depth f key elem_type stack
+            TPOP	//  serialized cs depth f key elem_type stack last
+            s0 s6 XCHG
+            257 PUSHINT	//  serialized last depth f key elem_type stack cs _32=257
+            LDIX	//  serialized last depth f key elem_type stack _92 _91
+            DROP	//  serialized last depth f key elem_type stack _31
+            s1 s6 XCHG	//  serialized stack depth f key elem_type last _31
+            TPUSH	//  serialized stack depth f key elem_type last
+            s1 s5 XCHG	//  serialized elem_type depth f key stack last
+            TPUSH	//  serialized elem_type depth f key stack
+          }>ELSE<{	//  serialized stack depth f key elem_type cs
+            OVER	//  serialized stack depth f key elem_type cs elem_type
+            3 EQINT	//  serialized stack depth f key elem_type cs _38
+            IF:<{	//  serialized stack depth f key elem_type cs
+              s0 s5 XCHG	//  serialized cs depth f key elem_type stack
+              TPOP	//  serialized cs depth f key elem_type stack last
+              s0 s6 XCHG	//  serialized last depth f key elem_type stack cs
+              LDREF	//  serialized last depth f key elem_type stack _96 _95
+              DROP	//  serialized last depth f key elem_type stack _43
+              s1 s6 XCHG	//  serialized stack depth f key elem_type last _43
+              TPUSH	//  serialized stack depth f key elem_type last
+              s1 s5 XCHG	//  serialized elem_type depth f key stack last
+              TPUSH	//  serialized elem_type depth f key stack
+            }>ELSE<{	//  serialized stack depth f key elem_type cs
+              OVER	//  serialized stack depth f key elem_type cs elem_type
+              4 EQINT	//  serialized stack depth f key elem_type cs _49
+              IF:<{	//  serialized stack depth f key elem_type cs
+                s0 s5 XCHG	//  serialized cs depth f key elem_type stack
+                TPOP	//  serialized cs depth f key elem_type stack last
+                s0 s6 XCHG2	//  serialized stack depth f key elem_type last cs
+                TPUSH	//  serialized stack depth f key elem_type last
+                s1 s5 XCHG	//  serialized elem_type depth f key stack last
+                TPUSH	//  serialized elem_type depth f key stack
+                s0 s4 XCHG	//  serialized stack depth f key elem_type
+              }>ELSE<{
+                DROP	//  serialized stack depth f key elem_type
+              }>
+              s0 s4 XCHG	//  serialized elem_type depth f key stack
+            }>
+          }>
+        }>
+        s4 PUSH	//  serialized elem_type depth f key stack elem_type
+        5 EQINT	//  serialized elem_type depth f key stack _58
+        IF:<{	//  serialized elem_type depth f key stack
+          NIL	//  serialized elem_type depth f key stack _60
+          TPUSH	//  serialized elem_type depth f key stack
+          s0 s3 XCHG	//  serialized elem_type stack f key depth
+          INC	//  serialized elem_type stack f key depth
+          s0 s3 XCHG	//  serialized elem_type depth f key stack
+        }>	//  serialized elem_type depth f key stack
+        s0 s4 XCHG	//  serialized stack depth f key elem_type
+        6 EQINT	//  serialized stack depth f key _65
+        IF:<{	//  serialized stack depth f key
+          s0 s2 XCHG	//  serialized stack key f depth
+          DEC	//  serialized stack key f depth
+          DUP	//  serialized stack key f depth depth
+          0 GTINT	//  serialized stack key f depth _69
+          IF:<{	//  serialized stack key f depth
+            s0 s3 XCHG	//  serialized depth key f stack
+            TPOP	//  serialized depth key f stack last
+            SWAP	//  serialized depth key f last stack
+            TPOP	//  serialized depth key f last stack prev
+            ROT	//  serialized depth key f stack prev last
+            TPUSH	//  serialized depth key f stack prev
+            TPUSH	//  serialized depth key f stack
+            s0 s3 XCHG	//  serialized stack key f depth
+          }>	//  serialized stack key f depth
+          s0 s2 XCHG	//  serialized stack depth f key
+        }>	//  serialized stack depth f key
+      }>ELSE<{
+        s2 POP	//  serialized stack depth f key
+      }>
+      SWAP	//  serialized stack depth key f
+      NOT	//  serialized stack depth key _80
+    }>	//  serialized stack depth key
+    s2 s3 XCHG
+    3 BLKDROP	//  stack
+    FIRST	//  _81
+  }>
+  gen_tuple PROC:<{
+    // 
+    NIL	//  res
+    100 PUSHINT	//  res _3=100
+    TPUSH	//  res
+    200 PUSHINT	//  res _6=200
+    TPUSH	//  res
+    300 PUSHINT	//  res _9=300
+    TPUSH	//  res
+    400 PUSHINT	//  res _12=400
+    TPUSH	//  res
+    PUSHNULL	//  res _15
+    TPUSH	//  res
+    NEWC	//  res _18
+    ENDC	//  res _19
+    TPUSH	//  res
+    13 PUSHINT	//  res _22=13
+    NEWC	//  res _22=13 _23
+    8 STU	//  res _25
+    ENDC	//  res _26
+    CTOS	//  res _27
+    TPUSH	//  res
+    NIL	//  res t
+    3 PUSHINT	//  res t _32=3
+    TPUSH	//  res t
+    TPUSH	//  res
+  }>
+  test_smart_data PROC:<{
+    // 
+    117735 PUSHINT	//  function_selector=117735
+    gen_tuple CALLDICT	//  function_selector=117735 res
+    SINGLE	//  function_selector=117735 stack
+    NEWC	//  function_selector=117735 stack _8
+    ENDC	//  function_selector=117735 stack _9
+    get_c7 INLINECALLDICT	//  function_selector=117735 stack _9 _10
+    PUSHNULL	//  function_selector=117735 stack _9 _10 _11
+    5 TUPLE	//  _7
+  }>
+  test_smart PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    FIRST	//  serialized
+    gen_tuple CALLDICT	//  serialized list1
+    TLEN	//  serialized n
+    SWAP	//  n serialized
+    deserialize2 CALLDICT	//  n list2
+    TLEN	//  n m
+    SWAP	//  m n
+    NEQ	//  _20
+    103 THROWIF
+  }>
+}END>c

@@ -1,0 +1,30 @@
+contract1:
+  data: fift/data1.fif
+  func:
+    - 1.fc
+  tests:
+    - tests/test_1.fc
+contract2:
+  data: fift/data2.fif
+  func:
+    - 2.fc
+  tests:
+    - tests/test_2.fc
+contract3:
+  data: fift/data3.fif
+  func:
+    - 3.fc
+  tests:
+    - tests/test_3.fc
+contract4:
+  data: fift/data4.fif
+  func:
+    - 4.fc
+  tests:
+    - tests/test_4.fc
+contract5:
+  data: fift/data5.fif
+  func:
+    - 5.fc
+  tests:
+    - tests/test_5.fc

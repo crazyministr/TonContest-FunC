@@ -1,0 +1,246 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/func-contest2/4.fc` 
+PROGRAM{
+  DECLPROC recv_internal
+  DECLPROC reverse_tuple
+  84555 DECLMETHOD _seialize
+  117735 DECLMETHOD serialize
+  72214 DECLMETHOD add_to_stack
+  130408 DECLMETHOD deserialize
+  DECLGLOBVAR dict_key
+  recv_internal PROC:<{
+    // 
+  }>
+  reverse_tuple PROC:<{
+    //  t
+    NIL	//  t rtuple
+    OVER	//  t rtuple t
+    TLEN	//  t rtuple n
+    REPEAT:<{	//  t rtuple
+      SWAP	//  rtuple t
+      TPOP	//  rtuple t last
+      s1 s2 XCHG	//  t rtuple last
+      TPUSH	//  t rtuple
+    }>
+    NIP	//  rtuple
+  }>
+  _seialize PROC:<{
+    //  result x
+    dict_key GETGLOB	//  result x _2
+    INC	//  result x _4
+    dict_key SETGLOB
+    DUP	//  result x x
+    ISNULL	//  result x _5
+    IF:<{	//  result x
+      1 PUSHINT	//  result x _7=1
+      NEWC	//  result x _7=1 _8
+      3 STU	//  result x _10
+      dict_key GETGLOB	//  result x _10 _11
+      3 ROLL
+      32 PUSHINT	//  x _10 _11 result _12=32
+      DICTUSETB	//  x result
+      SWAP	//  result x
+    }>	//  result x
+    DUP	//  result x x
+    <{ TRY:<{ 0 PUSHINT ADD DROP -1 PUSHINT }>CATCH<{ 2DROP 0 PUSHINT }> }>CONT 1 1 CALLXARGS	//  result x _14
+    IF:<{	//  result x
+      DUP	//  result x i_x
+      2 PUSHINT	//  result x i_x _18=2
+      NEWC	//  result x i_x _18=2 _19
+      3 STU	//  result x i_x _21
+      257 PUSHINT	//  result x i_x _21 _22=257
+      STIX	//  result x _23
+      dict_key GETGLOB	//  result x _23 _24
+      3 ROLL
+      32 PUSHINT	//  x _23 _24 result _25=32
+      DICTUSETB	//  x result
+      SWAP	//  result x
+    }>	//  result x
+    DUP	//  result x x
+    <{ TRY:<{ CTOS DROP -1 PUSHINT }>CATCH<{ 2DROP 0 PUSHINT }> }>CONT 1 1 CALLXARGS	//  result x _27
+    IF:<{	//  result x
+      DUP	//  result x c_x
+      3 PUSHINT	//  result x c_x _31=3
+      NEWC	//  result x c_x _31=3 _32
+      3 STU	//  result x c_x _34
+      STREF	//  result x _35
+      dict_key GETGLOB	//  result x _35 _36
+      3 ROLL
+      32 PUSHINT	//  x _35 _36 result _37=32
+      DICTUSETB	//  x result
+      SWAP	//  result x
+    }>	//  result x
+    DUP	//  result x x
+    <{ TRY:<{ SBITS DROP -1 PUSHINT }>CATCH<{ 2DROP 0 PUSHINT }> }>CONT 1 1 CALLXARGS	//  result x _39
+    IF:<{	//  result x
+      DUP	//  result x s_x
+      4 PUSHINT	//  result x s_x _43=4
+      NEWC	//  result x s_x _43=4 _44
+      3 STU	//  result x s_x _46
+      SWAP	//  result x _46 s_x
+      STSLICER	//  result x _47
+      dict_key GETGLOB	//  result x _47 _48
+      3 ROLL
+      32 PUSHINT	//  x _47 _48 result _49=32
+      DICTUSETB	//  x result
+      SWAP	//  result x
+    }>	//  result x
+    DUP	//  result x x
+    ISTUPLE	//  result x _51
+    IF:<{	//  result t_x
+      5 PUSHINT	//  result t_x _55=5
+      NEWC	//  result t_x _55=5 _56
+      3 STU	//  result t_x _58
+      dict_key GETGLOB	//  result t_x _58 _59
+      3 ROLL
+      32 PUSHINT	//  t_x _58 _59 result _60=32
+      DICTUSETB	//  t_x result
+      OVER	//  t_x result t_x
+      TLEN	//  t_x result n
+      s0 s2 XCHG	//  n result t_x
+      reverse_tuple CALLDICT	//  n result t_x
+      s0 s2 XCHG	//  t_x result n
+      REPEAT:<{	//  t_x result
+        SWAP	//  result t_x
+        TPOP	//  result t_x next
+        s1 s2 XCHG	//  t_x result next
+        _seialize CALLDICT	//  t_x result
+      }>
+      NIP	//  result
+      dict_key GETGLOB	//  result _69
+      INC	//  result _71
+      dict_key SETGLOB
+      6 PUSHINT	//  result _73=6
+      NEWC	//  result _73=6 _74
+      3 STU	//  result _76
+      dict_key GETGLOB	//  result _76 _77
+      ROT
+      32 PUSHINT	//  _76 _77 result _78=32
+      DICTUSETB	//  result
+    }>ELSE<{
+      DROP	//  result
+    }>
+  }>
+  serialize PROC:<{
+    //  values
+    0 PUSHINT	//  values _1=0
+    dict_key SETGLOB
+    NEWDICT	//  values result
+    SWAP	//  result values
+    _seialize CALLDICT	//  result
+  }>
+  add_to_stack PROC:<{
+    //  stack value
+    SWAP	//  value stack
+    TPOP	//  value stack last
+    ROT	//  stack last value
+    TPUSH	//  stack last
+    TPUSH	//  stack
+  }>
+  deserialize PROC:<{
+    //  serialized
+    NIL	//  serialized stack
+    0 PUSHINT	//  serialized stack depth=0
+    -1 PUSHINT	//  serialized stack depth=0 key=-1
+    UNTIL:<{
+      s3 PUSH
+      32 PUSHINT	//  serialized stack depth key serialized _9=32
+      DICTUGETNEXT
+      NULLSWAPIFNOT2	//  serialized stack depth cs key f
+      DUP	//  serialized stack depth cs key f f
+      IF:<{	//  serialized stack depth cs key f
+        s0 s2 XCHG	//  serialized stack depth f key cs
+        3 LDU	//  serialized stack depth f key elem_type cs
+        OVER	//  serialized stack depth f key elem_type cs elem_type
+        1 EQINT	//  serialized stack depth f key elem_type cs _16
+        IF:<{	//  serialized stack depth f key elem_type cs
+          DROP	//  serialized stack depth f key elem_type
+          s0 s4 XCHG	//  serialized elem_type depth f key stack
+          TPOP	//  serialized elem_type depth f key stack last
+          PUSHNULL	//  serialized elem_type depth f key stack last _21
+          TPUSH	//  serialized elem_type depth f key stack last
+          TPUSH	//  serialized elem_type depth f key stack
+        }>ELSE<{	//  serialized stack depth f key elem_type cs
+          OVER	//  serialized stack depth f key elem_type cs elem_type
+          2 EQINT	//  serialized stack depth f key elem_type cs _26
+          IF:<{	//  serialized stack depth f key elem_type cs
+            s0 s5 XCHG	//  serialized cs depth f key elem_type stack
+            TPOP	//  serialized cs depth f key elem_type stack last
+            s0 s6 XCHG
+            257 PUSHINT	//  serialized last depth f key elem_type stack cs _32=257
+            LDIX	//  serialized last depth f key elem_type stack _92 _91
+            DROP	//  serialized last depth f key elem_type stack _31
+            s1 s6 XCHG	//  serialized stack depth f key elem_type last _31
+            TPUSH	//  serialized stack depth f key elem_type last
+            s1 s5 XCHG	//  serialized elem_type depth f key stack last
+            TPUSH	//  serialized elem_type depth f key stack
+          }>ELSE<{	//  serialized stack depth f key elem_type cs
+            OVER	//  serialized stack depth f key elem_type cs elem_type
+            3 EQINT	//  serialized stack depth f key elem_type cs _38
+            IF:<{	//  serialized stack depth f key elem_type cs
+              s0 s5 XCHG	//  serialized cs depth f key elem_type stack
+              TPOP	//  serialized cs depth f key elem_type stack last
+              s0 s6 XCHG	//  serialized last depth f key elem_type stack cs
+              LDREF	//  serialized last depth f key elem_type stack _96 _95
+              DROP	//  serialized last depth f key elem_type stack _43
+              s1 s6 XCHG	//  serialized stack depth f key elem_type last _43
+              TPUSH	//  serialized stack depth f key elem_type last
+              s1 s5 XCHG	//  serialized elem_type depth f key stack last
+              TPUSH	//  serialized elem_type depth f key stack
+            }>ELSE<{	//  serialized stack depth f key elem_type cs
+              OVER	//  serialized stack depth f key elem_type cs elem_type
+              4 EQINT	//  serialized stack depth f key elem_type cs _49
+              IF:<{	//  serialized stack depth f key elem_type cs
+                s0 s5 XCHG	//  serialized cs depth f key elem_type stack
+                TPOP	//  serialized cs depth f key elem_type stack last
+                s0 s6 XCHG2	//  serialized stack depth f key elem_type last cs
+                TPUSH	//  serialized stack depth f key elem_type last
+                s1 s5 XCHG	//  serialized elem_type depth f key stack last
+                TPUSH	//  serialized elem_type depth f key stack
+                s0 s4 XCHG	//  serialized stack depth f key elem_type
+              }>ELSE<{
+                DROP	//  serialized stack depth f key elem_type
+              }>
+              s0 s4 XCHG	//  serialized elem_type depth f key stack
+            }>
+          }>
+        }>
+        s4 PUSH	//  serialized elem_type depth f key stack elem_type
+        5 EQINT	//  serialized elem_type depth f key stack _58
+        IF:<{	//  serialized elem_type depth f key stack
+          NIL	//  serialized elem_type depth f key stack _60
+          TPUSH	//  serialized elem_type depth f key stack
+          s0 s3 XCHG	//  serialized elem_type stack f key depth
+          INC	//  serialized elem_type stack f key depth
+          s0 s3 XCHG	//  serialized elem_type depth f key stack
+        }>	//  serialized elem_type depth f key stack
+        s0 s4 XCHG	//  serialized stack depth f key elem_type
+        6 EQINT	//  serialized stack depth f key _65
+        IF:<{	//  serialized stack depth f key
+          s0 s2 XCHG	//  serialized stack key f depth
+          DEC	//  serialized stack key f depth
+          DUP	//  serialized stack key f depth depth
+          0 GTINT	//  serialized stack key f depth _69
+          IF:<{	//  serialized stack key f depth
+            s0 s3 XCHG	//  serialized depth key f stack
+            TPOP	//  serialized depth key f stack last
+            SWAP	//  serialized depth key f last stack
+            TPOP	//  serialized depth key f last stack prev
+            ROT	//  serialized depth key f stack prev last
+            TPUSH	//  serialized depth key f stack prev
+            TPUSH	//  serialized depth key f stack
+            s0 s3 XCHG	//  serialized stack key f depth
+          }>	//  serialized stack key f depth
+          s0 s2 XCHG	//  serialized stack depth f key
+        }>	//  serialized stack depth f key
+      }>ELSE<{
+        s2 POP	//  serialized stack depth f key
+      }>
+      SWAP	//  serialized stack depth key f
+      NOT	//  serialized stack depth key _80
+    }>	//  serialized stack depth key
+    s2 s3 XCHG
+    3 BLKDROP	//  stack
+    FIRST	//  _81
+  }>
+}END>c

@@ -1,0 +1,2153 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/func-contest2/5.fc` 
+PROGRAM{
+  DECLPROC recv_internal
+  DECLPROC get_alphabet_char
+  DECLPROC elem_by_index
+  DECLPROC generate_crc16_table
+  DECLPROC calc_crc16
+  91603 DECLMETHOD encode_address
+  recv_internal PROC:<{
+    // 
+  }>
+  get_alphabet_char PROC:<{
+    //  idx
+    <b 124 word ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-| $, b> <s PUSHSLICE	//  idx alpha
+    0 PUSHINT	//  idx alpha res=0
+    s0 s2 XCHG	//  res=0 alpha idx
+    INC	//  res=0 alpha _6
+    REPEAT:<{	//  res alpha
+      NIP	//  alpha
+      8 LDU	//  res alpha
+    }>
+    DROP	//  res
+  }>
+  elem_by_index PROC:<{
+    //  d key
+    SWAP
+    32 PUSHINT	//  key d _4=32
+    DICTUGET
+    NULLSWAPIFNOT	//  _9 _10
+    DROP	//  value
+    16 LDU	//  _12 _11
+    DROP	//  _6
+  }>
+  generate_crc16_table PROC:<{
+    // 
+    NEWDICT	//  d
+    0 PUSHINT	//  d key
+    0 PUSHINT	//  d key _7=0
+    NEWC	//  d key _7=0 _8
+    16 STU	//  d key _10
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _10 key d _11=32
+    DICTUSETB	//  key _12
+    NIP	//  d
+    1 PUSHINT	//  d key
+    4129 PUSHINT	//  d key _16=4129
+    NEWC	//  d key _16=4129 _17
+    16 STU	//  d key _19
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _19 key d _20=32
+    DICTUSETB	//  key _21
+    NIP	//  d
+    2 PUSHINT	//  d key
+    8258 PUSHINT	//  d key _25=8258
+    NEWC	//  d key _25=8258 _26
+    16 STU	//  d key _28
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _28 key d _29=32
+    DICTUSETB	//  key _30
+    NIP	//  d
+    3 PUSHINT	//  d key
+    12387 PUSHINT	//  d key _34=12387
+    NEWC	//  d key _34=12387 _35
+    16 STU	//  d key _37
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _37 key d _38=32
+    DICTUSETB	//  key _39
+    NIP	//  d
+    4 PUSHINT	//  d key
+    16516 PUSHINT	//  d key _43=16516
+    NEWC	//  d key _43=16516 _44
+    16 STU	//  d key _46
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _46 key d _47=32
+    DICTUSETB	//  key _48
+    NIP	//  d
+    5 PUSHINT	//  d key
+    20645 PUSHINT	//  d key _52=20645
+    NEWC	//  d key _52=20645 _53
+    16 STU	//  d key _55
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _55 key d _56=32
+    DICTUSETB	//  key _57
+    NIP	//  d
+    6 PUSHINT	//  d key
+    24774 PUSHINT	//  d key _61=24774
+    NEWC	//  d key _61=24774 _62
+    16 STU	//  d key _64
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _64 key d _65=32
+    DICTUSETB	//  key _66
+    NIP	//  d
+    7 PUSHINT	//  d key
+    28903 PUSHINT	//  d key _70=28903
+    NEWC	//  d key _70=28903 _71
+    16 STU	//  d key _73
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _73 key d _74=32
+    DICTUSETB	//  key _75
+    NIP	//  d
+    8 PUSHINT	//  d key
+    33032 PUSHINT	//  d key _79=33032
+    NEWC	//  d key _79=33032 _80
+    16 STU	//  d key _82
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _82 key d _83=32
+    DICTUSETB	//  key _84
+    NIP	//  d
+    9 PUSHINT	//  d key
+    37161 PUSHINT	//  d key _88=37161
+    NEWC	//  d key _88=37161 _89
+    16 STU	//  d key _91
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _91 key d _92=32
+    DICTUSETB	//  key _93
+    NIP	//  d
+    10 PUSHINT	//  d key
+    41290 PUSHINT	//  d key _97=41290
+    NEWC	//  d key _97=41290 _98
+    16 STU	//  d key _100
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _100 key d _101=32
+    DICTUSETB	//  key _102
+    NIP	//  d
+    11 PUSHINT	//  d key
+    45419 PUSHINT	//  d key _106=45419
+    NEWC	//  d key _106=45419 _107
+    16 STU	//  d key _109
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _109 key d _110=32
+    DICTUSETB	//  key _111
+    NIP	//  d
+    12 PUSHINT	//  d key
+    49548 PUSHINT	//  d key _115=49548
+    NEWC	//  d key _115=49548 _116
+    16 STU	//  d key _118
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _118 key d _119=32
+    DICTUSETB	//  key _120
+    NIP	//  d
+    13 PUSHINT	//  d key
+    53677 PUSHINT	//  d key _124=53677
+    NEWC	//  d key _124=53677 _125
+    16 STU	//  d key _127
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _127 key d _128=32
+    DICTUSETB	//  key _129
+    NIP	//  d
+    14 PUSHINT	//  d key
+    57806 PUSHINT	//  d key _133=57806
+    NEWC	//  d key _133=57806 _134
+    16 STU	//  d key _136
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _136 key d _137=32
+    DICTUSETB	//  key _138
+    NIP	//  d
+    15 PUSHINT	//  d key
+    61935 PUSHINT	//  d key _142=61935
+    NEWC	//  d key _142=61935 _143
+    16 STU	//  d key _145
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _145 key d _146=32
+    DICTUSETB	//  key _147
+    NIP	//  d
+    16 PUSHINT	//  d key
+    4657 PUSHINT	//  d key _151=4657
+    NEWC	//  d key _151=4657 _152
+    16 STU	//  d key _154
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _154 key d _155=32
+    DICTUSETB	//  key _156
+    NIP	//  d
+    17 PUSHINT	//  d key
+    528 PUSHINT	//  d key _160=528
+    NEWC	//  d key _160=528 _161
+    16 STU	//  d key _163
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _163 key d _164=32
+    DICTUSETB	//  key _165
+    NIP	//  d
+    18 PUSHINT	//  d key
+    12915 PUSHINT	//  d key _169=12915
+    NEWC	//  d key _169=12915 _170
+    16 STU	//  d key _172
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _172 key d _173=32
+    DICTUSETB	//  key _174
+    NIP	//  d
+    19 PUSHINT	//  d key
+    8786 PUSHINT	//  d key _178=8786
+    NEWC	//  d key _178=8786 _179
+    16 STU	//  d key _181
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _181 key d _182=32
+    DICTUSETB	//  key _183
+    NIP	//  d
+    20 PUSHINT	//  d key
+    21173 PUSHINT	//  d key _187=21173
+    NEWC	//  d key _187=21173 _188
+    16 STU	//  d key _190
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _190 key d _191=32
+    DICTUSETB	//  key _192
+    NIP	//  d
+    21 PUSHINT	//  d key
+    17044 PUSHINT	//  d key _196=17044
+    NEWC	//  d key _196=17044 _197
+    16 STU	//  d key _199
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _199 key d _200=32
+    DICTUSETB	//  key _201
+    NIP	//  d
+    22 PUSHINT	//  d key
+    29431 PUSHINT	//  d key _205=29431
+    NEWC	//  d key _205=29431 _206
+    16 STU	//  d key _208
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _208 key d _209=32
+    DICTUSETB	//  key _210
+    NIP	//  d
+    23 PUSHINT	//  d key
+    25302 PUSHINT	//  d key _214=25302
+    NEWC	//  d key _214=25302 _215
+    16 STU	//  d key _217
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _217 key d _218=32
+    DICTUSETB	//  key _219
+    NIP	//  d
+    24 PUSHINT	//  d key
+    37689 PUSHINT	//  d key _223=37689
+    NEWC	//  d key _223=37689 _224
+    16 STU	//  d key _226
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _226 key d _227=32
+    DICTUSETB	//  key _228
+    NIP	//  d
+    25 PUSHINT	//  d key
+    33560 PUSHINT	//  d key _232=33560
+    NEWC	//  d key _232=33560 _233
+    16 STU	//  d key _235
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _235 key d _236=32
+    DICTUSETB	//  key _237
+    NIP	//  d
+    26 PUSHINT	//  d key
+    45947 PUSHINT	//  d key _241=45947
+    NEWC	//  d key _241=45947 _242
+    16 STU	//  d key _244
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _244 key d _245=32
+    DICTUSETB	//  key _246
+    NIP	//  d
+    27 PUSHINT	//  d key
+    41818 PUSHINT	//  d key _250=41818
+    NEWC	//  d key _250=41818 _251
+    16 STU	//  d key _253
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _253 key d _254=32
+    DICTUSETB	//  key _255
+    NIP	//  d
+    28 PUSHINT	//  d key
+    54205 PUSHINT	//  d key _259=54205
+    NEWC	//  d key _259=54205 _260
+    16 STU	//  d key _262
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _262 key d _263=32
+    DICTUSETB	//  key _264
+    NIP	//  d
+    29 PUSHINT	//  d key
+    50076 PUSHINT	//  d key _268=50076
+    NEWC	//  d key _268=50076 _269
+    16 STU	//  d key _271
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _271 key d _272=32
+    DICTUSETB	//  key _273
+    NIP	//  d
+    30 PUSHINT	//  d key
+    62463 PUSHINT	//  d key _277=62463
+    NEWC	//  d key _277=62463 _278
+    16 STU	//  d key _280
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _280 key d _281=32
+    DICTUSETB	//  key _282
+    NIP	//  d
+    31 PUSHINT	//  d key
+    58334 PUSHINT	//  d key _286=58334
+    NEWC	//  d key _286=58334 _287
+    16 STU	//  d key _289
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _289 key d _290=32
+    DICTUSETB	//  key _291
+    NIP	//  d
+    32 PUSHINT	//  d key
+    9314 PUSHINT	//  d key _295=9314
+    NEWC	//  d key _295=9314 _296
+    16 STU	//  d key _298
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _298 key d _299=32
+    DICTUSETB	//  key _300
+    NIP	//  d
+    33 PUSHINT	//  d key
+    13379 PUSHINT	//  d key _304=13379
+    NEWC	//  d key _304=13379 _305
+    16 STU	//  d key _307
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _307 key d _308=32
+    DICTUSETB	//  key _309
+    NIP	//  d
+    34 PUSHINT	//  d key
+    1056 PUSHINT	//  d key _313=1056
+    NEWC	//  d key _313=1056 _314
+    16 STU	//  d key _316
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _316 key d _317=32
+    DICTUSETB	//  key _318
+    NIP	//  d
+    35 PUSHINT	//  d key
+    5121 PUSHINT	//  d key _322=5121
+    NEWC	//  d key _322=5121 _323
+    16 STU	//  d key _325
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _325 key d _326=32
+    DICTUSETB	//  key _327
+    NIP	//  d
+    36 PUSHINT	//  d key
+    25830 PUSHINT	//  d key _331=25830
+    NEWC	//  d key _331=25830 _332
+    16 STU	//  d key _334
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _334 key d _335=32
+    DICTUSETB	//  key _336
+    NIP	//  d
+    37 PUSHINT	//  d key
+    29895 PUSHINT	//  d key _340=29895
+    NEWC	//  d key _340=29895 _341
+    16 STU	//  d key _343
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _343 key d _344=32
+    DICTUSETB	//  key _345
+    NIP	//  d
+    38 PUSHINT	//  d key
+    17572 PUSHINT	//  d key _349=17572
+    NEWC	//  d key _349=17572 _350
+    16 STU	//  d key _352
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _352 key d _353=32
+    DICTUSETB	//  key _354
+    NIP	//  d
+    39 PUSHINT	//  d key
+    21637 PUSHINT	//  d key _358=21637
+    NEWC	//  d key _358=21637 _359
+    16 STU	//  d key _361
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _361 key d _362=32
+    DICTUSETB	//  key _363
+    NIP	//  d
+    40 PUSHINT	//  d key
+    42346 PUSHINT	//  d key _367=42346
+    NEWC	//  d key _367=42346 _368
+    16 STU	//  d key _370
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _370 key d _371=32
+    DICTUSETB	//  key _372
+    NIP	//  d
+    41 PUSHINT	//  d key
+    46411 PUSHINT	//  d key _376=46411
+    NEWC	//  d key _376=46411 _377
+    16 STU	//  d key _379
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _379 key d _380=32
+    DICTUSETB	//  key _381
+    NIP	//  d
+    42 PUSHINT	//  d key
+    34088 PUSHINT	//  d key _385=34088
+    NEWC	//  d key _385=34088 _386
+    16 STU	//  d key _388
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _388 key d _389=32
+    DICTUSETB	//  key _390
+    NIP	//  d
+    43 PUSHINT	//  d key
+    38153 PUSHINT	//  d key _394=38153
+    NEWC	//  d key _394=38153 _395
+    16 STU	//  d key _397
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _397 key d _398=32
+    DICTUSETB	//  key _399
+    NIP	//  d
+    44 PUSHINT	//  d key
+    58862 PUSHINT	//  d key _403=58862
+    NEWC	//  d key _403=58862 _404
+    16 STU	//  d key _406
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _406 key d _407=32
+    DICTUSETB	//  key _408
+    NIP	//  d
+    45 PUSHINT	//  d key
+    62927 PUSHINT	//  d key _412=62927
+    NEWC	//  d key _412=62927 _413
+    16 STU	//  d key _415
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _415 key d _416=32
+    DICTUSETB	//  key _417
+    NIP	//  d
+    46 PUSHINT	//  d key
+    50604 PUSHINT	//  d key _421=50604
+    NEWC	//  d key _421=50604 _422
+    16 STU	//  d key _424
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _424 key d _425=32
+    DICTUSETB	//  key _426
+    NIP	//  d
+    47 PUSHINT	//  d key
+    54669 PUSHINT	//  d key _430=54669
+    NEWC	//  d key _430=54669 _431
+    16 STU	//  d key _433
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _433 key d _434=32
+    DICTUSETB	//  key _435
+    NIP	//  d
+    48 PUSHINT	//  d key
+    13907 PUSHINT	//  d key _439=13907
+    NEWC	//  d key _439=13907 _440
+    16 STU	//  d key _442
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _442 key d _443=32
+    DICTUSETB	//  key _444
+    NIP	//  d
+    49 PUSHINT	//  d key
+    9842 PUSHINT	//  d key _448=9842
+    NEWC	//  d key _448=9842 _449
+    16 STU	//  d key _451
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _451 key d _452=32
+    DICTUSETB	//  key _453
+    NIP	//  d
+    50 PUSHINT	//  d key
+    5649 PUSHINT	//  d key _457=5649
+    NEWC	//  d key _457=5649 _458
+    16 STU	//  d key _460
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _460 key d _461=32
+    DICTUSETB	//  key _462
+    NIP	//  d
+    51 PUSHINT	//  d key
+    1584 PUSHINT	//  d key _466=1584
+    NEWC	//  d key _466=1584 _467
+    16 STU	//  d key _469
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _469 key d _470=32
+    DICTUSETB	//  key _471
+    NIP	//  d
+    52 PUSHINT	//  d key
+    30423 PUSHINT	//  d key _475=30423
+    NEWC	//  d key _475=30423 _476
+    16 STU	//  d key _478
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _478 key d _479=32
+    DICTUSETB	//  key _480
+    NIP	//  d
+    53 PUSHINT	//  d key
+    26358 PUSHINT	//  d key _484=26358
+    NEWC	//  d key _484=26358 _485
+    16 STU	//  d key _487
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _487 key d _488=32
+    DICTUSETB	//  key _489
+    NIP	//  d
+    54 PUSHINT	//  d key
+    22165 PUSHINT	//  d key _493=22165
+    NEWC	//  d key _493=22165 _494
+    16 STU	//  d key _496
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _496 key d _497=32
+    DICTUSETB	//  key _498
+    NIP	//  d
+    55 PUSHINT	//  d key
+    18100 PUSHINT	//  d key _502=18100
+    NEWC	//  d key _502=18100 _503
+    16 STU	//  d key _505
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _505 key d _506=32
+    DICTUSETB	//  key _507
+    NIP	//  d
+    56 PUSHINT	//  d key
+    46939 PUSHINT	//  d key _511=46939
+    NEWC	//  d key _511=46939 _512
+    16 STU	//  d key _514
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _514 key d _515=32
+    DICTUSETB	//  key _516
+    NIP	//  d
+    57 PUSHINT	//  d key
+    42874 PUSHINT	//  d key _520=42874
+    NEWC	//  d key _520=42874 _521
+    16 STU	//  d key _523
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _523 key d _524=32
+    DICTUSETB	//  key _525
+    NIP	//  d
+    58 PUSHINT	//  d key
+    38681 PUSHINT	//  d key _529=38681
+    NEWC	//  d key _529=38681 _530
+    16 STU	//  d key _532
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _532 key d _533=32
+    DICTUSETB	//  key _534
+    NIP	//  d
+    59 PUSHINT	//  d key
+    34616 PUSHINT	//  d key _538=34616
+    NEWC	//  d key _538=34616 _539
+    16 STU	//  d key _541
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _541 key d _542=32
+    DICTUSETB	//  key _543
+    NIP	//  d
+    60 PUSHINT	//  d key
+    63455 PUSHINT	//  d key _547=63455
+    NEWC	//  d key _547=63455 _548
+    16 STU	//  d key _550
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _550 key d _551=32
+    DICTUSETB	//  key _552
+    NIP	//  d
+    61 PUSHINT	//  d key
+    59390 PUSHINT	//  d key _556=59390
+    NEWC	//  d key _556=59390 _557
+    16 STU	//  d key _559
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _559 key d _560=32
+    DICTUSETB	//  key _561
+    NIP	//  d
+    62 PUSHINT	//  d key
+    55197 PUSHINT	//  d key _565=55197
+    NEWC	//  d key _565=55197 _566
+    16 STU	//  d key _568
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _568 key d _569=32
+    DICTUSETB	//  key _570
+    NIP	//  d
+    63 PUSHINT	//  d key
+    51132 PUSHINT	//  d key _574=51132
+    NEWC	//  d key _574=51132 _575
+    16 STU	//  d key _577
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _577 key d _578=32
+    DICTUSETB	//  key _579
+    NIP	//  d
+    64 PUSHINT	//  d key
+    18628 PUSHINT	//  d key _583=18628
+    NEWC	//  d key _583=18628 _584
+    16 STU	//  d key _586
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _586 key d _587=32
+    DICTUSETB	//  key _588
+    NIP	//  d
+    65 PUSHINT	//  d key
+    22757 PUSHINT	//  d key _592=22757
+    NEWC	//  d key _592=22757 _593
+    16 STU	//  d key _595
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _595 key d _596=32
+    DICTUSETB	//  key _597
+    NIP	//  d
+    66 PUSHINT	//  d key
+    26758 PUSHINT	//  d key _601=26758
+    NEWC	//  d key _601=26758 _602
+    16 STU	//  d key _604
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _604 key d _605=32
+    DICTUSETB	//  key _606
+    NIP	//  d
+    67 PUSHINT	//  d key
+    30887 PUSHINT	//  d key _610=30887
+    NEWC	//  d key _610=30887 _611
+    16 STU	//  d key _613
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _613 key d _614=32
+    DICTUSETB	//  key _615
+    NIP	//  d
+    68 PUSHINT	//  d key
+    2112 PUSHINT	//  d key _619=2112
+    NEWC	//  d key _619=2112 _620
+    16 STU	//  d key _622
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _622 key d _623=32
+    DICTUSETB	//  key _624
+    NIP	//  d
+    69 PUSHINT	//  d key
+    6241 PUSHINT	//  d key _628=6241
+    NEWC	//  d key _628=6241 _629
+    16 STU	//  d key _631
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _631 key d _632=32
+    DICTUSETB	//  key _633
+    NIP	//  d
+    70 PUSHINT	//  d key
+    10242 PUSHINT	//  d key _637=10242
+    NEWC	//  d key _637=10242 _638
+    16 STU	//  d key _640
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _640 key d _641=32
+    DICTUSETB	//  key _642
+    NIP	//  d
+    71 PUSHINT	//  d key
+    14371 PUSHINT	//  d key _646=14371
+    NEWC	//  d key _646=14371 _647
+    16 STU	//  d key _649
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _649 key d _650=32
+    DICTUSETB	//  key _651
+    NIP	//  d
+    72 PUSHINT	//  d key
+    51660 PUSHINT	//  d key _655=51660
+    NEWC	//  d key _655=51660 _656
+    16 STU	//  d key _658
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _658 key d _659=32
+    DICTUSETB	//  key _660
+    NIP	//  d
+    73 PUSHINT	//  d key
+    55789 PUSHINT	//  d key _664=55789
+    NEWC	//  d key _664=55789 _665
+    16 STU	//  d key _667
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _667 key d _668=32
+    DICTUSETB	//  key _669
+    NIP	//  d
+    74 PUSHINT	//  d key
+    59790 PUSHINT	//  d key _673=59790
+    NEWC	//  d key _673=59790 _674
+    16 STU	//  d key _676
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _676 key d _677=32
+    DICTUSETB	//  key _678
+    NIP	//  d
+    75 PUSHINT	//  d key
+    63919 PUSHINT	//  d key _682=63919
+    NEWC	//  d key _682=63919 _683
+    16 STU	//  d key _685
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _685 key d _686=32
+    DICTUSETB	//  key _687
+    NIP	//  d
+    76 PUSHINT	//  d key
+    35144 PUSHINT	//  d key _691=35144
+    NEWC	//  d key _691=35144 _692
+    16 STU	//  d key _694
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _694 key d _695=32
+    DICTUSETB	//  key _696
+    NIP	//  d
+    77 PUSHINT	//  d key
+    39273 PUSHINT	//  d key _700=39273
+    NEWC	//  d key _700=39273 _701
+    16 STU	//  d key _703
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _703 key d _704=32
+    DICTUSETB	//  key _705
+    NIP	//  d
+    78 PUSHINT	//  d key
+    43274 PUSHINT	//  d key _709=43274
+    NEWC	//  d key _709=43274 _710
+    16 STU	//  d key _712
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _712 key d _713=32
+    DICTUSETB	//  key _714
+    NIP	//  d
+    79 PUSHINT	//  d key
+    47403 PUSHINT	//  d key _718=47403
+    NEWC	//  d key _718=47403 _719
+    16 STU	//  d key _721
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _721 key d _722=32
+    DICTUSETB	//  key _723
+    NIP	//  d
+    80 PUSHINT	//  d key
+    23285 PUSHINT	//  d key _727=23285
+    NEWC	//  d key _727=23285 _728
+    16 STU	//  d key _730
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _730 key d _731=32
+    DICTUSETB	//  key _732
+    NIP	//  d
+    81 PUSHINT	//  d key
+    19156 PUSHINT	//  d key _736=19156
+    NEWC	//  d key _736=19156 _737
+    16 STU	//  d key _739
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _739 key d _740=32
+    DICTUSETB	//  key _741
+    NIP	//  d
+    82 PUSHINT	//  d key
+    31415 PUSHINT	//  d key _745=31415
+    NEWC	//  d key _745=31415 _746
+    16 STU	//  d key _748
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _748 key d _749=32
+    DICTUSETB	//  key _750
+    NIP	//  d
+    83 PUSHINT	//  d key
+    27286 PUSHINT	//  d key _754=27286
+    NEWC	//  d key _754=27286 _755
+    16 STU	//  d key _757
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _757 key d _758=32
+    DICTUSETB	//  key _759
+    NIP	//  d
+    84 PUSHINT	//  d key
+    6769 PUSHINT	//  d key _763=6769
+    NEWC	//  d key _763=6769 _764
+    16 STU	//  d key _766
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _766 key d _767=32
+    DICTUSETB	//  key _768
+    NIP	//  d
+    85 PUSHINT	//  d key
+    2640 PUSHINT	//  d key _772=2640
+    NEWC	//  d key _772=2640 _773
+    16 STU	//  d key _775
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _775 key d _776=32
+    DICTUSETB	//  key _777
+    NIP	//  d
+    86 PUSHINT	//  d key
+    14899 PUSHINT	//  d key _781=14899
+    NEWC	//  d key _781=14899 _782
+    16 STU	//  d key _784
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _784 key d _785=32
+    DICTUSETB	//  key _786
+    NIP	//  d
+    87 PUSHINT	//  d key
+    10770 PUSHINT	//  d key _790=10770
+    NEWC	//  d key _790=10770 _791
+    16 STU	//  d key _793
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _793 key d _794=32
+    DICTUSETB	//  key _795
+    NIP	//  d
+    88 PUSHINT	//  d key
+    56317 PUSHINT	//  d key _799=56317
+    NEWC	//  d key _799=56317 _800
+    16 STU	//  d key _802
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _802 key d _803=32
+    DICTUSETB	//  key _804
+    NIP	//  d
+    89 PUSHINT	//  d key
+    52188 PUSHINT	//  d key _808=52188
+    NEWC	//  d key _808=52188 _809
+    16 STU	//  d key _811
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _811 key d _812=32
+    DICTUSETB	//  key _813
+    NIP	//  d
+    90 PUSHINT	//  d key
+    64447 PUSHINT	//  d key _817=64447
+    NEWC	//  d key _817=64447 _818
+    16 STU	//  d key _820
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _820 key d _821=32
+    DICTUSETB	//  key _822
+    NIP	//  d
+    91 PUSHINT	//  d key
+    60318 PUSHINT	//  d key _826=60318
+    NEWC	//  d key _826=60318 _827
+    16 STU	//  d key _829
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _829 key d _830=32
+    DICTUSETB	//  key _831
+    NIP	//  d
+    92 PUSHINT	//  d key
+    39801 PUSHINT	//  d key _835=39801
+    NEWC	//  d key _835=39801 _836
+    16 STU	//  d key _838
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _838 key d _839=32
+    DICTUSETB	//  key _840
+    NIP	//  d
+    93 PUSHINT	//  d key
+    35672 PUSHINT	//  d key _844=35672
+    NEWC	//  d key _844=35672 _845
+    16 STU	//  d key _847
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _847 key d _848=32
+    DICTUSETB	//  key _849
+    NIP	//  d
+    94 PUSHINT	//  d key
+    47931 PUSHINT	//  d key _853=47931
+    NEWC	//  d key _853=47931 _854
+    16 STU	//  d key _856
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _856 key d _857=32
+    DICTUSETB	//  key _858
+    NIP	//  d
+    95 PUSHINT	//  d key
+    43802 PUSHINT	//  d key _862=43802
+    NEWC	//  d key _862=43802 _863
+    16 STU	//  d key _865
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _865 key d _866=32
+    DICTUSETB	//  key _867
+    NIP	//  d
+    96 PUSHINT	//  d key
+    27814 PUSHINT	//  d key _871=27814
+    NEWC	//  d key _871=27814 _872
+    16 STU	//  d key _874
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _874 key d _875=32
+    DICTUSETB	//  key _876
+    NIP	//  d
+    97 PUSHINT	//  d key
+    31879 PUSHINT	//  d key _880=31879
+    NEWC	//  d key _880=31879 _881
+    16 STU	//  d key _883
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _883 key d _884=32
+    DICTUSETB	//  key _885
+    NIP	//  d
+    98 PUSHINT	//  d key
+    19684 PUSHINT	//  d key _889=19684
+    NEWC	//  d key _889=19684 _890
+    16 STU	//  d key _892
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _892 key d _893=32
+    DICTUSETB	//  key _894
+    NIP	//  d
+    99 PUSHINT	//  d key
+    23749 PUSHINT	//  d key _898=23749
+    NEWC	//  d key _898=23749 _899
+    16 STU	//  d key _901
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _901 key d _902=32
+    DICTUSETB	//  key _903
+    NIP	//  d
+    100 PUSHINT	//  d key
+    11298 PUSHINT	//  d key _907=11298
+    NEWC	//  d key _907=11298 _908
+    16 STU	//  d key _910
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _910 key d _911=32
+    DICTUSETB	//  key _912
+    NIP	//  d
+    101 PUSHINT	//  d key
+    15363 PUSHINT	//  d key _916=15363
+    NEWC	//  d key _916=15363 _917
+    16 STU	//  d key _919
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _919 key d _920=32
+    DICTUSETB	//  key _921
+    NIP	//  d
+    102 PUSHINT	//  d key
+    3168 PUSHINT	//  d key _925=3168
+    NEWC	//  d key _925=3168 _926
+    16 STU	//  d key _928
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _928 key d _929=32
+    DICTUSETB	//  key _930
+    NIP	//  d
+    103 PUSHINT	//  d key
+    7233 PUSHINT	//  d key _934=7233
+    NEWC	//  d key _934=7233 _935
+    16 STU	//  d key _937
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _937 key d _938=32
+    DICTUSETB	//  key _939
+    NIP	//  d
+    104 PUSHINT	//  d key
+    60846 PUSHINT	//  d key _943=60846
+    NEWC	//  d key _943=60846 _944
+    16 STU	//  d key _946
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _946 key d _947=32
+    DICTUSETB	//  key _948
+    NIP	//  d
+    105 PUSHINT	//  d key
+    64911 PUSHINT	//  d key _952=64911
+    NEWC	//  d key _952=64911 _953
+    16 STU	//  d key _955
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _955 key d _956=32
+    DICTUSETB	//  key _957
+    NIP	//  d
+    106 PUSHINT	//  d key
+    52716 PUSHINT	//  d key _961=52716
+    NEWC	//  d key _961=52716 _962
+    16 STU	//  d key _964
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _964 key d _965=32
+    DICTUSETB	//  key _966
+    NIP	//  d
+    107 PUSHINT	//  d key
+    56781 PUSHINT	//  d key _970=56781
+    NEWC	//  d key _970=56781 _971
+    16 STU	//  d key _973
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _973 key d _974=32
+    DICTUSETB	//  key _975
+    NIP	//  d
+    108 PUSHINT	//  d key
+    44330 PUSHINT	//  d key _979=44330
+    NEWC	//  d key _979=44330 _980
+    16 STU	//  d key _982
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _982 key d _983=32
+    DICTUSETB	//  key _984
+    NIP	//  d
+    109 PUSHINT	//  d key
+    48395 PUSHINT	//  d key _988=48395
+    NEWC	//  d key _988=48395 _989
+    16 STU	//  d key _991
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _991 key d _992=32
+    DICTUSETB	//  key _993
+    NIP	//  d
+    110 PUSHINT	//  d key
+    36200 PUSHINT	//  d key _997=36200
+    NEWC	//  d key _997=36200 _998
+    16 STU	//  d key _1000
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1000 key d _1001=32
+    DICTUSETB	//  key _1002
+    NIP	//  d
+    111 PUSHINT	//  d key
+    40265 PUSHINT	//  d key _1006=40265
+    NEWC	//  d key _1006=40265 _1007
+    16 STU	//  d key _1009
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1009 key d _1010=32
+    DICTUSETB	//  key _1011
+    NIP	//  d
+    112 PUSHINT	//  d key
+    32407 PUSHINT	//  d key _1015=32407
+    NEWC	//  d key _1015=32407 _1016
+    16 STU	//  d key _1018
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1018 key d _1019=32
+    DICTUSETB	//  key _1020
+    NIP	//  d
+    113 PUSHINT	//  d key
+    28342 PUSHINT	//  d key _1024=28342
+    NEWC	//  d key _1024=28342 _1025
+    16 STU	//  d key _1027
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1027 key d _1028=32
+    DICTUSETB	//  key _1029
+    NIP	//  d
+    114 PUSHINT	//  d key
+    24277 PUSHINT	//  d key _1033=24277
+    NEWC	//  d key _1033=24277 _1034
+    16 STU	//  d key _1036
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1036 key d _1037=32
+    DICTUSETB	//  key _1038
+    NIP	//  d
+    115 PUSHINT	//  d key
+    20212 PUSHINT	//  d key _1042=20212
+    NEWC	//  d key _1042=20212 _1043
+    16 STU	//  d key _1045
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1045 key d _1046=32
+    DICTUSETB	//  key _1047
+    NIP	//  d
+    116 PUSHINT	//  d key
+    15891 PUSHINT	//  d key _1051=15891
+    NEWC	//  d key _1051=15891 _1052
+    16 STU	//  d key _1054
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1054 key d _1055=32
+    DICTUSETB	//  key _1056
+    NIP	//  d
+    117 PUSHINT	//  d key
+    11826 PUSHINT	//  d key _1060=11826
+    NEWC	//  d key _1060=11826 _1061
+    16 STU	//  d key _1063
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1063 key d _1064=32
+    DICTUSETB	//  key _1065
+    NIP	//  d
+    118 PUSHINT	//  d key
+    7761 PUSHINT	//  d key _1069=7761
+    NEWC	//  d key _1069=7761 _1070
+    16 STU	//  d key _1072
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1072 key d _1073=32
+    DICTUSETB	//  key _1074
+    NIP	//  d
+    119 PUSHINT	//  d key
+    3696 PUSHINT	//  d key _1078=3696
+    NEWC	//  d key _1078=3696 _1079
+    16 STU	//  d key _1081
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1081 key d _1082=32
+    DICTUSETB	//  key _1083
+    NIP	//  d
+    120 PUSHINT	//  d key
+    65439 PUSHINT	//  d key _1087=65439
+    NEWC	//  d key _1087=65439 _1088
+    16 STU	//  d key _1090
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1090 key d _1091=32
+    DICTUSETB	//  key _1092
+    NIP	//  d
+    121 PUSHINT	//  d key
+    61374 PUSHINT	//  d key _1096=61374
+    NEWC	//  d key _1096=61374 _1097
+    16 STU	//  d key _1099
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1099 key d _1100=32
+    DICTUSETB	//  key _1101
+    NIP	//  d
+    122 PUSHINT	//  d key
+    57309 PUSHINT	//  d key _1105=57309
+    NEWC	//  d key _1105=57309 _1106
+    16 STU	//  d key _1108
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1108 key d _1109=32
+    DICTUSETB	//  key _1110
+    NIP	//  d
+    123 PUSHINT	//  d key
+    53244 PUSHINT	//  d key _1114=53244
+    NEWC	//  d key _1114=53244 _1115
+    16 STU	//  d key _1117
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1117 key d _1118=32
+    DICTUSETB	//  key _1119
+    NIP	//  d
+    124 PUSHINT	//  d key
+    48923 PUSHINT	//  d key _1123=48923
+    NEWC	//  d key _1123=48923 _1124
+    16 STU	//  d key _1126
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1126 key d _1127=32
+    DICTUSETB	//  key _1128
+    NIP	//  d
+    125 PUSHINT	//  d key
+    44858 PUSHINT	//  d key _1132=44858
+    NEWC	//  d key _1132=44858 _1133
+    16 STU	//  d key _1135
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1135 key d _1136=32
+    DICTUSETB	//  key _1137
+    NIP	//  d
+    126 PUSHINT	//  d key
+    40793 PUSHINT	//  d key _1141=40793
+    NEWC	//  d key _1141=40793 _1142
+    16 STU	//  d key _1144
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1144 key d _1145=32
+    DICTUSETB	//  key _1146
+    NIP	//  d
+    127 PUSHINT	//  d key
+    36728 PUSHINT	//  d key _1150=36728
+    NEWC	//  d key _1150=36728 _1151
+    16 STU	//  d key _1153
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1153 key d _1154=32
+    DICTUSETB	//  key _1155
+    NIP	//  d
+    7 PUSHPOW2	//  d key
+    37256 PUSHINT	//  d key _1159=37256
+    NEWC	//  d key _1159=37256 _1160
+    16 STU	//  d key _1162
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1162 key d _1163=32
+    DICTUSETB	//  key _1164
+    NIP	//  d
+    129 PUSHINT	//  d key
+    33193 PUSHINT	//  d key _1168=33193
+    NEWC	//  d key _1168=33193 _1169
+    16 STU	//  d key _1171
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1171 key d _1172=32
+    DICTUSETB	//  key _1173
+    NIP	//  d
+    130 PUSHINT	//  d key
+    45514 PUSHINT	//  d key _1177=45514
+    NEWC	//  d key _1177=45514 _1178
+    16 STU	//  d key _1180
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1180 key d _1181=32
+    DICTUSETB	//  key _1182
+    NIP	//  d
+    131 PUSHINT	//  d key
+    41451 PUSHINT	//  d key _1186=41451
+    NEWC	//  d key _1186=41451 _1187
+    16 STU	//  d key _1189
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1189 key d _1190=32
+    DICTUSETB	//  key _1191
+    NIP	//  d
+    132 PUSHINT	//  d key
+    53516 PUSHINT	//  d key _1195=53516
+    NEWC	//  d key _1195=53516 _1196
+    16 STU	//  d key _1198
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1198 key d _1199=32
+    DICTUSETB	//  key _1200
+    NIP	//  d
+    133 PUSHINT	//  d key
+    49453 PUSHINT	//  d key _1204=49453
+    NEWC	//  d key _1204=49453 _1205
+    16 STU	//  d key _1207
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1207 key d _1208=32
+    DICTUSETB	//  key _1209
+    NIP	//  d
+    134 PUSHINT	//  d key
+    61774 PUSHINT	//  d key _1213=61774
+    NEWC	//  d key _1213=61774 _1214
+    16 STU	//  d key _1216
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1216 key d _1217=32
+    DICTUSETB	//  key _1218
+    NIP	//  d
+    135 PUSHINT	//  d key
+    57711 PUSHINT	//  d key _1222=57711
+    NEWC	//  d key _1222=57711 _1223
+    16 STU	//  d key _1225
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1225 key d _1226=32
+    DICTUSETB	//  key _1227
+    NIP	//  d
+    136 PUSHINT	//  d key
+    4224 PUSHINT	//  d key _1231=4224
+    NEWC	//  d key _1231=4224 _1232
+    16 STU	//  d key _1234
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1234 key d _1235=32
+    DICTUSETB	//  key _1236
+    NIP	//  d
+    137 PUSHINT	//  d key
+    161 PUSHINT	//  d key _1240=161
+    NEWC	//  d key _1240=161 _1241
+    16 STU	//  d key _1243
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1243 key d _1244=32
+    DICTUSETB	//  key _1245
+    NIP	//  d
+    138 PUSHINT	//  d key
+    12482 PUSHINT	//  d key _1249=12482
+    NEWC	//  d key _1249=12482 _1250
+    16 STU	//  d key _1252
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1252 key d _1253=32
+    DICTUSETB	//  key _1254
+    NIP	//  d
+    139 PUSHINT	//  d key
+    8419 PUSHINT	//  d key _1258=8419
+    NEWC	//  d key _1258=8419 _1259
+    16 STU	//  d key _1261
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1261 key d _1262=32
+    DICTUSETB	//  key _1263
+    NIP	//  d
+    140 PUSHINT	//  d key
+    20484 PUSHINT	//  d key _1267=20484
+    NEWC	//  d key _1267=20484 _1268
+    16 STU	//  d key _1270
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1270 key d _1271=32
+    DICTUSETB	//  key _1272
+    NIP	//  d
+    141 PUSHINT	//  d key
+    16421 PUSHINT	//  d key _1276=16421
+    NEWC	//  d key _1276=16421 _1277
+    16 STU	//  d key _1279
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1279 key d _1280=32
+    DICTUSETB	//  key _1281
+    NIP	//  d
+    142 PUSHINT	//  d key
+    28742 PUSHINT	//  d key _1285=28742
+    NEWC	//  d key _1285=28742 _1286
+    16 STU	//  d key _1288
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1288 key d _1289=32
+    DICTUSETB	//  key _1290
+    NIP	//  d
+    143 PUSHINT	//  d key
+    24679 PUSHINT	//  d key _1294=24679
+    NEWC	//  d key _1294=24679 _1295
+    16 STU	//  d key _1297
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1297 key d _1298=32
+    DICTUSETB	//  key _1299
+    NIP	//  d
+    144 PUSHINT	//  d key
+    33721 PUSHINT	//  d key _1303=33721
+    NEWC	//  d key _1303=33721 _1304
+    16 STU	//  d key _1306
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1306 key d _1307=32
+    DICTUSETB	//  key _1308
+    NIP	//  d
+    145 PUSHINT	//  d key
+    37784 PUSHINT	//  d key _1312=37784
+    NEWC	//  d key _1312=37784 _1313
+    16 STU	//  d key _1315
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1315 key d _1316=32
+    DICTUSETB	//  key _1317
+    NIP	//  d
+    146 PUSHINT	//  d key
+    41979 PUSHINT	//  d key _1321=41979
+    NEWC	//  d key _1321=41979 _1322
+    16 STU	//  d key _1324
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1324 key d _1325=32
+    DICTUSETB	//  key _1326
+    NIP	//  d
+    147 PUSHINT	//  d key
+    46042 PUSHINT	//  d key _1330=46042
+    NEWC	//  d key _1330=46042 _1331
+    16 STU	//  d key _1333
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1333 key d _1334=32
+    DICTUSETB	//  key _1335
+    NIP	//  d
+    148 PUSHINT	//  d key
+    49981 PUSHINT	//  d key _1339=49981
+    NEWC	//  d key _1339=49981 _1340
+    16 STU	//  d key _1342
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1342 key d _1343=32
+    DICTUSETB	//  key _1344
+    NIP	//  d
+    149 PUSHINT	//  d key
+    54044 PUSHINT	//  d key _1348=54044
+    NEWC	//  d key _1348=54044 _1349
+    16 STU	//  d key _1351
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1351 key d _1352=32
+    DICTUSETB	//  key _1353
+    NIP	//  d
+    150 PUSHINT	//  d key
+    58239 PUSHINT	//  d key _1357=58239
+    NEWC	//  d key _1357=58239 _1358
+    16 STU	//  d key _1360
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1360 key d _1361=32
+    DICTUSETB	//  key _1362
+    NIP	//  d
+    151 PUSHINT	//  d key
+    62302 PUSHINT	//  d key _1366=62302
+    NEWC	//  d key _1366=62302 _1367
+    16 STU	//  d key _1369
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1369 key d _1370=32
+    DICTUSETB	//  key _1371
+    NIP	//  d
+    152 PUSHINT	//  d key
+    689 PUSHINT	//  d key _1375=689
+    NEWC	//  d key _1375=689 _1376
+    16 STU	//  d key _1378
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1378 key d _1379=32
+    DICTUSETB	//  key _1380
+    NIP	//  d
+    153 PUSHINT	//  d key
+    4752 PUSHINT	//  d key _1384=4752
+    NEWC	//  d key _1384=4752 _1385
+    16 STU	//  d key _1387
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1387 key d _1388=32
+    DICTUSETB	//  key _1389
+    NIP	//  d
+    154 PUSHINT	//  d key
+    8947 PUSHINT	//  d key _1393=8947
+    NEWC	//  d key _1393=8947 _1394
+    16 STU	//  d key _1396
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1396 key d _1397=32
+    DICTUSETB	//  key _1398
+    NIP	//  d
+    155 PUSHINT	//  d key
+    13010 PUSHINT	//  d key _1402=13010
+    NEWC	//  d key _1402=13010 _1403
+    16 STU	//  d key _1405
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1405 key d _1406=32
+    DICTUSETB	//  key _1407
+    NIP	//  d
+    156 PUSHINT	//  d key
+    16949 PUSHINT	//  d key _1411=16949
+    NEWC	//  d key _1411=16949 _1412
+    16 STU	//  d key _1414
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1414 key d _1415=32
+    DICTUSETB	//  key _1416
+    NIP	//  d
+    157 PUSHINT	//  d key
+    21012 PUSHINT	//  d key _1420=21012
+    NEWC	//  d key _1420=21012 _1421
+    16 STU	//  d key _1423
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1423 key d _1424=32
+    DICTUSETB	//  key _1425
+    NIP	//  d
+    158 PUSHINT	//  d key
+    25207 PUSHINT	//  d key _1429=25207
+    NEWC	//  d key _1429=25207 _1430
+    16 STU	//  d key _1432
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1432 key d _1433=32
+    DICTUSETB	//  key _1434
+    NIP	//  d
+    159 PUSHINT	//  d key
+    29270 PUSHINT	//  d key _1438=29270
+    NEWC	//  d key _1438=29270 _1439
+    16 STU	//  d key _1441
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1441 key d _1442=32
+    DICTUSETB	//  key _1443
+    NIP	//  d
+    160 PUSHINT	//  d key
+    46570 PUSHINT	//  d key _1447=46570
+    NEWC	//  d key _1447=46570 _1448
+    16 STU	//  d key _1450
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1450 key d _1451=32
+    DICTUSETB	//  key _1452
+    NIP	//  d
+    161 PUSHINT	//  d key
+    42443 PUSHINT	//  d key _1456=42443
+    NEWC	//  d key _1456=42443 _1457
+    16 STU	//  d key _1459
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1459 key d _1460=32
+    DICTUSETB	//  key _1461
+    NIP	//  d
+    162 PUSHINT	//  d key
+    38312 PUSHINT	//  d key _1465=38312
+    NEWC	//  d key _1465=38312 _1466
+    16 STU	//  d key _1468
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1468 key d _1469=32
+    DICTUSETB	//  key _1470
+    NIP	//  d
+    163 PUSHINT	//  d key
+    34185 PUSHINT	//  d key _1474=34185
+    NEWC	//  d key _1474=34185 _1475
+    16 STU	//  d key _1477
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1477 key d _1478=32
+    DICTUSETB	//  key _1479
+    NIP	//  d
+    164 PUSHINT	//  d key
+    62830 PUSHINT	//  d key _1483=62830
+    NEWC	//  d key _1483=62830 _1484
+    16 STU	//  d key _1486
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1486 key d _1487=32
+    DICTUSETB	//  key _1488
+    NIP	//  d
+    165 PUSHINT	//  d key
+    58703 PUSHINT	//  d key _1492=58703
+    NEWC	//  d key _1492=58703 _1493
+    16 STU	//  d key _1495
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1495 key d _1496=32
+    DICTUSETB	//  key _1497
+    NIP	//  d
+    166 PUSHINT	//  d key
+    54572 PUSHINT	//  d key _1501=54572
+    NEWC	//  d key _1501=54572 _1502
+    16 STU	//  d key _1504
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1504 key d _1505=32
+    DICTUSETB	//  key _1506
+    NIP	//  d
+    167 PUSHINT	//  d key
+    50445 PUSHINT	//  d key _1510=50445
+    NEWC	//  d key _1510=50445 _1511
+    16 STU	//  d key _1513
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1513 key d _1514=32
+    DICTUSETB	//  key _1515
+    NIP	//  d
+    168 PUSHINT	//  d key
+    13538 PUSHINT	//  d key _1519=13538
+    NEWC	//  d key _1519=13538 _1520
+    16 STU	//  d key _1522
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1522 key d _1523=32
+    DICTUSETB	//  key _1524
+    NIP	//  d
+    169 PUSHINT	//  d key
+    9411 PUSHINT	//  d key _1528=9411
+    NEWC	//  d key _1528=9411 _1529
+    16 STU	//  d key _1531
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1531 key d _1532=32
+    DICTUSETB	//  key _1533
+    NIP	//  d
+    170 PUSHINT	//  d key
+    5280 PUSHINT	//  d key _1537=5280
+    NEWC	//  d key _1537=5280 _1538
+    16 STU	//  d key _1540
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1540 key d _1541=32
+    DICTUSETB	//  key _1542
+    NIP	//  d
+    171 PUSHINT	//  d key
+    1153 PUSHINT	//  d key _1546=1153
+    NEWC	//  d key _1546=1153 _1547
+    16 STU	//  d key _1549
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1549 key d _1550=32
+    DICTUSETB	//  key _1551
+    NIP	//  d
+    172 PUSHINT	//  d key
+    29798 PUSHINT	//  d key _1555=29798
+    NEWC	//  d key _1555=29798 _1556
+    16 STU	//  d key _1558
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1558 key d _1559=32
+    DICTUSETB	//  key _1560
+    NIP	//  d
+    173 PUSHINT	//  d key
+    25671 PUSHINT	//  d key _1564=25671
+    NEWC	//  d key _1564=25671 _1565
+    16 STU	//  d key _1567
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1567 key d _1568=32
+    DICTUSETB	//  key _1569
+    NIP	//  d
+    174 PUSHINT	//  d key
+    21540 PUSHINT	//  d key _1573=21540
+    NEWC	//  d key _1573=21540 _1574
+    16 STU	//  d key _1576
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1576 key d _1577=32
+    DICTUSETB	//  key _1578
+    NIP	//  d
+    175 PUSHINT	//  d key
+    17413 PUSHINT	//  d key _1582=17413
+    NEWC	//  d key _1582=17413 _1583
+    16 STU	//  d key _1585
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1585 key d _1586=32
+    DICTUSETB	//  key _1587
+    NIP	//  d
+    176 PUSHINT	//  d key
+    42971 PUSHINT	//  d key _1591=42971
+    NEWC	//  d key _1591=42971 _1592
+    16 STU	//  d key _1594
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1594 key d _1595=32
+    DICTUSETB	//  key _1596
+    NIP	//  d
+    177 PUSHINT	//  d key
+    47098 PUSHINT	//  d key _1600=47098
+    NEWC	//  d key _1600=47098 _1601
+    16 STU	//  d key _1603
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1603 key d _1604=32
+    DICTUSETB	//  key _1605
+    NIP	//  d
+    178 PUSHINT	//  d key
+    34713 PUSHINT	//  d key _1609=34713
+    NEWC	//  d key _1609=34713 _1610
+    16 STU	//  d key _1612
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1612 key d _1613=32
+    DICTUSETB	//  key _1614
+    NIP	//  d
+    179 PUSHINT	//  d key
+    38840 PUSHINT	//  d key _1618=38840
+    NEWC	//  d key _1618=38840 _1619
+    16 STU	//  d key _1621
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1621 key d _1622=32
+    DICTUSETB	//  key _1623
+    NIP	//  d
+    180 PUSHINT	//  d key
+    59231 PUSHINT	//  d key _1627=59231
+    NEWC	//  d key _1627=59231 _1628
+    16 STU	//  d key _1630
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1630 key d _1631=32
+    DICTUSETB	//  key _1632
+    NIP	//  d
+    181 PUSHINT	//  d key
+    63358 PUSHINT	//  d key _1636=63358
+    NEWC	//  d key _1636=63358 _1637
+    16 STU	//  d key _1639
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1639 key d _1640=32
+    DICTUSETB	//  key _1641
+    NIP	//  d
+    182 PUSHINT	//  d key
+    50973 PUSHINT	//  d key _1645=50973
+    NEWC	//  d key _1645=50973 _1646
+    16 STU	//  d key _1648
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1648 key d _1649=32
+    DICTUSETB	//  key _1650
+    NIP	//  d
+    183 PUSHINT	//  d key
+    55100 PUSHINT	//  d key _1654=55100
+    NEWC	//  d key _1654=55100 _1655
+    16 STU	//  d key _1657
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1657 key d _1658=32
+    DICTUSETB	//  key _1659
+    NIP	//  d
+    184 PUSHINT	//  d key
+    9939 PUSHINT	//  d key _1663=9939
+    NEWC	//  d key _1663=9939 _1664
+    16 STU	//  d key _1666
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1666 key d _1667=32
+    DICTUSETB	//  key _1668
+    NIP	//  d
+    185 PUSHINT	//  d key
+    14066 PUSHINT	//  d key _1672=14066
+    NEWC	//  d key _1672=14066 _1673
+    16 STU	//  d key _1675
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1675 key d _1676=32
+    DICTUSETB	//  key _1677
+    NIP	//  d
+    186 PUSHINT	//  d key
+    1681 PUSHINT	//  d key _1681=1681
+    NEWC	//  d key _1681=1681 _1682
+    16 STU	//  d key _1684
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1684 key d _1685=32
+    DICTUSETB	//  key _1686
+    NIP	//  d
+    187 PUSHINT	//  d key
+    5808 PUSHINT	//  d key _1690=5808
+    NEWC	//  d key _1690=5808 _1691
+    16 STU	//  d key _1693
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1693 key d _1694=32
+    DICTUSETB	//  key _1695
+    NIP	//  d
+    188 PUSHINT	//  d key
+    26199 PUSHINT	//  d key _1699=26199
+    NEWC	//  d key _1699=26199 _1700
+    16 STU	//  d key _1702
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1702 key d _1703=32
+    DICTUSETB	//  key _1704
+    NIP	//  d
+    189 PUSHINT	//  d key
+    30326 PUSHINT	//  d key _1708=30326
+    NEWC	//  d key _1708=30326 _1709
+    16 STU	//  d key _1711
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1711 key d _1712=32
+    DICTUSETB	//  key _1713
+    NIP	//  d
+    190 PUSHINT	//  d key
+    17941 PUSHINT	//  d key _1717=17941
+    NEWC	//  d key _1717=17941 _1718
+    16 STU	//  d key _1720
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1720 key d _1721=32
+    DICTUSETB	//  key _1722
+    NIP	//  d
+    191 PUSHINT	//  d key
+    22068 PUSHINT	//  d key _1726=22068
+    NEWC	//  d key _1726=22068 _1727
+    16 STU	//  d key _1729
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1729 key d _1730=32
+    DICTUSETB	//  key _1731
+    NIP	//  d
+    192 PUSHINT	//  d key
+    55628 PUSHINT	//  d key _1735=55628
+    NEWC	//  d key _1735=55628 _1736
+    16 STU	//  d key _1738
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1738 key d _1739=32
+    DICTUSETB	//  key _1740
+    NIP	//  d
+    193 PUSHINT	//  d key
+    51565 PUSHINT	//  d key _1744=51565
+    NEWC	//  d key _1744=51565 _1745
+    16 STU	//  d key _1747
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1747 key d _1748=32
+    DICTUSETB	//  key _1749
+    NIP	//  d
+    194 PUSHINT	//  d key
+    63758 PUSHINT	//  d key _1753=63758
+    NEWC	//  d key _1753=63758 _1754
+    16 STU	//  d key _1756
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1756 key d _1757=32
+    DICTUSETB	//  key _1758
+    NIP	//  d
+    195 PUSHINT	//  d key
+    59695 PUSHINT	//  d key _1762=59695
+    NEWC	//  d key _1762=59695 _1763
+    16 STU	//  d key _1765
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1765 key d _1766=32
+    DICTUSETB	//  key _1767
+    NIP	//  d
+    196 PUSHINT	//  d key
+    39368 PUSHINT	//  d key _1771=39368
+    NEWC	//  d key _1771=39368 _1772
+    16 STU	//  d key _1774
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1774 key d _1775=32
+    DICTUSETB	//  key _1776
+    NIP	//  d
+    197 PUSHINT	//  d key
+    35305 PUSHINT	//  d key _1780=35305
+    NEWC	//  d key _1780=35305 _1781
+    16 STU	//  d key _1783
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1783 key d _1784=32
+    DICTUSETB	//  key _1785
+    NIP	//  d
+    198 PUSHINT	//  d key
+    47498 PUSHINT	//  d key _1789=47498
+    NEWC	//  d key _1789=47498 _1790
+    16 STU	//  d key _1792
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1792 key d _1793=32
+    DICTUSETB	//  key _1794
+    NIP	//  d
+    199 PUSHINT	//  d key
+    43435 PUSHINT	//  d key _1798=43435
+    NEWC	//  d key _1798=43435 _1799
+    16 STU	//  d key _1801
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1801 key d _1802=32
+    DICTUSETB	//  key _1803
+    NIP	//  d
+    200 PUSHINT	//  d key
+    22596 PUSHINT	//  d key _1807=22596
+    NEWC	//  d key _1807=22596 _1808
+    16 STU	//  d key _1810
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1810 key d _1811=32
+    DICTUSETB	//  key _1812
+    NIP	//  d
+    201 PUSHINT	//  d key
+    18533 PUSHINT	//  d key _1816=18533
+    NEWC	//  d key _1816=18533 _1817
+    16 STU	//  d key _1819
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1819 key d _1820=32
+    DICTUSETB	//  key _1821
+    NIP	//  d
+    202 PUSHINT	//  d key
+    30726 PUSHINT	//  d key _1825=30726
+    NEWC	//  d key _1825=30726 _1826
+    16 STU	//  d key _1828
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1828 key d _1829=32
+    DICTUSETB	//  key _1830
+    NIP	//  d
+    203 PUSHINT	//  d key
+    26663 PUSHINT	//  d key _1834=26663
+    NEWC	//  d key _1834=26663 _1835
+    16 STU	//  d key _1837
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1837 key d _1838=32
+    DICTUSETB	//  key _1839
+    NIP	//  d
+    204 PUSHINT	//  d key
+    6336 PUSHINT	//  d key _1843=6336
+    NEWC	//  d key _1843=6336 _1844
+    16 STU	//  d key _1846
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1846 key d _1847=32
+    DICTUSETB	//  key _1848
+    NIP	//  d
+    205 PUSHINT	//  d key
+    2273 PUSHINT	//  d key _1852=2273
+    NEWC	//  d key _1852=2273 _1853
+    16 STU	//  d key _1855
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1855 key d _1856=32
+    DICTUSETB	//  key _1857
+    NIP	//  d
+    206 PUSHINT	//  d key
+    14466 PUSHINT	//  d key _1861=14466
+    NEWC	//  d key _1861=14466 _1862
+    16 STU	//  d key _1864
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1864 key d _1865=32
+    DICTUSETB	//  key _1866
+    NIP	//  d
+    207 PUSHINT	//  d key
+    10403 PUSHINT	//  d key _1870=10403
+    NEWC	//  d key _1870=10403 _1871
+    16 STU	//  d key _1873
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1873 key d _1874=32
+    DICTUSETB	//  key _1875
+    NIP	//  d
+    208 PUSHINT	//  d key
+    52093 PUSHINT	//  d key _1879=52093
+    NEWC	//  d key _1879=52093 _1880
+    16 STU	//  d key _1882
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1882 key d _1883=32
+    DICTUSETB	//  key _1884
+    NIP	//  d
+    209 PUSHINT	//  d key
+    56156 PUSHINT	//  d key _1888=56156
+    NEWC	//  d key _1888=56156 _1889
+    16 STU	//  d key _1891
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1891 key d _1892=32
+    DICTUSETB	//  key _1893
+    NIP	//  d
+    210 PUSHINT	//  d key
+    60223 PUSHINT	//  d key _1897=60223
+    NEWC	//  d key _1897=60223 _1898
+    16 STU	//  d key _1900
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1900 key d _1901=32
+    DICTUSETB	//  key _1902
+    NIP	//  d
+    211 PUSHINT	//  d key
+    64286 PUSHINT	//  d key _1906=64286
+    NEWC	//  d key _1906=64286 _1907
+    16 STU	//  d key _1909
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1909 key d _1910=32
+    DICTUSETB	//  key _1911
+    NIP	//  d
+    212 PUSHINT	//  d key
+    35833 PUSHINT	//  d key _1915=35833
+    NEWC	//  d key _1915=35833 _1916
+    16 STU	//  d key _1918
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1918 key d _1919=32
+    DICTUSETB	//  key _1920
+    NIP	//  d
+    213 PUSHINT	//  d key
+    39896 PUSHINT	//  d key _1924=39896
+    NEWC	//  d key _1924=39896 _1925
+    16 STU	//  d key _1927
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1927 key d _1928=32
+    DICTUSETB	//  key _1929
+    NIP	//  d
+    214 PUSHINT	//  d key
+    43963 PUSHINT	//  d key _1933=43963
+    NEWC	//  d key _1933=43963 _1934
+    16 STU	//  d key _1936
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1936 key d _1937=32
+    DICTUSETB	//  key _1938
+    NIP	//  d
+    215 PUSHINT	//  d key
+    48026 PUSHINT	//  d key _1942=48026
+    NEWC	//  d key _1942=48026 _1943
+    16 STU	//  d key _1945
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1945 key d _1946=32
+    DICTUSETB	//  key _1947
+    NIP	//  d
+    216 PUSHINT	//  d key
+    19061 PUSHINT	//  d key _1951=19061
+    NEWC	//  d key _1951=19061 _1952
+    16 STU	//  d key _1954
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1954 key d _1955=32
+    DICTUSETB	//  key _1956
+    NIP	//  d
+    217 PUSHINT	//  d key
+    23124 PUSHINT	//  d key _1960=23124
+    NEWC	//  d key _1960=23124 _1961
+    16 STU	//  d key _1963
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1963 key d _1964=32
+    DICTUSETB	//  key _1965
+    NIP	//  d
+    218 PUSHINT	//  d key
+    27191 PUSHINT	//  d key _1969=27191
+    NEWC	//  d key _1969=27191 _1970
+    16 STU	//  d key _1972
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1972 key d _1973=32
+    DICTUSETB	//  key _1974
+    NIP	//  d
+    219 PUSHINT	//  d key
+    31254 PUSHINT	//  d key _1978=31254
+    NEWC	//  d key _1978=31254 _1979
+    16 STU	//  d key _1981
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1981 key d _1982=32
+    DICTUSETB	//  key _1983
+    NIP	//  d
+    220 PUSHINT	//  d key
+    2801 PUSHINT	//  d key _1987=2801
+    NEWC	//  d key _1987=2801 _1988
+    16 STU	//  d key _1990
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1990 key d _1991=32
+    DICTUSETB	//  key _1992
+    NIP	//  d
+    221 PUSHINT	//  d key
+    6864 PUSHINT	//  d key _1996=6864
+    NEWC	//  d key _1996=6864 _1997
+    16 STU	//  d key _1999
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _1999 key d _2000=32
+    DICTUSETB	//  key _2001
+    NIP	//  d
+    222 PUSHINT	//  d key
+    10931 PUSHINT	//  d key _2005=10931
+    NEWC	//  d key _2005=10931 _2006
+    16 STU	//  d key _2008
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2008 key d _2009=32
+    DICTUSETB	//  key _2010
+    NIP	//  d
+    223 PUSHINT	//  d key
+    14994 PUSHINT	//  d key _2014=14994
+    NEWC	//  d key _2014=14994 _2015
+    16 STU	//  d key _2017
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2017 key d _2018=32
+    DICTUSETB	//  key _2019
+    NIP	//  d
+    224 PUSHINT	//  d key
+    64814 PUSHINT	//  d key _2023=64814
+    NEWC	//  d key _2023=64814 _2024
+    16 STU	//  d key _2026
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2026 key d _2027=32
+    DICTUSETB	//  key _2028
+    NIP	//  d
+    225 PUSHINT	//  d key
+    60687 PUSHINT	//  d key _2032=60687
+    NEWC	//  d key _2032=60687 _2033
+    16 STU	//  d key _2035
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2035 key d _2036=32
+    DICTUSETB	//  key _2037
+    NIP	//  d
+    226 PUSHINT	//  d key
+    56684 PUSHINT	//  d key _2041=56684
+    NEWC	//  d key _2041=56684 _2042
+    16 STU	//  d key _2044
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2044 key d _2045=32
+    DICTUSETB	//  key _2046
+    NIP	//  d
+    227 PUSHINT	//  d key
+    52557 PUSHINT	//  d key _2050=52557
+    NEWC	//  d key _2050=52557 _2051
+    16 STU	//  d key _2053
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2053 key d _2054=32
+    DICTUSETB	//  key _2055
+    NIP	//  d
+    228 PUSHINT	//  d key
+    48554 PUSHINT	//  d key _2059=48554
+    NEWC	//  d key _2059=48554 _2060
+    16 STU	//  d key _2062
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2062 key d _2063=32
+    DICTUSETB	//  key _2064
+    NIP	//  d
+    229 PUSHINT	//  d key
+    44427 PUSHINT	//  d key _2068=44427
+    NEWC	//  d key _2068=44427 _2069
+    16 STU	//  d key _2071
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2071 key d _2072=32
+    DICTUSETB	//  key _2073
+    NIP	//  d
+    230 PUSHINT	//  d key
+    40424 PUSHINT	//  d key _2077=40424
+    NEWC	//  d key _2077=40424 _2078
+    16 STU	//  d key _2080
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2080 key d _2081=32
+    DICTUSETB	//  key _2082
+    NIP	//  d
+    231 PUSHINT	//  d key
+    36297 PUSHINT	//  d key _2086=36297
+    NEWC	//  d key _2086=36297 _2087
+    16 STU	//  d key _2089
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2089 key d _2090=32
+    DICTUSETB	//  key _2091
+    NIP	//  d
+    232 PUSHINT	//  d key
+    31782 PUSHINT	//  d key _2095=31782
+    NEWC	//  d key _2095=31782 _2096
+    16 STU	//  d key _2098
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2098 key d _2099=32
+    DICTUSETB	//  key _2100
+    NIP	//  d
+    233 PUSHINT	//  d key
+    27655 PUSHINT	//  d key _2104=27655
+    NEWC	//  d key _2104=27655 _2105
+    16 STU	//  d key _2107
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2107 key d _2108=32
+    DICTUSETB	//  key _2109
+    NIP	//  d
+    234 PUSHINT	//  d key
+    23652 PUSHINT	//  d key _2113=23652
+    NEWC	//  d key _2113=23652 _2114
+    16 STU	//  d key _2116
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2116 key d _2117=32
+    DICTUSETB	//  key _2118
+    NIP	//  d
+    235 PUSHINT	//  d key
+    19525 PUSHINT	//  d key _2122=19525
+    NEWC	//  d key _2122=19525 _2123
+    16 STU	//  d key _2125
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2125 key d _2126=32
+    DICTUSETB	//  key _2127
+    NIP	//  d
+    236 PUSHINT	//  d key
+    15522 PUSHINT	//  d key _2131=15522
+    NEWC	//  d key _2131=15522 _2132
+    16 STU	//  d key _2134
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2134 key d _2135=32
+    DICTUSETB	//  key _2136
+    NIP	//  d
+    237 PUSHINT	//  d key
+    11395 PUSHINT	//  d key _2140=11395
+    NEWC	//  d key _2140=11395 _2141
+    16 STU	//  d key _2143
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2143 key d _2144=32
+    DICTUSETB	//  key _2145
+    NIP	//  d
+    238 PUSHINT	//  d key
+    7392 PUSHINT	//  d key _2149=7392
+    NEWC	//  d key _2149=7392 _2150
+    16 STU	//  d key _2152
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2152 key d _2153=32
+    DICTUSETB	//  key _2154
+    NIP	//  d
+    239 PUSHINT	//  d key
+    3265 PUSHINT	//  d key _2158=3265
+    NEWC	//  d key _2158=3265 _2159
+    16 STU	//  d key _2161
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2161 key d _2162=32
+    DICTUSETB	//  key _2163
+    NIP	//  d
+    240 PUSHINT	//  d key
+    61215 PUSHINT	//  d key _2167=61215
+    NEWC	//  d key _2167=61215 _2168
+    16 STU	//  d key _2170
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2170 key d _2171=32
+    DICTUSETB	//  key _2172
+    NIP	//  d
+    241 PUSHINT	//  d key
+    65342 PUSHINT	//  d key _2176=65342
+    NEWC	//  d key _2176=65342 _2177
+    16 STU	//  d key _2179
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2179 key d _2180=32
+    DICTUSETB	//  key _2181
+    NIP	//  d
+    242 PUSHINT	//  d key
+    53085 PUSHINT	//  d key _2185=53085
+    NEWC	//  d key _2185=53085 _2186
+    16 STU	//  d key _2188
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2188 key d _2189=32
+    DICTUSETB	//  key _2190
+    NIP	//  d
+    243 PUSHINT	//  d key
+    57212 PUSHINT	//  d key _2194=57212
+    NEWC	//  d key _2194=57212 _2195
+    16 STU	//  d key _2197
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2197 key d _2198=32
+    DICTUSETB	//  key _2199
+    NIP	//  d
+    244 PUSHINT	//  d key
+    44955 PUSHINT	//  d key _2203=44955
+    NEWC	//  d key _2203=44955 _2204
+    16 STU	//  d key _2206
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2206 key d _2207=32
+    DICTUSETB	//  key _2208
+    NIP	//  d
+    245 PUSHINT	//  d key
+    49082 PUSHINT	//  d key _2212=49082
+    NEWC	//  d key _2212=49082 _2213
+    16 STU	//  d key _2215
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2215 key d _2216=32
+    DICTUSETB	//  key _2217
+    NIP	//  d
+    246 PUSHINT	//  d key
+    36825 PUSHINT	//  d key _2221=36825
+    NEWC	//  d key _2221=36825 _2222
+    16 STU	//  d key _2224
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2224 key d _2225=32
+    DICTUSETB	//  key _2226
+    NIP	//  d
+    247 PUSHINT	//  d key
+    40952 PUSHINT	//  d key _2230=40952
+    NEWC	//  d key _2230=40952 _2231
+    16 STU	//  d key _2233
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2233 key d _2234=32
+    DICTUSETB	//  key _2235
+    NIP	//  d
+    248 PUSHINT	//  d key
+    28183 PUSHINT	//  d key _2239=28183
+    NEWC	//  d key _2239=28183 _2240
+    16 STU	//  d key _2242
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2242 key d _2243=32
+    DICTUSETB	//  key _2244
+    NIP	//  d
+    249 PUSHINT	//  d key
+    32310 PUSHINT	//  d key _2248=32310
+    NEWC	//  d key _2248=32310 _2249
+    16 STU	//  d key _2251
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2251 key d _2252=32
+    DICTUSETB	//  key _2253
+    NIP	//  d
+    250 PUSHINT	//  d key
+    20053 PUSHINT	//  d key _2257=20053
+    NEWC	//  d key _2257=20053 _2258
+    16 STU	//  d key _2260
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2260 key d _2261=32
+    DICTUSETB	//  key _2262
+    NIP	//  d
+    251 PUSHINT	//  d key
+    24180 PUSHINT	//  d key _2266=24180
+    NEWC	//  d key _2266=24180 _2267
+    16 STU	//  d key _2269
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2269 key d _2270=32
+    DICTUSETB	//  key _2271
+    NIP	//  d
+    252 PUSHINT	//  d key
+    11923 PUSHINT	//  d key _2275=11923
+    NEWC	//  d key _2275=11923 _2276
+    16 STU	//  d key _2278
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2278 key d _2279=32
+    DICTUSETB	//  key _2280
+    NIP	//  d
+    253 PUSHINT	//  d key
+    16050 PUSHINT	//  d key _2284=16050
+    NEWC	//  d key _2284=16050 _2285
+    16 STU	//  d key _2287
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2287 key d _2288=32
+    DICTUSETB	//  key _2289
+    NIP	//  d
+    254 PUSHINT	//  d key
+    3793 PUSHINT	//  d key _2293=3793
+    NEWC	//  d key _2293=3793 _2294
+    16 STU	//  d key _2296
+    s0 s0 s2 XCPUXC
+    32 PUSHINT	//  key _2296 key d _2297=32
+    DICTUSETB	//  key _2298
+    NIP	//  d
+    8 PUSHPOW2DEC	//  d key
+    7920 PUSHINT	//  d key _2302=7920
+    NEWC	//  d key _2302=7920 _2303
+    16 STU	//  d key _2305
+    s0 s2 XCHG
+    32 PUSHINT	//  _2305 key d _2306=32
+    DICTUSETB	//  d
+  }>
+  calc_crc16 PROC:<{
+    //  wc addr
+    generate_crc16_table CALLDICT	//  wc addr table
+    17 PUSHINT	//  wc addr table _5=17
+    NEWC	//  wc addr table _5=17 _6
+    8 STU	//  wc addr table _8
+    s1 s3 XCHG	//  table addr wc _8
+    8 STI	//  table addr _10
+    256 STU	//  table _12
+    ENDC	//  table _13
+    CTOS	//  table bytes
+    0 PUSHINT	//  table bytes crc=0
+    34 PUSHINT	//  table bytes crc=0 _17=34
+    REPEAT:<{	//  table bytes crc
+      SWAP	//  table crc bytes
+      8 LDU	//  table crc byte bytes
+      s2 PUSH	//  table crc byte bytes crc
+      8 RSHIFT#	//  table crc byte bytes _24
+      8 PUSHPOW2DEC	//  table crc byte bytes _24 _25=255
+      AND	//  table crc byte bytes _26
+      ROT	//  table crc bytes _26 byte
+      XOR	//  table crc bytes idx
+      s0 s2 XCHG	//  table idx bytes crc
+      8 LSHIFT#	//  table idx bytes _29
+      65280 PUSHINT	//  table idx bytes _29 _30=65280
+      AND	//  table idx bytes _31
+      s3 s2 PUXC	//  table _31 bytes table idx
+      elem_by_index CALLDICT	//  table _31 bytes _32
+      s1 s2 XCHG	//  table bytes _31 _32
+      XOR	//  table bytes crc
+    }>
+    2 1 BLKDROP2	//  crc
+    16 PUSHPOW2DEC	//  crc _34=65535
+    AND	//  _35
+  }>
+  encode_address PROC:<{
+    //  Address
+    REWRITESTDADDR	//  wc addr
+    2DUP	//  wc addr wc addr
+    calc_crc16 CALLDICT	//  wc addr crc16
+    17 PUSHINT	//  wc addr crc16 _7=17
+    NEWC	//  wc addr crc16 _7=17 _8
+    8 STU	//  wc addr crc16 _10
+    s1 s3 XCHG	//  crc16 addr wc _10
+    8 STI	//  crc16 addr _12
+    256 STU	//  crc16 _14
+    16 STU	//  _16
+    ENDC	//  _17
+    CTOS	//  user_friendly_addr
+    NEWC	//  user_friendly_addr base64url_builder
+    48 PUSHINT	//  user_friendly_addr base64url_builder _21=48
+    REPEAT:<{	//  user_friendly_addr base64url_builder
+      SWAP	//  base64url_builder user_friendly_addr
+      6 LDU	//  base64url_builder next_char_idx user_friendly_addr
+      SWAP	//  base64url_builder user_friendly_addr next_char_idx
+      get_alphabet_char CALLDICT	//  base64url_builder user_friendly_addr char
+      NEWC	//  base64url_builder user_friendly_addr char _28
+      8 STU	//  base64url_builder user_friendly_addr _30
+      ENDC	//  base64url_builder user_friendly_addr _31
+      CTOS	//  base64url_builder user_friendly_addr _32
+      s1 s2 XCHG	//  user_friendly_addr base64url_builder _32
+      STSLICER	//  user_friendly_addr base64url_builder
+    }>
+    NIP	//  base64url_builder
+    ENDC	//  base64url
+    CTOS	//  _36
+  }>
+}END>c

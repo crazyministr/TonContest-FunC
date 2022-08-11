@@ -1,0 +1,269 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/.config/toncli/func-libs/tests-helpers.func` `/home/crazyministr/func-contest2/tests/test_3.fc` 
+PROGRAM{
+  85860 DECLMETHOD get_c7
+  87017 DECLMETHOD get_example_address
+  92137 DECLMETHOD get_invalid_address
+  87059 DECLMETHOD build_message
+  0 DECLMETHOD test_valid_data
+  1 DECLMETHOD test_valid
+  2 DECLMETHOD test_valid2_data
+  3 DECLMETHOD test_valid2
+  4 DECLMETHOD test_invalid_data
+  5 DECLMETHOD test_invalid
+  6 DECLMETHOD test_invalid_cell_intead_of_uint_data
+  7 DECLMETHOD test_invalid_cell_intead_of_uint
+  get_c7 PROC:<{
+    // 
+    124711402 PUSHINT	//  _2=124711402
+    0 PUSHINT	//  _2=124711402 _3=0
+    DUP	//  _2=124711402 _3=0 _4=0
+    NOW	//  _2=124711402 _3=0 _4=0 _5
+    1 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1
+    DUP	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1
+    239 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239
+    1000000000 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000
+    PUSHNULL	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000 _11
+    PAIR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12
+    MYADDR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13
+    CONFIGROOT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13 _14
+    10 TUPLE	//  _15
+    SINGLE	//  _16
+  }>
+  get_example_address PROC:<{
+    //  variant
+    0 PUSHINT	//  variant address=0
+    OVER	//  variant address=0 variant
+    0 EQINT	//  variant address=0 _4
+    IFJMP:<{	//  variant address=0
+      2DROP	// 
+      0 PUSHINT	//  _5=0
+      NEWC	//  _5=0 _6
+      2 STU	//  _8
+      ENDC	//  _9
+      CTOS	//  _10
+    }>	//  variant address=0
+    OVER	//  variant address=0 variant
+    1 EQINT	//  variant address=0 _12
+    IF:<{	//  variant address=0
+      DROP	//  variant
+      60163661047215979614107269706106999090098320919312114703353135169949281596933 PUSHINT	//  variant address=60163661047215979614107269706106999090098320919312114703353135169949281596933
+    }>	//  variant address
+    SWAP	//  address variant
+    2 EQINT	//  address _15
+    IF:<{	//  address
+      DROP	// 
+      50163661047215979614107269706106999090098320919312114703353135169949281596933 PUSHINT	//  address=50163661047215979614107269706106999090098320919312114703353135169949281596933
+    }>	//  address
+    -1 PUSHINT	//  address _18=-1
+    0 PUSHINT	//  address _18=-1 _19=0
+    2 PUSHINT	//  address _18=-1 _19=0 _20=2
+    NEWC	//  address _18=-1 _19=0 _20=2 _21
+    2 STU	//  address _18=-1 _19=0 _23
+    1 STU	//  address _18=-1 _25
+    8 STI	//  address _27
+    256 STU	//  _29
+    ENDC	//  _30
+    CTOS	//  address_cell
+  }>
+  get_invalid_address PROC:<{
+    // 
+    3 PUSHINT	//  _1=3
+    NEWC	//  _1=3 _2
+    3 STU	//  _4
+    ENDC	//  _5
+    CTOS	//  address_cell
+  }>
+  build_message PROC:<{
+    //  src dst ton_amount
+    NEWC	//  src dst ton_amount _4
+    ENDC	//  src dst ton_amount _5
+    1 PUSHINT	//  src dst ton_amount _5 _6=1
+    0 PUSHINT	//  src dst ton_amount _5 _6=1 _7=0
+    1000 PUSHINT	//  src dst ton_amount _5 _6=1 _7=0 _8=1000
+    DUP	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000
+    PUSHNULL	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _10
+    s3 s3 s3 PUSH3	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _10 _11=0 _12=0 _13=0
+    DUP	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _10 _11=0 _12=0 _13=0 _14=0
+    NEWC	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _10 _11=0 _12=0 _13=0 _14=0 _15
+    1 STU	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _10 _11=0 _12=0 _13=0 _17
+    1 STU	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _10 _11=0 _12=0 _19
+    1 STU	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _10 _11=0 _21
+    1 STU	//  src dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _10 _23
+    s0 s9 XCHG2	//  _10 dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _23 src
+    STSLICER	//  _10 dst ton_amount _5 _6=1 _7=0 _8=1000 _9=1000 _24
+    s0 s7 XCHG2	//  _10 _9=1000 ton_amount _5 _6=1 _7=0 _8=1000 _24 dst
+    STSLICER	//  _10 _9=1000 ton_amount _5 _6=1 _7=0 _8=1000 _25
+    s0 s5 XCHG2	//  _10 _9=1000 _8=1000 _5 _6=1 _7=0 _25 ton_amount
+    STGRAMS	//  _10 _9=1000 _8=1000 _5 _6=1 _7=0 _26
+    s1 s6 XCHG	//  _7=0 _9=1000 _8=1000 _5 _6=1 _10 _26
+    STDICT	//  _7=0 _9=1000 _8=1000 _5 _6=1 _27
+    s5 PUSH	//  _7=0 _9=1000 _8=1000 _5 _6=1 _27 _28=0
+    STGRAMS	//  _7=0 _9=1000 _8=1000 _5 _6=1 _29
+    s5 PUSH	//  _7=0 _9=1000 _8=1000 _5 _6=1 _29 _30=0
+    STGRAMS	//  _7=0 _9=1000 _8=1000 _5 _6=1 _31
+    s1 s4 XCHG	//  _7=0 _6=1 _8=1000 _5 _9=1000 _31
+    64 STU	//  _7=0 _6=1 _8=1000 _5 _33
+    s1 s2 XCHG	//  _7=0 _6=1 _5 _8=1000 _33
+    32 STU	//  _7=0 _6=1 _5 _35
+    s1 s3 XCHG	//  _5 _6=1 _7=0 _35
+    1 STU	//  _5 _6=1 _37
+    1 STU	//  _5 _39
+    STREF	//  msg
+    ENDC	//  _41
+  }>
+  test_valid_data PROC:<{
+    // 
+    107371 PUSHINT	//  function_selector=107371
+    1 PUSHINT	//  function_selector=107371 _3=1
+    get_example_address CALLDICT	//  function_selector=107371 src
+    1 PUSHINT	//  function_selector=107371 src _6=1
+    get_example_address CALLDICT	//  function_selector=107371 src dst
+    100 PUSHINT	//  function_selector=107371 src dst _10=100
+    build_message CALLDICT	//  function_selector=107371 _11
+    SINGLE	//  function_selector=107371 stack
+    NEWC	//  function_selector=107371 stack _14
+    ENDC	//  function_selector=107371 stack _15
+    get_c7 INLINECALLDICT	//  function_selector=107371 stack _15 _16
+    PUSHNULL	//  function_selector=107371 stack _15 _16 _17
+    5 TUPLE	//  _13
+  }>
+  test_valid PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    SECOND	//  res
+    DUP	//  res res
+    ISTUPLE	//  res _14
+    101 THROWIFNOT	//  res
+    TLEN	//  _18
+    3 NEQINT	//  _20
+    102 THROWIF
+  }>
+  test_valid2_data PROC:<{
+    // 
+    107371 PUSHINT	//  function_selector=107371
+    2 PUSHINT	//  function_selector=107371 _3=2
+    get_example_address CALLDICT	//  function_selector=107371 src
+    1 PUSHINT	//  function_selector=107371 src _6=1
+    get_example_address CALLDICT	//  function_selector=107371 src dst
+    0 PUSHINT	//  function_selector=107371 src dst _10=0
+    build_message CALLDICT	//  function_selector=107371 _11
+    SINGLE	//  function_selector=107371 stack
+    NEWC	//  function_selector=107371 stack _14
+    ENDC	//  function_selector=107371 stack _15
+    get_c7 INLINECALLDICT	//  function_selector=107371 stack _15 _16
+    PUSHNULL	//  function_selector=107371 stack _15 _16 _17
+    5 TUPLE	//  _13
+  }>
+  test_valid2 PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    SECOND	//  res
+    DUP	//  res res
+    ISTUPLE	//  res _14
+    101 THROWIFNOT	//  res
+    TLEN	//  _18
+    3 EQINT	//  _20
+    102 THROWIFNOT
+  }>
+  test_invalid_data PROC:<{
+    // 
+    107371 PUSHINT	//  function_selector=107371
+    get_invalid_address CALLDICT	//  function_selector=107371 src
+    1 PUSHINT	//  function_selector=107371 src _5=1
+    get_example_address CALLDICT	//  function_selector=107371 src dst
+    100 PUSHINT	//  function_selector=107371 src dst _9=100
+    build_message CALLDICT	//  function_selector=107371 _10
+    SINGLE	//  function_selector=107371 stack
+    NEWC	//  function_selector=107371 stack _13
+    ENDC	//  function_selector=107371 stack _14
+    get_c7 INLINECALLDICT	//  function_selector=107371 stack _14 _15
+    PUSHNULL	//  function_selector=107371 stack _14 _15 _16
+    5 TUPLE	//  _12
+  }>
+  test_invalid PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    SECOND	//  res
+    ISNULL	//  _14
+    0 EQINT	//  _16
+    101 THROWIF
+  }>
+  test_invalid_cell_intead_of_uint_data PROC:<{
+    // 
+    107371 PUSHINT	//  function_selector=107371
+    1 PUSHINT	//  function_selector=107371 _3=1
+    get_example_address CALLDICT	//  function_selector=107371 src
+    1 PUSHINT	//  function_selector=107371 src _6=1
+    get_example_address CALLDICT	//  function_selector=107371 src dst
+    NEWC	//  function_selector=107371 src dst _9
+    ENDC	//  function_selector=107371 src dst _10
+    1 PUSHINT	//  function_selector=107371 src dst _10 _11=1
+    0 PUSHINT	//  function_selector=107371 src dst _10 _11=1 _12=0
+    1000 PUSHINT	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000
+    s0 s2 PUSH2	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _15=1
+    NEWC	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _15=1 _16
+    1 STU	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _18
+    ENDC	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19
+    PUSHNULL	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _20
+    s4 s4 s4 PUSH3	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _20 _21=0 _22=0 _23=0
+    DUP	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _20 _21=0 _22=0 _23=0 _24=0
+    NEWC	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _20 _21=0 _22=0 _23=0 _24=0 _25
+    1 STU	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _20 _21=0 _22=0 _23=0 _27
+    1 STU	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _20 _21=0 _22=0 _29
+    1 STU	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _20 _21=0 _31
+    1 STU	//  function_selector=107371 src dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _20 _33
+    s0 s9 XCHG2	//  function_selector=107371 _20 dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _33 src
+    STSLICER	//  function_selector=107371 _20 dst _10 _11=1 _12=0 _13=1000 _14=1000 _19 _34
+    s0 s7 XCHG2	//  function_selector=107371 _20 _19 _10 _11=1 _12=0 _13=1000 _14=1000 _34 dst
+    STSLICER	//  function_selector=107371 _20 _19 _10 _11=1 _12=0 _13=1000 _14=1000 _35
+    13 PUSHINT	//  function_selector=107371 _20 _19 _10 _11=1 _12=0 _13=1000 _14=1000 _35 _36=13
+    STGRAMS	//  function_selector=107371 _20 _19 _10 _11=1 _12=0 _13=1000 _14=1000 _37
+    s1 s7 XCHG	//  function_selector=107371 _14=1000 _19 _10 _11=1 _12=0 _13=1000 _20 _37
+    STDICT	//  function_selector=107371 _14=1000 _19 _10 _11=1 _12=0 _13=1000 _38
+    s1 s5 XCHG	//  function_selector=107371 _14=1000 _13=1000 _10 _11=1 _12=0 _19 _38
+    STREF	//  function_selector=107371 _14=1000 _13=1000 _10 _11=1 _12=0 _39
+    OVER	//  function_selector=107371 _14=1000 _13=1000 _10 _11=1 _12=0 _39 _40=0
+    STGRAMS	//  function_selector=107371 _14=1000 _13=1000 _10 _11=1 _12=0 _41
+    OVER	//  function_selector=107371 _14=1000 _13=1000 _10 _11=1 _12=0 _41 _42=0
+    STGRAMS	//  function_selector=107371 _14=1000 _13=1000 _10 _11=1 _12=0 _43
+    s1 s5 XCHG	//  function_selector=107371 _12=0 _13=1000 _10 _11=1 _14=1000 _43
+    64 STU	//  function_selector=107371 _12=0 _13=1000 _10 _11=1 _45
+    s1 s3 XCHG	//  function_selector=107371 _12=0 _11=1 _10 _13=1000 _45
+    32 STU	//  function_selector=107371 _12=0 _11=1 _10 _47
+    s1 s3 XCHG	//  function_selector=107371 _10 _11=1 _12=0 _47
+    1 STU	//  function_selector=107371 _10 _11=1 _49
+    1 STU	//  function_selector=107371 _10 _51
+    STREF	//  function_selector=107371 _52
+    ENDC	//  function_selector=107371 msg
+    SINGLE	//  function_selector=107371 stack
+    NEWC	//  function_selector=107371 stack _58
+    ENDC	//  function_selector=107371 stack _59
+    get_c7 INLINECALLDICT	//  function_selector=107371 stack _59 _60
+    PUSHNULL	//  function_selector=107371 stack _59 _60 _61
+    5 TUPLE	//  _57
+  }>
+  test_invalid_cell_intead_of_uint PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    SECOND	//  res
+    ISNULL	//  _14
+    101 THROWIFNOT
+  }>
+}END>c

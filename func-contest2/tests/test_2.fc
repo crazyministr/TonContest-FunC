@@ -1,0 +1,55 @@
+[int, tuple, cell, tuple, int] test_empty_data() method_id(0) {
+    int function_selector = 79555; 
+
+    tuple stack = unsafe_tuple([new_dict(), new_dict()]); 
+
+    cell data = begin_cell().end_cell();
+
+    return [function_selector, stack, data, get_c7(), null()];
+}
+
+_ test_empty(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(1) {
+    throw_if(100, exit_code != 0);
+
+    var dict1 = first(stack); 
+    var dict2 = second(stack);
+
+    throw_if(101, cell_null?(dict1) == 0);
+    throw_if(102, cell_null?(dict2) == 0);
+}
+
+
+[int, tuple, cell, tuple, int] test_merge_data() method_id(2) {
+    int function_selector = 79555; 
+
+    cell dict1 = new_dict();
+    dict1~udict_set_builder(256, 1, begin_cell().store_uint(13, 64));
+    dict1~udict_set_builder(256, 2, begin_cell().store_uint(13, 64));
+
+    cell dict2 = new_dict();
+    dict2~udict_set_builder(256, 2, begin_cell().store_uint(13, 64));
+    dict2~udict_set_builder(256, 3, begin_cell().store_uint(13, 64));
+
+    tuple stack = unsafe_tuple([dict1, dict2]); 
+
+    cell data = begin_cell().end_cell();
+
+    return [function_selector, stack, data, get_c7(), null()];
+}
+
+_ test_merge(int exit_code, cell data, tuple stack, cell actions, int gas) method_id(3) {
+    throw_if(100, exit_code != 0);
+
+    var dict1 = first(stack); 
+    var dict2 = second(stack);
+
+    (_, int found) = udict_get?(dict1, 256, 1);
+    throw_if(101, found == 0);
+    (_, int found) = udict_get?(dict1, 256, 2);
+    throw_if(102, found == 0);
+    (_, int found) = udict_get?(dict1, 256, 3);
+    throw_if(103, found == 0);
+
+    (_, int found) = udict_get?(dict2, 256, 2);
+    throw_if(104, found == 0);
+}

@@ -1,0 +1,97 @@
+"Asm.fif" include
+// automatically generated from `/home/crazyministr/.config/toncli/func-libs/stdlib-tests.func` `/home/crazyministr/.config/toncli/func-libs/tests-helpers.func` `/home/crazyministr/func-contest2/tests/test_1.fc` 
+PROGRAM{
+  85860 DECLMETHOD get_c7
+  0 DECLMETHOD test_30_12_data
+  1 DECLMETHOD test_30_12
+  2 DECLMETHOD test_2_3_data
+  3 DECLMETHOD test_2_3
+  4 DECLMETHOD test_222_1048576_data
+  5 DECLMETHOD test_222_1048576
+  get_c7 PROC:<{
+    // 
+    124711402 PUSHINT	//  _2=124711402
+    0 PUSHINT	//  _2=124711402 _3=0
+    DUP	//  _2=124711402 _3=0 _4=0
+    NOW	//  _2=124711402 _3=0 _4=0 _5
+    1 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1
+    DUP	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1
+    239 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239
+    1000000000 PUSHINT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000
+    PUSHNULL	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _10=1000000000 _11
+    PAIR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12
+    MYADDR	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13
+    CONFIGROOT	//  _2=124711402 _3=0 _4=0 _5 _6=1 _7=1 _8=239 _12 _13 _14
+    10 TUPLE	//  _15
+    SINGLE	//  _16
+  }>
+  test_30_12_data PROC:<{
+    // 
+    93344 PUSHINT	//  function_selector=93344
+    30 PUSHINT	//  function_selector=93344 a=30
+    12 PUSHINT	//  function_selector=93344 a=30 b=12
+    PAIR	//  function_selector=93344 stack
+    NEWC	//  function_selector=93344 stack _10
+    ENDC	//  function_selector=93344 stack data
+    get_c7 INLINECALLDICT	//  function_selector=93344 stack data _13
+    PUSHNULL	//  function_selector=93344 stack data _13 _14
+    5 TUPLE	//  _12
+  }>
+  test_30_12 PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    FIRST	//  result
+    6 NEQINT	//  _13
+    101 THROWIF
+  }>
+  test_2_3_data PROC:<{
+    // 
+    93344 PUSHINT	//  function_selector=93344
+    2 PUSHINT	//  function_selector=93344 a=2
+    3 PUSHINT	//  function_selector=93344 a=2 b=3
+    PAIR	//  function_selector=93344 stack
+    NEWC	//  function_selector=93344 stack _10
+    ENDC	//  function_selector=93344 stack data
+    get_c7 INLINECALLDICT	//  function_selector=93344 stack data _13
+    PUSHNULL	//  function_selector=93344 stack data _13 _14
+    5 TUPLE	//  _12
+  }>
+  test_2_3 PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    FIRST	//  result
+    1 NEQINT	//  _13
+    101 THROWIF
+  }>
+  test_222_1048576_data PROC:<{
+    // 
+    93344 PUSHINT	//  function_selector=93344
+    222 PUSHINT	//  function_selector=93344 a=222
+    20 PUSHPOW2	//  function_selector=93344 a=222 b=1048576
+    PAIR	//  function_selector=93344 stack
+    NEWC	//  function_selector=93344 stack _10
+    ENDC	//  function_selector=93344 stack data
+    get_c7 INLINECALLDICT	//  function_selector=93344 stack data _13
+    PUSHNULL	//  function_selector=93344 stack data _13 _14
+    5 TUPLE	//  _12
+  }>
+  test_222_1048576 PROC:<{
+    //  exit_code data stack actions gas
+    s2 s3 XCHG
+    3 BLKDROP	//  exit_code stack
+    SWAP	//  stack exit_code
+    0 NEQINT	//  stack _7
+    100 THROWIF
+    FIRST	//  result
+    2 NEQINT	//  _13
+    101 THROWIF
+  }>
+}END>c
