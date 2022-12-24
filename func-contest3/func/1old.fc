@@ -1,0 +1,225 @@
+{-
+  In TON there is a limit on the size of the external message which can be sent equal to 64 kB. 
+  Sometimes it is necessary to send a larger message; it requires the onchain construction of one message from multiple smaller parts. 
+  Your task is to create such construction contract.
+  In particular, a contestant needs to develop a FunC contract with two features:
+    a) it has get_method "decomposite" for decomposition of large cell to parts:
+        it accepts 1 cell (number_of_bits<1000000, number_of_cells<4000 , depth<256) and 1 address 
+        and returns tuple of cells (each of which has less than 1000 distinct cells and 40000 bits total), 
+        those cells will be transformed to slice and sent as internal message body to the contract.
+    b) recv_internal should handle those internal messages from get-method described above and upon receiving last one, 
+    send initial large cell to the address (coins amount 0, mode 0). 
+    For simplicity, it is guaranteed that messages will be sent exactly in the order in which they were in decomposite output 
+    and no other messages will be sent in between.
+  Note, that initial state of contract storage will be empty cell: cell with zero bits and refs.
+-}
+
+int tlen(tuple t) asm "TLEN";
+forall X -> (tuple, X) ~pop_back(tuple t) asm "TPOP";
+forall X -> X back(tuple) asm "LAST";
+(cell, int) custom::udict_get_ref?(cell dict, int key_len, int index) asm(index dict key_len) "DICTUGETREF" "NULLSWAPIFNOT";
+
+builder store_sliceF(builder b, slice s) asm(s b) "STSLICE";
+;;(cell, int) preload_dictQ (slice s) asm "PLDDICTQ" "NULLSWAPIFNOT";
+builder _store_builder(builder to, builder what) asm(what to) "STB";
+builder _store_builder_ref(builder to, builder what) asm(what to) "STBREF";
+
+global cell global_data_dict;
+
+() build_data_dict(slice body) impure {
+  slice info = body~load_ref().begin_parse();
+  (int real_index, int fake_index) = (info~load_uint(16), info~load_uint(16));
+
+  if (body.slice_refs()) {
+    build_data_dict(body~load_ref().begin_parse());
+  }
+
+  cell tcell = global_data_dict;
+  cell result = null();
+  if (real_index == fake_index) {
+    builder node = begin_cell();
+
+    repeat (info.slice_bits() / 16) {
+      int child_ref_index = info~load_uint(16);
+      (cell child, _) = tcell.custom::udict_get_ref?(16, child_ref_index);
+      node = node.store_ref(child);
+    }
+    node = node.store_sliceF(body);
+    result = node.end_cell();
+  } else {
+    (result, _) = tcell.custom::udict_get_ref?(16, fake_index);
+  }
+  global_data_dict = tcell.udict_set_ref(16, real_index, result);
+}
+
+builder store_uint_107(builder b, int x) asm "107 STUR";
+
+;; testable
+() recv_internal (slice body) impure {
+  slice ds = get_data().begin_parse();
+  if (ds.slice_bits()) {
+    global_data_dict = ds.preload_dict();
+  } else {
+    global_data_dict = new_dict();
+  }
+
+  slice info = body.preload_ref().begin_parse();
+
+  if (info.preload_uint(16) == 0) {  ;; last cell
+    (cell big_cell, _) = global_data_dict.custom::udict_get_ref?(16, 1);
+    body~load_ref();
+    send_raw_message(
+      begin_cell()
+        .store_uint(0x18, 6)
+        .store_sliceF(body)
+        .store_grams(0)
+        .store_uint_107(1)
+        ;;.store_uint(0, 1 + 4 + 4 + 64 + 32 + 1)
+        ;;.store_uint(1, 1)
+        .store_ref(big_cell)
+      .end_cell(), 0);
+      return ();
+  }
+
+  build_data_dict(body);
+
+  set_data(begin_cell().store_dict(global_data_dict).end_cell());
+}
+
+
+int is_fat(int cells, int bits) inline {
+  return ((cells < 999) & (bits < 39990)) ? 0 : -1;
+}
+
+
+global int global_node_index;
+global cell global_index_by_hash;
+global slice empty_slice;
+global builder empty_builder;
+global int last_cells;
+global int last_bits;
+
+
+tuple add_to_result(tuple result, slice node_data, int node_hash, int real_index, int fake_index, builder ref_indexes) inline {
+  int data_bits = node_data.slice_bits();
+  builder info_cell = begin_cell();
+  info_cell = info_cell.store_uint(real_index, 16);
+
+  if (real_index == fake_index) {
+    global_index_by_hash = global_index_by_hash.udict_set_builder(
+      256,
+      node_hash,
+      info_cell
+      ;;begin_cell().store_uint(real_index, 16)
+    );
+  }
+
+  info_cell = info_cell.store_uint(fake_index, 16);
+  info_cell = info_cell._store_builder(ref_indexes);
+
+  builder result_node = begin_cell()
+    ;;.store_ref(info_cell.end_cell())
+    ._store_builder_ref(info_cell)
+    .store_sliceF(node_data);
+
+  ;;int result_node_cells = 2;
+  int result_node_bits = 16 + 16 + ref_indexes.builder_bits();
+
+  if (result.tlen() == 0) {
+    last_cells = 2;
+    last_bits = result_node_bits + data_bits;
+    ;;(last_cells, last_bits) = (result_node_cells, result_node_bits + data_bits);
+    ;; shdfkjshdkjfhsdkjfhsdkjfsdf shdfkjhdsjkf
+    result~tpush(result_node);
+    return result;
+  }
+
+  ;;(int cells, int bits, cell last_cell) = untriple(result.back());
+  if (is_fat(last_cells + 2, last_bits + data_bits + result_node_bits)) {
+    result~tpush(result_node);
+    last_cells = 2;
+    last_bits = result_node_bits + data_bits;    
+    return result;
+  }
+
+  last_cells = last_cells + 2;
+  last_bits = data_bits + result_node_bits + last_bits;
+  ;;(last_cells, last_bits) = (last_cells + result_node_cells, data_bits + result_node_bits + last_bits);
+  ;;cell last_cell = result~pop_back();
+  result_node = result_node._store_builder_ref(result~pop_back());
+  result~tpush(result_node);
+  return result;
+}
+
+
+(int, tuple) rec(cell node, tuple decomposite_result) {
+
+  global_node_index += 1;
+  int current_index = global_node_index;
+  int node_hash = cell_hash(node);
+  (slice cs, int f) = global_index_by_hash.udict_get?(256, node_hash);
+  if (f) {
+    decomposite_result = add_to_result(
+      decomposite_result,  ;; result
+      empty_slice,         ;; node data
+      node_hash,           ;; node hash uint256
+      current_index,       ;; real node index
+      cs.preload_uint(16), ;; fake node index
+      ;;empty_tuple()        ;; child indexes
+      empty_builder
+    );
+    return (current_index, decomposite_result);
+  }
+
+  ;;tuple ref_indexes = empty_tuple();
+  builder ref_indexes = begin_cell();
+  slice node_slice = node.begin_parse();
+  repeat (node_slice.slice_refs()) {
+    (int ref_index, decomposite_result) = rec(
+      node_slice~load_ref(),
+      decomposite_result
+    );
+    ;;ref_indexes~tpush(ref_index);
+    ref_indexes = ref_indexes.store_uint(ref_index, 16);
+  }
+
+  decomposite_result = add_to_result(
+    decomposite_result,  ;; result
+    node_slice,          ;; node data
+    node_hash,           ;; node hash
+    current_index,       ;; real node index
+    current_index,       ;; fake node index
+    ref_indexes          ;; child indexes
+  );
+
+  return (current_index, decomposite_result);
+}
+
+
+;; testable
+tuple decomposite(cell big_cell, slice destination_address) method_id {
+  int global_node_index = 0;                                  ;; init
+  cell global_index_by_hash = new_dict();                     ;; global
+  slice empty_slice = begin_cell().end_cell().begin_parse();  ;; vars
+  builder empty_builder = begin_cell();
+  int last_cells = 0;
+  int last_bits = 0;
+
+  (_, tuple rec_result) = rec(big_cell, empty_tuple());
+
+  int i = 0;
+  tuple decomposite_result = empty_tuple();
+  repeat (rec_result.tlen()) {
+    decomposite_result~tpush(rec_result.at(i).end_cell());
+    i += 1;
+  }
+  decomposite_result~tpush(
+    begin_cell()
+      .store_ref(
+        begin_cell().store_uint(0, 16).end_cell()
+      )
+      .store_sliceF(destination_address)
+    .end_cell()
+  );
+  return decomposite_result;
+}

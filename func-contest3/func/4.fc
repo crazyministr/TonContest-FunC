@@ -1,0 +1,264 @@
+{-
+  Implement Curve25519 addition and multiplication.
+
+For x1=56391866308239752110494101482511933051315484376135027248208522567059122930692,
+    y1=17671033459111968710988296061676524036652749365424210951665329683594356030064 and
+    x2=39028180402644761518992797890514644768585183933988208227318855598921766377692,
+    y2=17694324391104469229766971147677885172552105420452910290862122102896539285628
+    result of add(x1, y1, x2, y2) expected to be 
+    7769460008531208039267550090770832052561793182665100660016059978850497673345,
+    50777594312607721283178588283812137388073334114015585272572035433724485979392.
+    Tests only checks additions where the result of the addition is the finite valid point on the curve.
+
+For x1=56391866308239752110494101482511933051315484376135027248208522567059122930692 and factor=4,
+result of mul(x1,factor) expected to be
+41707806908216107150933211614905026312154955484464515789593741233629885877574
+-}
+
+() recv_internal () {
+}
+
+{-
+Curve25519 is a Montgomery curve defined by:
+y**2 = x**3 + A * x**2 + x  mod P
+where P = 2**255-19 and A = 486662
+-}
+
+const int Pmod = 57896044618658097711785492504343953926634992332820282019728792003956564819949;  ;; 2**255 - 19
+const int Aconst = 486662;
+const int P-A = 57896044618658097711785492504343953926634992332820282019728792003956564333287;
+
+{- THIS PART HAS BEEN TAKEN FROM github
+https://github.com/TonoxDeFi/open-contracts/blob/main/contracts/crypto/elliptic-curves/curve_math.func
+-}
+int mulmod(int a, int b, int m) inline { (_, int r) = muldivmod(a, b, m); return r; }
+int addmod(int a, int b, int m) inline {
+	if (0 == b) { 
+		return a; 
+	}
+
+	int bb = m - b;
+	if a >= bb {
+		return a - bb;
+	}
+	return b + a;
+}
+
+(int) invMod(int _x, int _pp) inline {
+	int q = 0;
+	int newT = 1;
+	int r = _pp;
+	int t = 0;
+	while _x {
+		t = r / _x;
+		(q, newT) = (newT, addmod(q, _pp - mulmod(t, newT, _pp), _pp));
+		(r, _x) = (_x, r - t * _x);
+	}
+
+	return q;
+}
+
+
+(int, int) double(int x, int y, int P) inline {
+  ;;int P = Pmod;
+  int A = Aconst;
+  int p-a = P-A;
+  int p-x = P - x;
+
+  int x*2 = mulmod(2, x, P);
+  int lu = ;;addmod(
+    addmod(
+      mulmod(3, mulmod(x, x, P), P),
+      mulmod(x*2, A, P),
+      P
+    ) + 1;
+    ;;1, P
+  ;;);  ;; 3*x**2 + 2*A*x + 1
+  int l = mulmod(lu, invMod(mulmod(2, y, P), P), P);  ;; lu / (2y)
+  int l2 = mulmod(l, l, P);
+
+  int x3 = addmod(
+    addmod(
+      addmod(l2, p-a, P),
+      p-x, P
+    ),
+    p-x, P
+  );
+
+  int first = mulmod(
+    addmod(
+      addmod(
+        x*2, x, P
+      ), A, P
+    ), l, P
+  );
+
+  int lcube = mulmod(l, l2, P);
+
+  int y3 = addmod(addmod(first, P - lcube, P), P - y, P);
+  return (x3, y3);
+}
+
+;; testable
+(int, int) add(int x1, int y1, int x2, int y2) {
+  ;; https://en.wikipedia.org/wiki/Montgomery_curve#Addition
+
+  int P = Pmod;
+
+  if ((x1 == x2) & (y1 == y2)) {
+    return double(x1, y1, P);
+  }
+  ;; a/b = mulmod(a, invMod(b))
+
+  int A = Aconst;
+  int p-a = P-A;
+
+  var (P-y1, P-x1) = (P - y1, P - x1);
+  int yd = addmod(y2, P-y1, P);  ;; y2 - y1
+  int xd = addmod(x2, P-x1, P);  ;; x2 - x1
+  int yd/xd = mulmod(yd, invMod(xd, P), P);  ;; (y2 - y1) / (x2 - x1)
+
+  ;;int yd2 = mulmod(yd, yd, P);  ;; (y2-y1)**2
+  ;;int xd2 = mulmod(xd, xd, P);  ;; (x2-x1)**2
+  int yd/xd**2 = mulmod(yd/xd, yd/xd, P);
+
+  int x3 = addmod(
+    addmod(
+      addmod(yd/xd**2, p-a, P),
+      P-x1, P  ;; - x1
+    ), P - x2, P  ;; - x2
+  );
+
+  int x1*2 = mulmod(2, x1, P);
+  int x1*2+x2 = addmod(x1*2, x2, P);
+  int x1*2+x2+A = addmod(x1*2+x2, A, P);
+
+  int y3 = addmod(
+    mulmod(
+      yd/xd, addmod(x1*2+x2+A, P - yd/xd**2, P), P
+    ),
+    P-y1, P
+  );
+
+  return (x3, y3);
+}
+
+(int, int) add2(int x2, int z2, int x3, int z3, int x1, int P) inline {
+  int aa = addmod(x2, z2, P);
+  int bb = addmod(x2, P - z2, P);
+  int cc = addmod(x3, z3, P);
+  int dd = addmod(x3, P - z3, P);
+
+  int da = mulmod(dd, aa, P);
+  int cb = mulmod(cc, bb, P);
+  
+  int da+cb = addmod(da, cb, P);
+  int x5 = mulmod(da+cb, da+cb, P);
+  int da-cb = addmod(da, P - cb, P);
+  int z5 = mulmod(x1, mulmod(da-cb, da-cb, P), P);
+  return (x5, z5);
+}
+
+
+(int, int) double2faster(int x1, int z1, int P) inline {
+  {-
+  int a24 = 121666;
+
+  int aa = addmod(x1, z1, P);
+  int aa2 = mulmod(aa, aa, P);
+  int bb = addmod(x1, P - z1, P);
+  int bb2 = mulmod(bb, bb, P);
+
+  int cc = addmod(aa2, P - bb2, P);
+  int x3 = mulmod(aa2, bb2, P);
+  int z3 = mulmod(
+    cc, addmod(
+      bb2, mulmod(
+        a24, cc, P
+      ), P
+    ), P
+  );
+  return (x3, z3);
+  -}
+
+  {-
+    XX1 = X1^2
+    X3 = (XX1-1)^2
+    Z3 = 4*X1*(XX1+a*X1+1)
+  -}
+  int A = Aconst;
+  int xx1 = mulmod(x1, x1, P);
+  int x3 = mulmod(xx1 - 1, xx1 - 1, P);
+  int z3 = mulmod(4, mulmod(x1,
+    addmod(
+      xx1,
+      addmod(
+        mulmod(A, x1, P),
+        1, P
+      ), P
+    ), P
+  ), P);
+  return (x3, z3);
+}
+
+
+(int, int, int, int) add_with_double(int x2, int z2, int x3, int z3, int x1, int P) inline {
+  int a24 = 121666;
+
+  int aa = addmod(x2, z2, P);
+  int bb = addmod(x2, P - z2, P);
+  int cc = addmod(x3, z3, P);
+  int dd = addmod(x3, P - z3, P);
+
+  int da = mulmod(dd, aa, P);
+  int cb = mulmod(cc, bb, P);
+  
+  int da+cb = addmod(da, cb, P);
+  int x5 = mulmod(da+cb, da+cb, P);
+  int da-cb = addmod(da, P - cb, P);
+  int z5 = mulmod(x1, mulmod(da-cb, da-cb, P), P);
+
+  ;; doubling
+  int cc2 = mulmod(cc, cc, P);
+  int dd2 = mulmod(dd, dd, P);
+  int cc2-dd2 = addmod(cc2, P - dd2, P);
+  int x6 = mulmod(cc2, dd2, P);
+  int z6 = mulmod(
+    cc2-dd2, addmod(
+      dd2, mulmod(a24, cc2-dd2, P), P
+    ), P
+  );
+
+  return (x5, z5, x6, z6);
+}
+
+;; testable
+int mul(int x1, int factor) {
+  ;; https://hyperelliptic.org/EFD/g1p/auto-montgom-xz.html#doubling-mdbl-1987-m
+  ;; https://www.rfc-editor.org/rfc/rfc7748#page-9
+
+  (int t, int k) = (-2, factor);
+  do {
+    t += 1;
+    k >>= 1;
+  } until (k == 0);
+
+  int P = Pmod;
+  (int x2, int z2) = (x1, 1);
+  (int x3, int z3) = double2faster(x1, 1, P);
+
+  while (t >= 0) {
+    if (factor & (1 << t)) {
+      (x2, z2, x3, z3) = add_with_double(x2, z2, x3, z3, x1, P);
+      ;;(x2, z2) = add2(x2, z2, x3, z3, x1, P);
+      ;;(x3, z3) = double2faster(x3, z3, P);
+    } else {
+      (x3, z3, x2, z2) = add_with_double(x3, z3, x2, z2, x1, P);
+      ;;(x3, z3) = add2(x2, z2, x3, z3, x1, P);
+      ;;(x2, z2) = double2faster(x2, z2, P);
+    }
+    t -= 1;
+  }
+
+  return mulmod(x2, invMod(z2, P), P);
+}

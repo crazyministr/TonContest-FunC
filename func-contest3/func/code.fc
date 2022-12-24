@@ -1,0 +1,1 @@
+() recv_internal (slice body) impure {}

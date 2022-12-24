@@ -1,0 +1,51 @@
+int equal_slices(slice a, slice b) asm "SDEQ";
+
+_ __test3task() { ;;id(0)
+    slice in_msg_body = begin_cell()
+        .store_uint(0, 32)
+        .store_slice("(2*(1-(2+2)+1)*2+1)/2-10")
+        {-
+        .store_ref(
+            begin_cell()
+            .store_slice("+6*2")
+            .store_ref(
+                begin_cell()
+                .store_slice("+1-10")
+                .end_cell()
+            )
+            .end_cell()
+        )
+        -}
+        .end_cell()
+        .begin_parse();
+
+    cell msg = begin_cell()
+        .store_uint(0x18, 6)
+        .store_slice(begin_cell().store_uint(0, 2).end_cell().begin_parse())
+        .store_coins(0)
+        .store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1)
+        .store_slice(in_msg_body)
+        .end_cell();
+
+    invoke_method(recv_internal, [msg, in_msg_body]);
+
+    slice actions_list = get_actions();
+    cell prev_action_list = actions_list~load_ref();
+    slice action = actions_list;
+
+    int action_id = action~load_uint(32);  ;; load action id
+    throw_if(999, action_id != 0x0ec3c86d);
+
+    int mode = action~load_uint(8); ;; send mode
+    throw_if(1000, mode != 64);
+
+    cell message = action~load_ref();
+    slice ms = message.begin_parse();
+    ms~load_uint(4);
+    ms~load_msg_addr();
+    ms~load_msg_addr();
+    ms~load_coins();
+    ms~skip_bits(1 + 4 + 4 + 64 + 32 + 1 + 1 + 32);
+
+    throw_unless(1024, equal_slices(ms, "-14"));
+}

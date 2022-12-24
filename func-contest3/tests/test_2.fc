@@ -1,0 +1,145 @@
+_ __test1() { ;;id(0)
+{-
+    (1, 5)           | -
+    (2, 6)           | -
+    (3, 100)         | -
+    (4, 2)           | -
+    (5, 3)           | -
+    (6, 4)           | -
+    (7, 7)           | -
+    (8, 8)           | -
+    (9, 9)           | -
+    (10, 10)         | -
+    (11, 11)         | -
+    (12, 20)         | (12,20); (4,2)
+    (15, 1)          | -
+    (13, 13)         | (15, 1)
+    (14, 14)         | (14,14); (5,3)
+-}
+    slice addr_none = begin_cell().store_uint(0, 2).end_cell().begin_parse();
+    cell in_msg = begin_cell()
+        .store_uint(0x18, 6)
+        .store_slice(addr_none)
+        .store_coins(0)
+        .store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1)
+        .end_cell();
+
+    slice msg = begin_cell()
+        .store_uint(1, 32).store_coins(5)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(2, 32).store_coins(6)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(3, 32).store_coins(100)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(4, 32).store_coins(2)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(5, 32).store_coins(3)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(6, 32).store_coins(4)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(7, 32).store_coins(7)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(8, 32).store_coins(8)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(9, 32).store_coins(9)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(10, 32).store_coins(10)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(11, 32).store_coins(11)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+
+    var (_, stack) = invoke_method(load_data, []);
+    int storage_size = stack.first();
+    throw_if(1001, storage_size != 11);
+
+    slice msg = begin_cell()
+        .store_uint(12, 32).store_coins(20)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+
+    {-
+    -}
+
+    slice actions_list = get_actions();
+    actions_list~dump();
+    cell prev_action_list = actions_list~load_ref();
+    slice action = actions_list;
+
+    int action_id = action~load_uint(32);  ;; load action id
+    throw_if(999, action_id != 0x0ec3c86d);
+
+    int mode = action~load_uint(8); ;; send mode
+
+    throw_if(1000, mode != 0);
+
+    cell message = action~load_ref();
+    slice ms = message.begin_parse();
+    ms~load_uint(4);
+    ms~load_msg_addr();
+    ms~load_msg_addr();
+    int coins = ms~load_coins();
+    throw_if(1024, coins != 2);
+
+    var (_, stack) = invoke_method(load_data, []);
+    storage_size = stack.first();
+    throw_if(1002, storage_size != 10);
+
+
+
+
+    slice msg = begin_cell()
+        .store_uint(15, 32).store_coins(1)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+    slice msg = begin_cell()
+        .store_uint(13, 32).store_coins(13)
+        .store_ref(in_msg).end_cell().begin_parse();
+    invoke_method(recv_internal, [msg]);
+
+
+    slice actions_list = get_actions();
+    actions_list~dump();
+    cell prev_action_list = actions_list~load_ref();
+    slice action = actions_list;
+
+    int action_id = action~load_uint(32);  ;; load action id
+    throw_if(999, action_id != 0x0ec3c86d);
+
+    int mode = action~load_uint(8); ;; send mode
+
+    throw_if(1000, mode != 0);
+
+    cell message = action~load_ref();
+    slice ms = message.begin_parse();
+    ms~load_uint(4);
+    ms~load_msg_addr();
+    ms~load_msg_addr();
+    int coins = ms~load_coins();
+    throw_if(1024, coins != 1);
+
+    var (_, stack) = invoke_method(load_data, []);
+    storage_size = stack.first();
+    throw_if(1002, storage_size != 11);
+
+}

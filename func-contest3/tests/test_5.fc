@@ -1,0 +1,79 @@
+slice get_addr(int variant) {
+	if (variant == 0) {
+		return begin_cell().store_uint(0, 2).end_cell().begin_parse();
+	}
+	int address = 0;
+	if (variant == 1) {
+		address = 13;
+	}
+	if (variant == 2) {
+		address = rand(10000);
+	}
+	slice address_cell =  begin_cell()
+			.store_uint(2, 2) ;; addr_std$10
+			.store_uint(0, 1) ;; anycast nothing
+			.store_int(-1, 8) ;; workchain_id: -1
+			.store_uint(address, 256)
+			.end_cell()
+			.begin_parse();
+	return address_cell;
+}
+
+_ __test5task() {
+	slice in_msg_body = begin_cell()
+		.store_uint(0x5ce28eea, 32)  ;; op
+		.store_uint(1, 64)  ;; query_id
+		.store_uint(176947, 24)  ;; max_factor
+	.end_cell().begin_parse();
+
+	int i = 5;
+	do {
+		i~dump();
+		i += 1;
+	} until (i > 6);
+	repeat(100) {
+		invoke_method(recv_internal, [
+			10000, begin_cell()
+				.store_uint(0, 4)
+				.store_slice(get_addr(2))
+				.store_slice(begin_cell().store_uint(0, 2).end_cell().begin_parse())
+				.store_grams(0)
+				.store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1)
+				.store_slice(in_msg_body)
+			.end_cell(),  ;; full_message
+			in_msg_body
+		]);
+	}
+	invoke_method(recv_internal, [
+		100000, begin_cell()
+			.store_uint(0, 4)
+			.store_slice(get_addr(1))
+			.store_slice(begin_cell().store_uint(0, 2).end_cell().begin_parse())
+			.store_grams(0)
+			.store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1)
+			.store_slice(in_msg_body)
+		.end_cell(),  ;; full_message
+		in_msg_body
+	]);
+
+	;; try elect
+	slice in_msg_body = begin_cell()
+		.store_uint(0x207fa5f5, 32)  ;; op
+		.store_uint(13, 64)  ;; query_id
+	.end_cell().begin_parse();
+	invoke_method(recv_internal, [
+		0, begin_cell()
+			.store_uint(0, 4)
+			.store_slice(get_addr(0))
+			.store_slice(begin_cell().store_uint(0, 2).end_cell().begin_parse())
+			.store_grams(0)
+			.store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1)
+			.store_slice(in_msg_body)
+		.end_cell(),  ;; full_message
+		in_msg_body
+	]);
+
+	var (_, stack) = invoke_method(get_stake_table, []);
+	tuple winners = stack.first();
+	tuple loosers = stack.second();
+}

@@ -1,0 +1,245 @@
+int len(tuple t) asm "TLEN";
+int equal_slices(slice a, slice b) asm "SDEQ";
+
+
+tuple pathes(cell node, builder path, tuple result) {
+
+  slice node_slice = node.begin_parse();
+  int refs_cnt = node_slice.slice_refs();
+  int i = 0;
+  tuple nxt_nodes = empty_tuple();
+  while (i < refs_cnt) {
+    nxt_nodes~tpush(node_slice~load_ref());
+    i += 1;
+  }
+
+  result~tpush(pair(path.end_cell().begin_parse(), node_slice));
+
+  i = 0;
+  while (i < refs_cnt) {
+    cell nxt_n = nxt_nodes.at(i);
+    var nxt_path = path.store_uint(i, 3);
+    result = pathes(nxt_nodes.at(i), nxt_path, result);
+    i += 1;
+  }
+  return result;
+}
+
+() dump_path2(slice path) impure {
+  while (path.slice_bits() > 0) {
+    int v = path~load_uint(3);
+    v~dump();
+  }
+  int x = 1000;
+  x~dump();
+}
+
+() dump_path(builder path) impure {
+  slice xpath = path.end_cell().begin_parse();
+  dump_path2(xpath);
+}
+
+(int, int) my_calc_data_size(cell node) {
+  (int cells, int bits, _) = compute_data_size(node, 10000);
+  return (cells, bits);
+}
+
+{-
+int is_fat_node(cell node) inline {
+  (int cells, int bits) = my_calc_data_size(node);
+  return is_fat(cells, bits);
+}
+-}
+global int global_idx;
+
+slice get_big_slice() inline {
+  global_idx = global_idx + 1;
+  return begin_cell()
+    .store_uint(global_idx, 255)
+    ;;.store_uint(rand(10), 4)
+    .store_uint(rand(1000000), 255)
+    .store_uint(rand(1000000), 255)
+    .store_uint(rand(1000), 255)
+  .end_cell()
+  .begin_parse();
+}
+
+cell build_big_cell(int depth) {
+  if (depth == 6) {
+    return begin_cell().store_slice(get_big_slice()).end_cell();
+  }
+  cell c1 = build_big_cell(depth + 1);
+  cell c2 = build_big_cell(depth + 1);
+  cell c3 = build_big_cell(depth + 1);
+  cell c4 = null();
+  if (depth < 5) {
+    c4 = build_big_cell(depth + 1);
+  }
+  if (cell_null?(c4)) {
+    return begin_cell().store_slice(get_big_slice()).store_ref(c1).store_ref(c2).store_ref(c3).end_cell();
+  }
+  return begin_cell().store_slice(get_big_slice()).store_ref(c1).store_ref(c2).store_ref(c3).store_ref(c4).end_cell();
+}
+
+cell build_big_cell2(int depth) {
+  if (depth == 13) {
+    return begin_cell().store_slice(get_big_slice()).end_cell();
+  }
+  cell c1 = build_big_cell2(depth + 1);
+  cell c2 = build_big_cell2(depth + 1);
+  return begin_cell().store_slice(get_big_slice()).store_ref(c1).store_ref(c2).end_cell();
+}
+
+_ __test1task() {
+    global_idx = 0;
+    slice addr_none = begin_cell().store_uint(0, 2).end_cell().begin_parse();
+
+    {-
+    cell di = new_dict();
+    var (_c, _b, _) = compute_data_size(begin_cell().store_dict(di).end_cell(), 10000);
+    _c~dump(); _b~dump();
+
+    di~udict_set_builder(16, 1, begin_cell()
+      .store_ref(begin_cell().store_uint(13, 16 + 16 * 4).end_cell())
+      .store_ref(begin_cell().store_uint(12, 256).end_cell())
+    );
+    var (_c, _b, _) = compute_data_size(begin_cell().store_dict(di).end_cell(), 10000);
+    _c~dump(); _b~dump();
+    
+    di~udict_set_builder(16, 2, begin_cell()
+      .store_ref(begin_cell().store_uint(14, 16 + 16 * 4).end_cell())
+      .store_ref(begin_cell().store_uint(15, 256).end_cell())
+    );
+    var (_c, _b, _) = compute_data_size(begin_cell().store_dict(di).end_cell(), 10000);
+    _c~dump(); _b~dump();
+
+    di~udict_set_builder(16, 3, begin_cell()
+      .store_ref(begin_cell().store_uint(16, 16 + 16 * 4).end_cell())
+      .store_ref(begin_cell().store_uint(17, 256).end_cell())
+    );
+    var (_c, _b, _) = compute_data_size(begin_cell().store_dict(di).end_cell(), 10000);
+    _c~dump(); _b~dump();
+    -}
+
+    cell big_cell = begin_cell()
+        .store_ref(
+            begin_cell()
+
+            .store_ref(
+                begin_cell()
+                .end_cell()
+            )
+            .store_ref(
+                begin_cell()
+                .end_cell()
+            )
+            .end_cell()
+        )
+        .store_ref(
+            begin_cell()
+            .store_uint(1, 256)
+            .store_ref(
+                begin_cell()
+                .store_uint(1, 256)
+                .end_cell()
+            )
+            .store_ref(
+                begin_cell()
+                .store_uint(1, 256)
+                .end_cell()
+            )
+            .store_ref(
+                begin_cell()
+                .store_uint(1, 256)
+                .end_cell()
+            )
+            .store_ref(
+                begin_cell()
+                .store_uint(2, 256)
+                .end_cell()
+            )
+            .end_cell()
+        )
+        .end_cell();
+
+    ;;cell big_cell = begin_cell().store_ref(begin_cell().end_cell()).end_cell();
+    cell big_cell = build_big_cell(0);
+    (int cells1, int bits1, _) = compute_data_size(big_cell, 100000);
+    cells1~dump(); bits1~dump();
+    (int gas_used, var stack) = invoke_method(decomposite, [big_cell, addr_none]);
+    ;;gas_used~dump();
+    set_data(begin_cell().end_cell());
+    tuple result = stack.first();
+    int l = len(result);
+    l~dump();
+
+    int i = 0;
+    int gas_sum = gas_used;
+    while (i < len(result)) {
+        cell r = result.at(i);
+        (int cells, int bits) = my_calc_data_size(r);
+        ;;cells~dump(); bits~dump();
+        throw_if(10000, cells > 999);
+        throw_if(10001, bits >= 40000);
+        (int gas_used, _) = invoke_method(recv_internal, [r.begin_parse()]);
+        ;;gas_used~dump();
+        gas_sum += gas_used;
+        i += 1;
+    }
+    gas_sum~dump();
+
+    slice actions_list = get_actions();
+    cell prev_action_list = actions_list~load_ref();
+    slice action = actions_list;
+
+    int action_id = action~load_uint(32);  ;; load action id
+    throw_if(999, action_id != 0x0ec3c86d);
+
+    int mode = action~load_uint(8); ;; send mode
+    throw_if(1000, mode != 0);
+
+    cell message = action~load_ref();
+    slice ms = message.begin_parse();
+    ms~load_uint(4);
+    ms~load_msg_addr();
+    ms~load_msg_addr();
+    int coins = ms~load_coins();
+    
+    throw_if(1002, coins != 0);
+    
+    ms~skip_bits(1 + 4 + 4 + 64 + 32 + 1 + 1);
+
+    cell result_big_cell = ms~load_ref();
+
+    throw_if(2000, cell_hash(big_cell) != cell_hash(result_big_cell));
+    throw(0);
+
+    (int cells1, int bits1) = my_calc_data_size(big_cell);
+    (int cells2, int bits2) = my_calc_data_size(result_big_cell);
+
+    cells1~dump();
+    cells2~dump();
+    throw_if(1003, cells1 != cells2);
+    bits1~dump();
+    bits2~dump();
+    throw_if(1004, bits1 != bits2);
+
+  {-
+    tuple r1 = empty_tuple(); builder path1 = begin_cell();
+    r1 = pathes(big_cell, path1, r1);
+    tuple r2 = empty_tuple(); builder path2 = begin_cell();
+    r2 = pathes(result_big_cell, path2, r2);
+
+    throw_if(1005, len(r1) != len(r2));
+
+    int i = 0;
+    while (i < len(r1)) {
+      (slice p1, slice ns1) = unpair(r1.at(i));
+      (slice p2, slice ns2) = unpair(r2.at(i));
+      throw_unless(1006, equal_slices(p1, p2));
+      throw_unless(1007, equal_slices(ns1, ns2));
+      i += 1;
+    }
+    i~dump();
+-}
+}

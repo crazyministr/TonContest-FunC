@@ -1,0 +1,30 @@
+c1:
+  data: fift/data.fif
+  func:
+    - func/1.fc
+  tests:
+    - tests/test_1.fc
+c2:
+  data: fift/data.fif
+  func:
+    - func/2.fc
+  tests:
+    - tests/test_2.fc
+c3:
+  data: fift/data.fif
+  func:
+    - func/3.fc
+  tests:
+    - tests/test_3.fc
+c4:
+  data: fift/data.fif
+  func:
+    - func/4.fc
+  tests:
+    - tests/test_4.fc
+c5:
+  data: fift/data.fif
+  func:
+    - func/5.fc
+  tests:
+    - tests/test_5.fc

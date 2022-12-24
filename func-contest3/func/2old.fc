@@ -1,0 +1,97 @@
+{-
+  Contract handles internal messages with queries with the following scheme
+  `_# score:uint32 value:(VarUInteger 16) msg:^Cell = MsgInternalBody`, where msg contains correct internal message and store it to contract.
+  Once the number of stored queries reaches 12, contract should send and delete from storage message with the highest score and message with the lowest value (if it is the same message, it should be sent once). 
+  Messages should be sent with mode 0 and coin amount should be equal to value. All scores and values are guaranteed to be different
+  Note, that in addition to gas-fees, storage fees will be used to determine final score. In particular, storage fee will be calculated like between each message passes 3 days (259200 seconds). 
+  Gas-units price and storage fee params will correspond to current configs of masterchain: 1000 nanoTON per 65536 bits per second + 500000 nanoTON per 65536 cells per second; gas is 10000 nanoTON per unit.
+
+
+  Example:
+  (message with score x and value y are represented as `(x,y)` )
+
+  incoming message   outcoming messages     
+  (1, 5)           | -
+  (2, 6)           | -
+  (3, 100)         | -
+  (4, 2)           | -
+  (5, 3)           | -
+  (6, 4)           | -
+  (7, 7)           | -
+  (8, 8)           | -
+  (9, 9)           | -
+  (10, 10)         | -
+  (11, 11)         | -
+  (12, 20)         | (12,20); (4,2)
+  (15, 1)          | -
+  (13, 13)         | (15, 1)
+  (14, 14)         | (14,14); (5,3)
+-}
+
+builder store_sliceF(builder b, slice s) asm(s b) "STSLICE";
+
+(int, cell, cell) load_data () inline {
+  var ds = get_data().begin_parse();
+  if (ds.slice_bits()) {
+    return (ds~load_uint(4), ds~load_dict(), ds.preload_dict());
+  }
+  return (0, new_dict(), new_dict());
+}
+
+;;() save_data (int storage_size, cell by_score, cell by_value) impure inline {
+;;  set_data(begin_cell().store_uint(storage_size, 4).store_dict(by_score).store_dict(by_value).end_cell());
+;;}
+
+
+() send_msg(cell msg, int value) impure inline {
+  send_raw_message(
+    begin_cell()
+      .store_uint(0x18, 6)
+      .store_sliceF(my_address())
+      .store_grams(value)
+      .store_uint(0, 1 + 4 + 4 + 64 + 32 + 1)
+      .store_uint(1, 1)
+      .store_ref(msg)
+    .end_cell(), 0);
+}
+
+;; testable
+() recv_internal (slice in_msg_body) impure {
+  (int score, int value, cell msg) = (in_msg_body~load_uint(32), in_msg_body~load_coins(), in_msg_body.preload_ref());
+
+  ;; by_score: {score -> (value, message)}
+  ;; by_value: {value -> (score, message)}
+  (int storage_size, cell by_score, cell by_value) = load_data();
+
+  by_score~udict_set_builder(32, score, begin_cell().store_uint(value, 128).store_ref(msg));
+  by_value~udict_set_builder(128, value, begin_cell().store_uint(score, 32).store_ref(msg));
+  storage_size += 1;
+
+  if (storage_size < 12) {
+    set_data(begin_cell().store_uint(storage_size, 4).store_dict(by_score).store_dict(by_value).end_cell());
+    ;;save_data(storage_size, by_score, by_value);
+    return ();
+  }
+
+  (int score1, slice cs1, _) = by_score~udict::delete_get_max(32);
+  (int value1, cell msg1) = (cs1~load_uint(128), cs1.preload_ref());
+
+  (int value2, slice cs2, _) = by_value~udict::delete_get_min(128);
+
+  send_msg(msg1, value1);
+
+  if (value1 == value2) {
+    ;;save_data(storage_size - 1, by_score, by_value);
+    set_data(begin_cell().store_uint(storage_size - 1, 4).store_dict(by_score).store_dict(by_value).end_cell());
+    return();
+  }
+  (int score2, cell msg2) = (cs2~load_uint(32), cs2.preload_ref());
+
+  (by_score, _) = by_score.udict_delete?(32, score2);
+  (by_value, _) = by_value.udict_delete?(128, value1);
+
+  ;;save_data(storage_size - 2, by_score, by_value);
+  set_data(begin_cell().store_uint(storage_size - 2, 4).store_dict(by_score).store_dict(by_value).end_cell());
+
+  send_msg(msg2, value2);
+}

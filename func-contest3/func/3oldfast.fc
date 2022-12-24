@@ -1,0 +1,134 @@
+{-
+  Contract receives internal message with text comment (https://ton.org/docs/develop/smart-contracts/guidelines/internal-messages) 
+    which contains algebraic equation containing numbers in integer representation and operations `(+-*/)`.
+  All values (including intermediate) fit 256 bit. Contract should respond (coins = 0, mode = 64) with correct answer encoded as text comment back.
+  It is guaranteed that all tests contain a valid algebraic equations.
+  Division result should be rounded down. It is guaranteed that tests do not contain division by zero.
+  -}
+
+{-
+#DEBUG#: s0 = 40 (
+#DEBUG#: s0 = 41 )
+#DEBUG#: s0 = 42 *
+#DEBUG#: s0 = 43 +
+#DEBUG#: s0 = 45 -
+#DEBUG#: s0 = 47 /
+space: 32
+48 - 57 == 0 - 9
+-}
+
+forall X -> X back(tuple) asm "LAST";
+forall X -> (tuple, X) ~pop_back(tuple t) asm "TPOP";
+int tlen(tuple t) asm "TLEN";
+
+builder uint_to_string(builder b, int val) asm ""
+  "ZERO"
+  "SWAP" "TRUE"
+  "WHILE:<{"
+  "}>DO<{"
+    "10 PUSHINT" "DIVMOD"
+    "48 PUSHINT" "ADD"
+    "3 ROLLREV"
+    "SWAP" "INC"
+    "SWAP"
+    "DUP" "0 NEQINT"
+  "}>"
+  "DROP"
+  "REPEAT:<{"
+    "8 STU"
+  "}>"
+;
+
+{-
+int isdigit(int ch) inline {
+  return ch >= 48;
+  ;;return (ch >= 48) & (ch <= 57);
+}
+-}
+
+(tuple, ()) process(tuple st, int op, int num) inline {
+  if (op == 43) {
+    st~tpush(num);
+  } elseif (op == 45) {
+    st~tpush(- num);
+  } elseif (op == 42) {
+    st~tpush(st~pop_back() * num);
+  } elseif (op == 47) {
+    st~tpush(st~pop_back() / num);
+  }
+  return (st, ());
+}
+
+
+(slice, int) get_next_char(slice in_msg_body) inline {
+  if (in_msg_body.slice_bits()) {
+    int ch = in_msg_body~load_uint(8);
+    return (in_msg_body, ch);
+  }
+  if (in_msg_body.slice_refs()) {
+    in_msg_body = in_msg_body.preload_ref().begin_parse();
+    int ch = in_msg_body~load_uint(8);
+    return (in_msg_body, ch);
+  }
+  return (in_msg_body, 0);
+}
+
+forall X -> int _is_null(X x) asm "ISNULL";
+
+;; testable
+() recv_internal (cell message, slice in_msg_body) {
+  in_msg_body~skip_bits(32); ;; 0
+
+  int ch = 0;
+  int op = 43; ;; +
+  int num = 0;
+  tuple st = empty_tuple();
+  do {
+    ch = in_msg_body~get_next_char();
+
+    if (ch >= 48) {  ;; isdigit
+      num = num * 10 + (ch - 48);
+    } elseif (ch == 40) { ;; (
+      st~tpush(op);
+      st~tpush(null());
+      (op, num) = (43, 0);
+    } else {
+      st~process(op, num);
+      if (ch == 41) {  ;; )
+        num = 0;
+        do {
+          num += st~pop_back();
+        } until (_is_null(st.back()));
+        st~pop_back();
+        op = st~pop_back();
+        st~process(op, num);
+      }
+      (op, num) = (ch, 0);
+    }
+  } until (ch == 0);
+
+  int result = 0;
+  repeat(st.tlen()) {
+    result += st~pop_back();
+  }
+
+  builder result_builder = begin_cell();
+
+  if (result < 0) {
+    result_builder = result_builder.store_uint(45, 8);
+    result = - result;
+  }
+  result_builder = uint_to_string(result_builder, result);
+
+  slice cs = message.begin_parse();
+  cs~skip_bits(4);  ;; int_msg_info$0 ihr_disabled:Bool bounce:Bool bounced:Bool
+  var msg = begin_cell()
+      .store_uint(0x18, 6)
+      .store_slice(cs~load_msg_addr())
+      .store_grams(0)
+      .store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1)
+      .store_uint(0, 32)
+      .store_slice(result_builder.end_cell().begin_parse());
+
+  send_raw_message(msg.end_cell(), 64);
+}
